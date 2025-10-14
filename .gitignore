@@ -55,6 +55,18 @@ improved_similar_pairs.*
 improved_logo_clusters.*
 improved_similarity_results.*
 similarity_analysis_results.*
+enhanced_similar_pairs.*
+enhanced_logo_clusters.*
+complete_pipeline_results.*
+
+# Generated Visualizations
+*.png
+extraction_performance_analysis.png
+similarity_analysis_visualization.png
+cluster_analysis_dashboard.png
+fourier_features_analysis.png
+real_logo_fourier_features.png
+logo_similarity_comparison.png
 
 # Log files
 *.log

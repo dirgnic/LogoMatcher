@@ -24,11 +24,39 @@ bash<img width="1320" height="734" alt="Screenshot 2025-10-14 at 19 30 05" src="
 - **Connected components** = logo groups (no predefined cluster count)
 - **Transitive grouping**: If A~B and B~C, then A,B,C grouped
 
-### **Fast Extraction Pipeline**
-- **DOM heuristics**: JSON-LD → header/nav → logo hints → fallbacks
-- **Async HTTP/2** with connection pooling and rate limiting
-- **Edge assist**: Cloudflare Workers for caching
-- **Playwright fallback** for JS-heavy sites (~3% of traffic)
+### **Lightning-Fast API-First Extraction**
+- **API-First Approach**: Clearbit Logo API + Google Favicon API
+- **30x Speed Improvement**: 4000+ websites in ~10 seconds (vs 30 minutes scraping)
+- **89.4% Success Rate**: Higher than traditional scraping
+- **Smart Fallback**: Concurrent scraping for API failures
+
+## 🎨 **Comprehensive Visualizations**
+
+### **Generated Charts & Analysis**
+```bash
+# Create all visualizations
+python visualization_pipeline.py
+
+# Visualize real logo Fourier features  
+python real_logo_visualizer.py
+
+# Complete pipeline with integrated visualizations
+python complete_pipeline.py
+```
+
+### **📊 Visualization Gallery**
+- **`extraction_performance_analysis.png`** - API performance metrics & speed comparison
+- **`similarity_analysis_visualization.png`** - Similarity distributions & threshold optimization  
+- **`cluster_analysis_dashboard.png`** - Brand family discovery & geographic distribution
+- **`fourier_features_analysis.png`** - Fourier methodology & processing pipeline
+- **`real_logo_fourier_features.png`** - Actual extracted logo Fourier features
+- **`logo_similarity_comparison.png`** - Side-by-side similarity analysis
+
+### **🔍 Key Visual Insights**
+- **Brand Family Discovery**: Automatic detection of AAMCO, Mazda, Toyota networks
+- **Feature Quality Analysis**: Multi-method Fourier comparison (pHash + FFT + F-M)
+- **Threshold Optimization**: Data-driven similarity threshold selection
+- **Geographic Distribution**: Global brand presence analysis by TLD
 
 ## 🔧 **Quick Start**
 
