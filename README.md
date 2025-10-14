@@ -14,6 +14,7 @@ Group websites by visually identical/near-identical logos using Fourier methods 
 ## 🚀 **Our Solution**
 
 ### **Three Fourier-Based Similarity Methods**
+bash<img width="1320" height="734" alt="Screenshot 2025-10-14 at 19 30 05" src="https://github.com/user-attachments/assets/2589c179-13af-4fc4-9294-7d635b460da4" /> 
 1. **pHash (DCT)**: Near-duplicate fingerprint (Hamming ≤ 6)
 2. **FFT Low-Frequency**: Global shape signature (Cosine ≥ 0.985)  
 3. **Fourier-Mellin**: Rotation/scale invariant (Max cosine ≥ 0.995)
@@ -32,7 +33,8 @@ Group websites by visually identical/near-identical logos using Fourier methods 
 ## 🔧 **Quick Start**
 
 ### **Basic Usage**
-```bash
+
+
 # Install dependencies
 pip install -r requirements.txt
 
