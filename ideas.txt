@@ -1,0 +1,5 @@
+tasks:
+-logo scraping
+https://stackoverflow.com/questions/5607563/how-to-scrape-logos-from-websites
+-logo classification
+https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/online-research/other/perceptual-hashing-technology.pdf?v=328806&utm_source=chatgpt.com

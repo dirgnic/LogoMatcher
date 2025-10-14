@@ -1,0 +1,38 @@
+{
+  "similarity_threshold": 0.85,
+  "image_size": [128, 128],
+  "request_timeout": 15,
+  "request_delay": 2,
+  "max_retries": 3,
+  "max_logo_candidates": 5,
+  "max_image_size_mb": 10,
+  "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+  "logo_selectors": [
+    "img[alt*=\"logo\" i]",
+    "img[src*=\"logo\" i]",
+    "img[class*=\"logo\" i]",
+    "img[id*=\"logo\" i]",
+    ".logo img",
+    "#logo img",
+    "header img",
+    ".header img",
+    ".navbar img",
+    ".brand img",
+    ".site-logo img",
+    ".header-logo img",
+    ".navbar-brand img"
+  ],
+  "similarity_weights": {
+    "hash_similarity": 0.4,
+    "histogram_similarity": 0.3,
+    "structural_similarity": 0.3
+  },
+  "output_files": {
+    "results_json": "logo_matching_results.json",
+    "groups_csv": "logo_groups.csv"
+  },
+  "skip_problematic_domains": [
+    "stanbicbank.co.zw",
+    "astrazeneca.ua"
+  ]
+}

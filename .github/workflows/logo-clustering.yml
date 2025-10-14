@@ -1,0 +1,262 @@
+name: Fast Logo Clustering Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: 'Websites per batch'
+        default: '1000'
+        required: true
+      total_batches:
+        description: 'Number of parallel batches'
+        default: '10'
+        required: true
+      input_file:
+        description: 'Input website list (S3/URL)'
+        default: 'https://example.com/websites.txt'
+        required: true
+
+jobs:
+  # Split input into batches
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.create-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create batch matrix
+        id: create-matrix
+        run: |
+          matrix="{\"batch\": ["
+          for i in $(seq 0 $((${{ github.event.inputs.total_batches }} - 1))); do
+            matrix="$matrix$i"
+            if [ $i -lt $((${{ github.event.inputs.total_batches }} - 1)) ]; then
+              matrix="$matrix,"
+            fi
+          done
+          matrix="$matrix]}"
+          echo "matrix=$matrix" >> $GITHUB_OUTPUT
+
+  # Parallel logo extraction and clustering
+  extract-cluster:
+    needs: prepare
+    strategy:
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
+      max-parallel: 20
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      
+      - name: Download input batch
+        run: |
+          # Download and split input file
+          curl -s "${{ github.event.inputs.input_file }}" > full_list.txt
+          
+          # Calculate batch boundaries
+          total_lines=$(wc -l < full_list.txt)
+          batch_size=${{ github.event.inputs.batch_size }}
+          start_line=$((${{ matrix.batch }} * batch_size + 1))
+          end_line=$(((${{ matrix.batch }} + 1) * batch_size))
+          
+          # Extract batch
+          sed -n "${start_line},${end_line}p" full_list.txt > batch_${{ matrix.batch }}.txt
+          
+          echo "Batch ${{ matrix.batch }}: lines $start_line to $end_line"
+          echo "Websites in batch: $(wc -l < batch_${{ matrix.batch }}.txt)"
+      
+      - name: Run logo extraction and clustering
+        run: |
+          python logo_cluster.py batch_${{ matrix.batch }}.txt \
+            --output clusters_batch_${{ matrix.batch }}.json \
+            --csv clusters_batch_${{ matrix.batch }}.csv \
+            --trace_unions \
+            --phash_threshold 6 \
+            --fft_threshold 0.985 \
+            --fmt_threshold 0.995
+      
+      - name: Upload batch results
+        uses: actions/upload-artifact@v3
+        with:
+          name: batch-results-${{ matrix.batch }}
+          path: |
+            clusters_batch_${{ matrix.batch }}.json
+            clusters_batch_${{ matrix.batch }}.csv
+          retention-days: 7
+
+  # Merge results and generate final report
+  merge-results:
+    needs: extract-cluster
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      
+      - name: Download all batch results
+        uses: actions/download-artifact@v3
+        with:
+          path: batch-results/
+      
+      - name: Merge results
+        run: |
+          python -c "
+          import json
+          import glob
+          from collections import defaultdict
+          
+          all_clusters = []
+          all_trace = []
+          total_websites = 0
+          total_extracted = 0
+          
+          # Merge all batch results
+          for batch_file in glob.glob('batch-results/*/clusters_batch_*.json'):
+              with open(batch_file) as f:
+                  data = json.load(f)
+              
+              # Offset cluster IDs to avoid conflicts
+              offset = len(all_clusters)
+              for cluster in data['clusters']:
+                  cluster['cluster_id'] += offset
+                  all_clusters.append(cluster)
+              
+              all_trace.extend(data.get('union_trace', []))
+              total_websites += data['total_websites']
+              total_extracted += data['logos_extracted']
+          
+          # Remove duplicate clusters (same websites)
+          unique_clusters = []
+          seen_websites = set()
+          
+          for cluster in all_clusters:
+              websites_tuple = tuple(sorted(cluster['websites']))
+              if websites_tuple not in seen_websites:
+                  cluster['cluster_id'] = len(unique_clusters)
+                  unique_clusters.append(cluster)
+                  seen_websites.add(websites_tuple)
+          
+          # Sort by size
+          unique_clusters.sort(key=lambda x: x['size'], reverse=True)
+          
+          # Generate final result
+          final_result = {
+              'clusters': unique_clusters,
+              'total_websites': total_websites,
+              'logos_extracted': total_extracted,
+              'extraction_rate': (total_extracted / total_websites * 100) if total_websites > 0 else 0,
+              'unique_clusters': len(unique_clusters),
+              'largest_cluster_size': max([c['size'] for c in unique_clusters], default=0),
+              'union_trace': all_trace[:1000]  # Limit trace size
+          }
+          
+          with open('final_clusters.json', 'w') as f:
+              json.dump(final_result, f, indent=2)
+          
+          print(f'Final results: {len(unique_clusters)} clusters from {total_websites} websites')
+          print(f'Extraction rate: {final_result[\"extraction_rate\"]:.1f}%')
+          "
+      
+      - name: Generate explainability report
+        run: |
+          python knn_probe.py final_clusters.json \
+            --tree_output decision_tree.png \
+            --profiles_output cluster_profiles.json
+      
+      - name: Create summary report
+        run: |
+          python -c "
+          import json
+          
+          with open('final_clusters.json') as f:
+              data = json.load(f)
+          
+          print('# Logo Clustering Results Summary')
+          print(f'- **Total websites processed**: {data[\"total_websites\"]:,}')
+          print(f'- **Logo extraction rate**: {data[\"extraction_rate\"]:.1f}%')
+          print(f'- **Clusters found**: {data[\"unique_clusters\"]}')
+          print(f'- **Largest cluster**: {data[\"largest_cluster_size\"]} websites')
+          print()
+          print('## Top 10 Clusters:')
+          for i, cluster in enumerate(data['clusters'][:10]):
+              websites = ', '.join(cluster['websites'][:3])
+              if cluster['size'] > 3:
+                  websites += f', ... (+{cluster[\"size\"] - 3} more)'
+              print(f'{i+1}. **{cluster[\"size\"]} websites**: {websites}')
+          " > RESULTS_SUMMARY.md
+      
+      - name: Upload final results
+        uses: actions/upload-artifact@v3
+        with:
+          name: final-results
+          path: |
+            final_clusters.json
+            cluster_profiles.json
+            decision_tree.png
+            RESULTS_SUMMARY.md
+          retention-days: 30
+      
+      - name: Comment on commit (if triggered by push)
+        if: github.event_name == 'push'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const summary = fs.readFileSync('RESULTS_SUMMARY.md', 'utf8');
+            
+            github.rest.repos.createCommitComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: context.sha,
+              body: `## 🎯 Logo Clustering Results\n\n${summary}`
+            });
+
+  # Optional: Playwright fallback for failed extractions
+  playwright-fallback:
+    needs: extract-cluster
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install Playwright
+        run: |
+          pip install playwright
+          playwright install chromium
+      
+      - name: Download batch results to find failures
+        uses: actions/download-artifact@v3
+        with:
+          path: batch-results/
+      
+      - name: Run Playwright fallback
+        run: |
+          # This would extract failed websites and retry with Playwright
+          echo "Playwright fallback for failed extractions (to be implemented)"
+          # python playwright_fallback.py --failed_websites failed_list.txt
