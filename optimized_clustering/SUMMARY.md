@@ -4,7 +4,7 @@
 
 The monolithic `optimized_logo_clusterer.py` (976 lines) has been refactored into a clean, maintainable module structure.
 
-## 📁 File Structure
+## File Structure
 
 ```
 optimized_clustering/
@@ -23,14 +23,14 @@ optimized_clustering/
 
 **Total: ~1,250 lines across 10 focused files** (vs 976 lines in one file)
 
-## 🎯 Key Improvements
+## Key Improvements
 
 ### Before (Monolithic)
-❌ One 976-line file mixing all concerns  
-❌ Hard to test individual components  
-❌ Difficult to modify without breaking things  
-❌ No clear separation of responsibilities  
-❌ Hard to reuse components elsewhere  
+ One 976-line file mixing all concerns  
+ Hard to test individual components  
+ Difficult to modify without breaking things  
+ No clear separation of responsibilities  
+ Hard to reuse components elsewhere  
 
 ### After (Modular)
  10 focused modules, each <305 lines  
@@ -39,7 +39,7 @@ optimized_clustering/
  Clear single responsibility per module  
  Components can be imported independently  
 
-## 🔧 Module Responsibilities
+## Module Responsibilities
 
 | Module | Purpose | Lines |
 |--------|---------|-------|
@@ -53,7 +53,7 @@ optimized_clustering/
 | `run_clustering.py` | CLI entry point | 52 |
 | `test_modules.py` | Module tests | 177 |
 
-## 🚀 Usage Examples
+## Usage Examples
 
 ### 1. Use the Complete Pipeline
 
@@ -129,7 +129,7 @@ Results:
 RESULTS: 6/6 tests passed
 ```
 
-## 📊 Benefits
+## Benefits
 
 ### Maintainability
 - Small, focused files (avg ~130 lines)
