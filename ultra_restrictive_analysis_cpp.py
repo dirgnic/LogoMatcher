@@ -18,6 +18,7 @@ import pandas as pd
 import networkx as nx
 from datetime import datetime
 import json
+from scipy import signal
 
 # Try to import the working C++ module
 try:
@@ -220,6 +221,147 @@ def cosine_similarity(a, b):
     
     return dot_product / (norm_a * norm_b)
 
+def create_fourier_visualizations(image_matrices, domain_mapping, feature_extractor):
+    """Create visualizations of Fourier transforms for sample logos"""
+    
+    # Select interesting samples - first few logos and some from different clusters if available
+    sample_indices = [0, 1, 2, 10, 50, 100, 200, 500]  # Diverse sample
+    sample_indices = [i for i in sample_indices if i < len(image_matrices)]
+    
+    if len(sample_indices) == 0:
+        return
+    
+    # Create figure for Fourier curves
+    fig, axes = plt.subplots(2, 4, figsize=(20, 10))
+    fig.suptitle('C++ Fourier Analysis - Frequency Domain Signatures', fontsize=16, fontweight='bold')
+    axes = axes.flatten()
+    
+    print(f"      Analyzing Fourier signatures for {len(sample_indices)} sample logos...")
+    
+    for plot_idx, img_idx in enumerate(sample_indices):
+        if plot_idx >= len(axes):
+            break
+            
+        ax = axes[plot_idx]
+        
+        try:
+            # Get the image and domain
+            img_matrix = image_matrices[img_idx]
+            domain = domain_mapping[img_idx] if img_idx < len(domain_mapping) else f"Logo {img_idx}"
+            
+            # Extract detailed Fourier features using C++
+            fft_signature = feature_extractor.compute_fft_signature(img_matrix)
+            fourier_mellin = feature_extractor.compute_fourier_mellin(img_matrix)
+            comprehensive_features = feature_extractor.extract_comprehensive_features(img_matrix)
+            
+            # Create frequency axis for visualization
+            n_points = min(len(fft_signature), 128)  # Limit for visualization
+            frequencies = np.linspace(0, 0.5, n_points)  # Normalized frequencies
+            
+            # Plot the FFT signature (most important frequencies)
+            fft_magnitudes = np.abs(fft_signature[:n_points])
+            ax.plot(frequencies, fft_magnitudes, 'b-', linewidth=2, label='FFT Signature', alpha=0.8)
+            
+            # Plot Fourier-Mellin features if available
+            if len(fourier_mellin) >= n_points:
+                mellin_magnitudes = np.abs(fourier_mellin[:n_points])
+                ax.plot(frequencies, mellin_magnitudes, 'r--', linewidth=1.5, label='Fourier-Mellin', alpha=0.7)
+            
+            # Highlight dominant frequencies
+            dominant_freq_idx = np.argmax(fft_magnitudes[1:]) + 1  # Skip DC component
+            ax.axvline(frequencies[dominant_freq_idx], color='orange', linestyle=':', 
+                      label=f'Dominant: {frequencies[dominant_freq_idx]:.3f}', alpha=0.8)
+            
+            # Customize plot
+            ax.set_title(f'{domain[:30]}...', fontsize=10, fontweight='bold')
+            ax.set_xlabel('Normalized Frequency', fontsize=9)
+            ax.set_ylabel('Magnitude', fontsize=9)
+            ax.grid(True, alpha=0.3)
+            ax.legend(fontsize=8)
+            
+            # Add frequency statistics as text
+            mean_freq = np.mean(fft_magnitudes)
+            max_freq = np.max(fft_magnitudes)
+            ax.text(0.02, 0.95, f'Mean: {mean_freq:.2f}\nMax: {max_freq:.2f}', 
+                   transform=ax.transAxes, fontsize=8, verticalalignment='top',
+                   bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+            
+        except Exception as e:
+            # Fallback for failed analysis
+            ax.text(0.5, 0.5, f'Analysis failed\n{domain[:20]}...', 
+                   ha='center', va='center', transform=ax.transAxes)
+            ax.set_title(f'Error: {domain[:20]}...', fontsize=10)
+    
+    # Hide unused subplots
+    for i in range(len(sample_indices), len(axes)):
+        axes[i].set_visible(False)
+    
+    plt.tight_layout()
+    
+    # Save Fourier visualization
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    fourier_plot_file = f"fourier_signatures_{timestamp}.png"
+    plt.savefig(fourier_plot_file, dpi=300, bbox_inches='tight')
+    plt.show()
+    
+    print(f"      ✅ Fourier curves saved to: {fourier_plot_file}")
+    
+    # Create a second plot showing 2D FFT for a few logos
+    create_2d_fourier_visualization(image_matrices, domain_mapping, sample_indices[:4])
+    
+    return fourier_plot_file
+
+def create_2d_fourier_visualization(image_matrices, domain_mapping, sample_indices):
+    """Create 2D FFT visualizations showing spatial frequency patterns"""
+    
+    fig, axes = plt.subplots(2, 4, figsize=(16, 8))
+    fig.suptitle('2D FFT Spatial Frequency Analysis', fontsize=16, fontweight='bold')
+    
+    for i, img_idx in enumerate(sample_indices):
+        if i >= len(axes[0]):
+            break
+            
+        try:
+            # Original image
+            img_matrix = image_matrices[img_idx]
+            domain = domain_mapping[img_idx] if img_idx < len(domain_mapping) else f"Logo {img_idx}"
+            
+            # Compute 2D FFT using numpy (for visualization)
+            fft2d = np.fft.fft2(img_matrix)
+            fft2d_shifted = np.fft.fftshift(fft2d)
+            magnitude_spectrum = np.log1p(np.abs(fft2d_shifted))  # Log scale for better visualization
+            
+            # Plot original image
+            axes[0][i].imshow(img_matrix, cmap='gray')
+            axes[0][i].set_title(f'Original\n{domain[:20]}...', fontsize=10)
+            axes[0][i].axis('off')
+            
+            # Plot 2D FFT magnitude spectrum
+            im = axes[1][i].imshow(magnitude_spectrum, cmap='hot', interpolation='bilinear')
+            axes[1][i].set_title(f'2D FFT Spectrum\n(Log Magnitude)', fontsize=10)
+            axes[1][i].axis('off')
+            
+            # Add colorbar for FFT plot
+            plt.colorbar(im, ax=axes[1][i], fraction=0.046, pad=0.04)
+            
+        except Exception as e:
+            axes[0][i].text(0.5, 0.5, f'Error\n{domain[:10]}...', 
+                           ha='center', va='center', transform=axes[0][i].transAxes)
+            axes[1][i].text(0.5, 0.5, f'FFT Error\n{str(e)[:20]}...', 
+                           ha='center', va='center', transform=axes[1][i].transAxes)
+    
+    plt.tight_layout()
+    
+    # Save 2D FFT visualization
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    fft2d_plot_file = f"fourier_2d_fft_{timestamp}.png"
+    plt.savefig(fft2d_plot_file, dpi=300, bbox_inches='tight')
+    plt.show()
+    
+    print(f"      ✅ 2D FFT analysis saved to: {fft2d_plot_file}")
+    
+    return fft2d_plot_file
+
 def run_enhanced_ultra_restrictive_clustering():
     """Run ultra-restrictive clustering using C++ adaptive threshold analysis"""
     
@@ -311,6 +453,10 @@ def run_enhanced_ultra_restrictive_clustering():
                 perceptual_hashes.append("0" * 64)  # Placeholder hash
         
         print(f"   ✅ Extracted Fourier features: {len(fourier_features)} feature vectors")
+        
+        # Create Fourier visualization for sample logos
+        print(f"   📊 Creating Fourier curve visualizations...")
+        create_fourier_visualizations(image_matrices, domain_mapping, feature_extractor)
         
         # Now run adaptive threshold analysis using the Fourier features
         similarity_computer = fourier_math_cpp.SimilarityComputer()
