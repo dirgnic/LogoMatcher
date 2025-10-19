@@ -48,7 +48,7 @@ async def advanced_recovery():
                             if any(img in content_type for img in ['image/', 'application/octet-stream']):
                                 data_bytes = await response.read()
                                 if len(data_bytes) > 300:  # Lower threshold
-                                    print(f"✅ Recovered {domain} from {url.split('//')[1].split('/')[0]} ({len(data_bytes)} bytes)")
+                                    print(f" Recovered {domain} from {url.split('//')[1].split('/')[0]} ({len(data_bytes)} bytes)")
                                     recovered += 1
                                     recovered_details.append((domain, url, len(data_bytes)))
                                     break
@@ -74,7 +74,7 @@ if __name__ == "__main__":
     print(f"With recovery: {new_success_count}/{total_websites} = {new_success_rate:.2f}%")
     
     if new_success_rate >= 98.0:
-        print("🎉 SUCCESS! Reached 98% target!")
+        print(" SUCCESS! Reached 98% target!")
     else:
         needed = int((98.0 * total_websites / 100) - new_success_count)
         print(f"Still need {needed} more logos for 98%")

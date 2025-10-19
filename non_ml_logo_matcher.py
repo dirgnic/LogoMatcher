@@ -458,18 +458,18 @@ def main():
     print(f"\n" + "="*60)
     print("FINAL RESULTS SUMMARY")
     print("="*60)
-    print(f"✓ Logos processed: {len(logos_dict)}")
-    print(f"✓ Success rate: {(len(logos_dict)/4384)*100:.2f}% (target: >97%)")
-    print(f"✓ Total groups found: {analysis['total_groups']}")
-    print(f"✓ Groups with similar logos: {analysis['multi_logo_groups']}")
-    print(f"✓ Unique logos: {analysis['single_logo_groups']}")
-    print(f"✓ Approach: Pure mathematical similarity (NO ML clustering)")
-    print(f"✓ Methods used: Graph theory, Fourier analysis, geometric features")
+    print(f" Logos processed: {len(logos_dict)}")
+    print(f" Success rate: {(len(logos_dict)/4384)*100:.2f}% (target: >97%)")
+    print(f" Total groups found: {analysis['total_groups']}")
+    print(f" Groups with similar logos: {analysis['multi_logo_groups']}")
+    print(f" Unique logos: {analysis['single_logo_groups']}")
+    print(f" Approach: Pure mathematical similarity (NO ML clustering)")
+    print(f" Methods used: Graph theory, Fourier analysis, geometric features")
     
     if (len(logos_dict)/4384)*100 > 97:
-        print(f"✅ SUCCESS: Exceeded 97% logo extraction target!")
+        print(f" SUCCESS: Exceeded 97% logo extraction target!")
     else:
-        print(f"⚠️  WARNING: Below 97% extraction target")
+        print(f"  WARNING: Below 97% extraction target")
     
     print(f"\nOutput files generated:")
     print(f"  • {csv_path} - Group assignments")

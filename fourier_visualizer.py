@@ -123,7 +123,7 @@ def analyze_sample_logos(analyzer, logos_dict, num_samples=3):
         
         results[domain] = features
         
-        print(f"✓ Analysis complete for {brand_name}")
+        print(f" Analysis complete for {brand_name}")
         print(f"  - FFT features: {len(features['fft_features'])} dimensions")
         print(f"  - Fourier-Mellin signature: {len(features['fmt_signature'])} dimensions")
         print(f"  - Color-aware FMT: {len(features['color_aware_fmt'])} dimensions")
@@ -436,8 +436,8 @@ def main():
         for method, sim in detailed_sims.items():
             print(f"  {method}: {sim:.4f}")
     
-    print(f"\n✓ Analysis complete! Generated visualizations for Fourier analysis.")
-    print(f"✓ Check the generated PNG files for detailed Fourier curve plots.")
+    print(f"\n Analysis complete! Generated visualizations for Fourier analysis.")
+    print(f" Check the generated PNG files for detailed Fourier curve plots.")
 
 if __name__ == "__main__":
     main()

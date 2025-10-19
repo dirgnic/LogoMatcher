@@ -10,7 +10,7 @@ import os
 
 def main():
     """Main function to run the logo analysis pipeline"""
-    print("🚀 LOGO ANALYSIS PIPELINE - FIXED VERSION")
+    print(" LOGO ANALYSIS PIPELINE - FIXED VERSION")
     print("=" * 60)
     
     try:
@@ -39,17 +39,17 @@ def main():
         from skimage import filters, transform
         from sklearn.metrics.pairwise import cosine_similarity
         
-        print("✅ All imports successful")
+        print(" All imports successful")
         
         # Check for parquet file
         if os.path.exists('logos.snappy.parquet'):
-            print("✅ Found logos.snappy.parquet file")
+            print(" Found logos.snappy.parquet file")
             
             # Load and display basic info
             try:
                 import pyarrow.parquet as pq
                 df = pd.read_parquet('logos.snappy.parquet')
-                print(f"📊 Dataset info:")
+                print(f" Dataset info:")
                 print(f"   - Shape: {df.shape}")
                 print(f"   - Columns: {list(df.columns)}")
                 
@@ -60,24 +60,24 @@ def main():
                     print(f"   - Available columns: {list(df.columns)}")
                     
             except Exception as e:
-                print(f"⚠️  Could not load parquet file: {e}")
+                print(f"  Could not load parquet file: {e}")
         else:
-            print("❌ logos.snappy.parquet file not found")
+            print(" logos.snappy.parquet file not found")
             print("   Please ensure the file is in the current directory")
         
-        print("\n📋 Script components available:")
-        print("   ✅ Basic imports and setup")
-        print("   ✅ Data loading functions")
-        print("   ✅ API extraction classes (commented out async calls)")
-        print("   ✅ Analysis pipeline structure")
+        print("\n Script components available:")
+        print("    Basic imports and setup")
+        print("    Data loading functions")
+        print("    API extraction classes (commented out async calls)")
+        print("    Analysis pipeline structure")
         
-        print("\n🎯 To run async functions, use:")
+        print("\n To run async functions, use:")
         print("   python -c \"import asyncio; from logo_analysis_fixed import *; asyncio.run(your_async_function())\"")
         
-        print("\n✅ Setup validation complete!")
+        print("\n Setup validation complete!")
         
     except Exception as e:
-        print(f"❌ Error during setup: {e}")
+        print(f" Error during setup: {e}")
         import traceback
         traceback.print_exc()
 

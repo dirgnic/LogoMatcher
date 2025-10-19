@@ -24,11 +24,11 @@ from scipy import signal
 try:
     import fourier_math_cpp
     CPP_AVAILABLE = True
-    print("✅ Using fourier_math_cpp C++ module for enhanced performance")
+    print(" Using fourier_math_cpp C++ module for enhanced performance")
 except ImportError as e:
     CPP_AVAILABLE = False
-    print(f"⚠️ C++ module not available: {e}")
-    print("📦 Falling back to basic analysis")
+    print(f" C++ module not available: {e}")
+    print(" Falling back to basic analysis")
     sys.exit(1)
 
 def load_cached_logos():
@@ -36,18 +36,18 @@ def load_cached_logos():
     
     cache_file = 'comprehensive_logo_extraction_fast_results.pkl'
     if not os.path.exists(cache_file):
-        print(f"❌ Cache file {cache_file} not found")
+        print(f" Cache file {cache_file} not found")
         return []
     
     try:
         with open(cache_file, 'rb') as f:
             data = pickle.load(f)
             
-        print(f"📦 Loading cached data from {cache_file}")
+        print(f" Loading cached data from {cache_file}")
         
         # Extract successful logos from the cached data
         successful_logos = data.get('successful_logos', [])
-        print(f"📊 Found {len(successful_logos)} cached successful logos")
+        print(f" Found {len(successful_logos)} cached successful logos")
         
         # Process into format needed for analysis
         processed_logos = []
@@ -76,14 +76,14 @@ def load_cached_logos():
                     })
                     
                 except Exception as e:
-                    print(f"⚠️ Error processing logo for {logo.get('website', 'unknown')}: {e}")
+                    print(f" Error processing logo for {logo.get('website', 'unknown')}: {e}")
                     continue
         
-        print(f"🎯 Successfully processed {len(processed_logos)} logos for enhanced analysis")
+        print(f" Successfully processed {len(processed_logos)} logos for enhanced analysis")
         return processed_logos
         
     except Exception as e:
-        print(f"❌ Error loading cache: {e}")
+        print(f" Error loading cache: {e}")
         return []
 
 def compute_enhanced_similarity(img1, img2):
@@ -304,7 +304,7 @@ def create_fourier_visualizations(image_matrices, domain_mapping, feature_extrac
     plt.savefig(fourier_plot_file, dpi=300, bbox_inches='tight')
     plt.show()
     
-    print(f"      ✅ Fourier curves saved to: {fourier_plot_file}")
+    print(f"       Fourier curves saved to: {fourier_plot_file}")
     
     # Create a second plot showing 2D FFT for a few logos
     create_2d_fourier_visualization(image_matrices, domain_mapping, sample_indices[:4])
@@ -358,26 +358,26 @@ def create_2d_fourier_visualization(image_matrices, domain_mapping, sample_indic
     plt.savefig(fft2d_plot_file, dpi=300, bbox_inches='tight')
     plt.show()
     
-    print(f"      ✅ 2D FFT analysis saved to: {fft2d_plot_file}")
+    print(f"       2D FFT analysis saved to: {fft2d_plot_file}")
     
     return fft2d_plot_file
 
 def run_enhanced_ultra_restrictive_clustering():
     """Run ultra-restrictive clustering using C++ adaptive threshold analysis"""
     
-    print("🎯 ENHANCED ULTRA-RESTRICTIVE CLUSTERING ANALYSIS")
-    print("⚡ Using C++ Adaptive Threshold + Threading")
+    print(" ENHANCED ULTRA-RESTRICTIVE CLUSTERING ANALYSIS")
+    print(" Using C++ Adaptive Threshold + Threading")
     print("=" * 60)
     
     # Load cached logos
     logos = load_cached_logos()
     if not logos:
-        print("❌ No logos loaded - cannot proceed")
+        print(" No logos loaded - cannot proceed")
         return 0, [], None
     
     # Process the entire dataset
     test_logos = logos  # Use all logos
-    print(f"🧪 Processing entire dataset: {len(test_logos)} logos")
+    print(f" Processing entire dataset: {len(test_logos)} logos")
     
     # Remove duplicates by domain
     seen_domains = set()
@@ -388,10 +388,10 @@ def run_enhanced_ultra_restrictive_clustering():
             seen_domains.add(domain)
             unique_logos.append(logo)
     
-    print(f"🔄 {len(unique_logos)} unique domains")
+    print(f" {len(unique_logos)} unique domains")
     
     if len(unique_logos) < 2:
-        print("❌ Need at least 2 unique logos")
+        print(" Need at least 2 unique logos")
         return 0, [], None
     
     # Prepare image matrices for C++ processing
@@ -413,15 +413,15 @@ def run_enhanced_ultra_restrictive_clustering():
     # ULTRA-RESTRICTIVE thresholds for most similar logos only
     initial_thresholds = [0.99, 0.98, 0.97, 0.96]
     
-    print(f"\n🎯 Running C++ Adaptive Threshold Analysis")
-    print(f"   🔍 Initial thresholds: {initial_thresholds}")
-    print(f"   📊 Sample size: 5% of dataset (min 50 logos)")
+    print(f"\n Running C++ Adaptive Threshold Analysis")
+    print(f"    Initial thresholds: {initial_thresholds}")
+    print(f"    Sample size: 5% of dataset (min 50 logos)")
     
     start_time = time.time()
     
     try:
         # First extract comprehensive Fourier features using C++ for all images
-        print(f"   🔍 Extracting C++ Fourier features from {len(image_matrices)} images...")
+        print(f"    Extracting C++ Fourier features from {len(image_matrices)} images...")
         
         feature_extractor = fourier_math_cpp.LogoFeatureExtractor(128, 8)
         fourier_features = []
@@ -452,16 +452,16 @@ def run_enhanced_ultra_restrictive_clustering():
                 fourier_features.append([0.0] * 100)  # Placeholder feature vector
                 perceptual_hashes.append("0" * 64)  # Placeholder hash
         
-        print(f"   ✅ Extracted Fourier features: {len(fourier_features)} feature vectors")
+        print(f"    Extracted Fourier features: {len(fourier_features)} feature vectors")
         
         # Create Fourier visualization for sample logos
-        print(f"   📊 Creating Fourier curve visualizations...")
+        print(f"    Creating Fourier curve visualizations...")
         create_fourier_visualizations(image_matrices, domain_mapping, feature_extractor)
         
         # Now run adaptive threshold analysis using the Fourier features
         similarity_computer = fourier_math_cpp.SimilarityComputer()
         
-        print(f"   🎯 Running C++ Fourier-based adaptive threshold analysis...")
+        print(f"    Running C++ Fourier-based adaptive threshold analysis...")
         
         # Implement adaptive threshold logic using Fourier features
         final_threshold = initial_thresholds[0]
@@ -471,7 +471,7 @@ def run_enhanced_ultra_restrictive_clustering():
         sample_size = max(50, int(0.05 * len(fourier_features)))
         sample_pairs_found = 0
         
-        print(f"      🧪 Testing with Fourier feature sample of {sample_size} logos...")
+        print(f"       Testing with Fourier feature sample of {sample_size} logos...")
         
         for i in range(min(sample_size, len(fourier_features))):
             for j in range(i+1, min(sample_size, len(fourier_features))):
@@ -489,7 +489,7 @@ def run_enhanced_ultra_restrictive_clustering():
         
         # If no pairs found with highest threshold, try slightly lower ones (but still very high)
         if sample_pairs_found == 0:
-            print(f"      ⚠️ No pairs found with ultra-restrictive Fourier threshold {final_threshold}")
+            print(f"       No pairs found with ultra-restrictive Fourier threshold {final_threshold}")
             test_thresholds = [0.95, 0.92, 0.90, 0.88, 0.85]  # Much more conservative fallbacks
             
             for test_threshold in test_thresholds:
@@ -513,10 +513,10 @@ def run_enhanced_ultra_restrictive_clustering():
                 if test_pairs > 0:
                     final_threshold = test_threshold
                     was_adjusted = True
-                    print(f"      ✅ Adjusted Fourier threshold to {final_threshold}")
+                    print(f"       Adjusted Fourier threshold to {final_threshold}")
                     break
         
-        print(f"   🚀 Computing full Fourier similarity matrix with threshold {final_threshold}...")
+        print(f"    Computing full Fourier similarity matrix with threshold {final_threshold}...")
         
         # Compute full similarity matrix using Fourier features
         results = similarity_computer.compute_similarity_matrix(fourier_features, perceptual_hashes)
@@ -551,12 +551,12 @@ def run_enhanced_ultra_restrictive_clustering():
         final_threshold = results.get('final_threshold_used', 0.0)
         was_adjusted = results.get('threshold_was_adjusted', False)
         
-        print(f"   ✅ Analysis completed in {analysis_time/60:.1f} minutes")
-        print(f"   🎯 Final threshold used: {final_threshold}")
+        print(f"    Analysis completed in {analysis_time/60:.1f} minutes")
+        print(f"    Final threshold used: {final_threshold}")
         if was_adjusted:
-            print(f"   🔄 Threshold was automatically adjusted from initial values")
+            print(f"    Threshold was automatically adjusted from initial values")
         else:
-            print(f"   ✅ Original threshold was sufficient")
+            print(f"    Original threshold was sufficient")
         
         # Convert cluster indices back to domain names
         domain_clusters = []
@@ -581,7 +581,7 @@ def run_enhanced_ultra_restrictive_clustering():
                 all_similarities.sort(reverse=True)
                 ultra_restrictive_threshold = max(final_threshold, 
                                                 np.percentile(all_similarities, 99))  # Top 1%
-                print(f"   🔥 Ultra-restrictive threshold: {ultra_restrictive_threshold:.4f} (top 1% of similarities)")
+                print(f"    Ultra-restrictive threshold: {ultra_restrictive_threshold:.4f} (top 1% of similarities)")
                 
                 # Only extract pairs that meet BOTH the adaptive threshold AND top 1% cutoff
                 for i in range(len(similarity_matrix)):
@@ -619,29 +619,29 @@ def run_enhanced_ultra_restrictive_clustering():
                                     }
                                 })
             
-            print(f"   🎯 After ultra-restrictive filtering: {len(similar_pairs)} highest quality pairs")
+            print(f"    After ultra-restrictive filtering: {len(similar_pairs)} highest quality pairs")
         
-        print(f"   📊 Found {len(similar_pairs)} similar pairs")
-        print(f"   🎊 Created {len(domain_clusters)} clusters")
+        print(f"    Found {len(similar_pairs)} similar pairs")
+        print(f"    Created {len(domain_clusters)} clusters")
         
         if similar_pairs:
             similarities = [pair['similarity'] for pair in similar_pairs]
-            print(f"   📈 Avg similarity: {np.mean(similarities):.3f}")
+            print(f"    Avg similarity: {np.mean(similarities):.3f}")
             
         # Show only the most meaningful clusters (ultra-restrictive: 3+ domains, max 25 to avoid noise)
         meaningful_clusters = [c for c in domain_clusters if 3 <= len(c) <= 25]
         meaningful_clusters.sort(key=len, reverse=True)  # Sort by size
         
         if meaningful_clusters:
-            print(f"\n🎯 Ultra-restrictive brand clusters (3-25 domains) - Top 15:")
+            print(f"\n Ultra-restrictive brand clusters (3-25 domains) - Top 15:")
             for i, cluster in enumerate(meaningful_clusters[:15]):
                 print(f"  {i+1}. ({len(cluster)} domains) {cluster}")
         else:
-            print(f"\n🎯 No clusters found meeting ultra-restrictive criteria (3-25 domains)")
+            print(f"\n No clusters found meeting ultra-restrictive criteria (3-25 domains)")
         
         # Show top similarity pairs
         if similar_pairs:
-            print(f"\n💫 Top similarity pairs:")
+            print(f"\n Top similarity pairs:")
             sorted_pairs = sorted(similar_pairs, key=lambda x: x['similarity'], reverse=True)
             for i, pair in enumerate(sorted_pairs[:5]):
                 method = pair['metrics'].get('method', 'unknown')
@@ -651,7 +651,7 @@ def run_enhanced_ultra_restrictive_clustering():
         meaningful_cluster_count = len([c for c in domain_clusters if 3 <= len(c) <= 25])
         
         if meaningful_cluster_count > 0:
-            print(f"\n💾 Saving {meaningful_cluster_count} ultra-restrictive clusters...")
+            print(f"\n Saving {meaningful_cluster_count} ultra-restrictive clusters...")
             analysis_stats = {
                 'threshold_used': final_threshold,
                 'ultra_restrictive_threshold': ultra_restrictive_threshold if 'ultra_restrictive_threshold' in locals() else final_threshold,
@@ -686,13 +686,13 @@ def run_enhanced_ultra_restrictive_clustering():
             }
         
         else:
-            print(f"\n❌ No meaningful clusters found with ultra-restrictive analysis")
+            print(f"\n No meaningful clusters found with ultra-restrictive analysis")
             print(f"    Total clusters: {len(domain_clusters)}, but none met ultra-restrictive criteria (3-25 domains)")
             return 0, [], final_threshold, {'clusters': [], 'similar_pairs': [], 'analysis_stats': {}}
             
     except Exception as e:
-        print(f"   ❌ C++ adaptive analysis failed: {e}")
-        print(f"   🔄 This indicates an issue with the C++ implementation")
+        print(f"    C++ adaptive analysis failed: {e}")
+        print(f"    This indicates an issue with the C++ implementation")
         return 0, [], None, {}
 
 def create_enhanced_clusters(similar_pairs, max_cluster_size=20):
@@ -788,10 +788,10 @@ def save_analysis_results(clusters, similar_pairs, threshold, analysis_stats):
     pairs_df = pd.DataFrame(similar_pairs)
     pairs_df.to_csv(pairs_file, index=False)
     
-    print(f"\n💾 Results saved:")
-    print(f"   📦 Full results: {results_file}")
-    print(f"   📊 Clusters CSV: {csv_file}")
-    print(f"   🔗 Pairs CSV: {pairs_file}")
+    print(f"\n Results saved:")
+    print(f"    Full results: {results_file}")
+    print(f"    Clusters CSV: {csv_file}")
+    print(f"    Pairs CSV: {pairs_file}")
     
     return results_file, csv_file, pairs_file
 
@@ -876,10 +876,10 @@ def create_similarity_visualizations(clusters, similar_pairs, threshold, output_
     if len(similar_pairs) > 0 and len(similar_pairs) < 1000:
         create_similarity_heatmap(similar_pairs, f"{output_prefix}_heatmap.png")
     
-    print(f"\n📊 Visualizations created:")
-    print(f"   📈 Main analysis: {plot_file}")
+    print(f"\n Visualizations created:")
+    print(f"    Main analysis: {plot_file}")
     if len(similar_pairs) < 1000:
-        print(f"   🔥 Similarity heatmap: {output_prefix}_heatmap.png")
+        print(f"    Similarity heatmap: {output_prefix}_heatmap.png")
     
     return plot_file
 
@@ -978,11 +978,11 @@ def generate_analysis_report(clusters, similar_pairs, threshold, analysis_stats,
         f.write(f"perceptual hashing and statistical analysis.\n\n")
         f.write(f"**Note:** Only similarities above {threshold} threshold are included in clustering.\n")
     
-    print(f"📋 Comprehensive report generated: {report_file}")
+    print(f" Comprehensive report generated: {report_file}")
     return report_file
 
 if __name__ == "__main__":
-    print("🚀 Starting Ultra-Restrictive Logo Analysis with C++ Core")
+    print(" Starting Ultra-Restrictive Logo Analysis with C++ Core")
     print("=" * 60)
     
     start_time = time.time()
@@ -990,27 +990,27 @@ if __name__ == "__main__":
     end_time = time.time()
     
     if best_threshold and cluster_count > 0:
-        print(f"\n🎉 ANALYSIS COMPLETE!")
-        print(f"⚡ Found {cluster_count} ultra-similar clusters using threshold {best_threshold}")
-        print(f"⏱️ Analysis completed in {end_time - start_time:.2f} seconds")
+        print(f"\n ANALYSIS COMPLETE!")
+        print(f" Found {cluster_count} ultra-similar clusters using threshold {best_threshold}")
+        print(f"⏱ Analysis completed in {end_time - start_time:.2f} seconds")
         
         # Display generated files
         if 'files_generated' in analysis_data:
-            print(f"\n� Files Generated:")
+            print(f"\n Files Generated:")
             for file_path in analysis_data['files_generated']:
-                print(f"   📄 {file_path}")
+                print(f"    {file_path}")
         
-        print(f"\n📊 FINAL SUMMARY:")
-        print(f"   🎯 Clusters: {cluster_count}")
-        print(f"   📏 Threshold: {best_threshold}")
-        print(f"   � Similar pairs: {len(analysis_data.get('similar_pairs', []))}")
-        print(f"   🏷️ Unique domains: {len(set([d for cluster in analysis_data.get('clusters', []) for d in cluster]))}")
-        print(f"   ⚡ Method: C++ threading + enhanced Python logic")
+        print(f"\n FINAL SUMMARY:")
+        print(f"    Clusters: {cluster_count}")
+        print(f"    Threshold: {best_threshold}")
+        print(f"    Similar pairs: {len(analysis_data.get('similar_pairs', []))}")
+        print(f"    Unique domains: {len(set([d for cluster in analysis_data.get('clusters', []) for d in cluster]))}")
+        print(f"    Method: C++ threading + enhanced Python logic")
         
     else:
-        print(f"\n💔 No suitable clustering threshold found")
-        print(f"⚠️ Dataset may not contain sufficient similar logos for ultra-restrictive analysis")
-        print(f"⏱️ Analysis time: {end_time - start_time:.2f} seconds")
+        print(f"\n No suitable clustering threshold found")
+        print(f" Dataset may not contain sufficient similar logos for ultra-restrictive analysis")
+        print(f"⏱ Analysis time: {end_time - start_time:.2f} seconds")
         
-    print(f"\n✅ Ultra-Restrictive Analysis Complete")
+    print(f"\n Ultra-Restrictive Analysis Complete")
     print(f"=" * 60)

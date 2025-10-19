@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Improved Logo Similarity Analysis with Multiple Thresholds
-🎯 Find similar logos with adaptive thresholds and better analysis
+ Find similar logos with adaptive thresholds and better analysis
 """
 
 import asyncio
@@ -24,7 +24,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 def analyze_similarity_distribution():
     """Analyze the distribution of similarity scores to find optimal threshold"""
-    print("🔍 ANALYZING SIMILARITY SCORE DISTRIBUTION")
+    print(" ANALYZING SIMILARITY SCORE DISTRIBUTION")
     print("=" * 60)
     
     # Load results
@@ -32,13 +32,13 @@ def analyze_similarity_distribution():
         results = pickle.load(f)
     
     successful_logos = results['successful_logos'][:200]  # Sample for speed
-    print(f"📊 Analyzing similarity distribution on {len(successful_logos)} logos")
+    print(f" Analyzing similarity distribution on {len(successful_logos)} logos")
     
     from similarity_pipeline import FourierLogoAnalyzer
     analyzer = FourierLogoAnalyzer()
     
     # Extract features for sample
-    print("🔍 Extracting features...")
+    print(" Extracting features...")
     analyzed_logos = []
     for logo in successful_logos:
         features = analyzer.extract_logo_features(logo['logo_data'])
@@ -47,10 +47,10 @@ def analyze_similarity_distribution():
             logo_with_features['features'] = features
             analyzed_logos.append(logo_with_features)
     
-    print(f"✅ {len(analyzed_logos)} logos with valid features")
+    print(f" {len(analyzed_logos)} logos with valid features")
     
     # Compute similarity scores for all pairs
-    print("📈 Computing similarity distribution...")
+    print(" Computing similarity distribution...")
     similarities = []
     
     for i in range(min(len(analyzed_logos), 50)):  # Limit for speed
@@ -63,7 +63,7 @@ def analyze_similarity_distribution():
     
     similarities = np.array(similarities)
     
-    print(f"\n📊 SIMILARITY STATISTICS:")
+    print(f"\n SIMILARITY STATISTICS:")
     print(f"   Total pairs analyzed: {len(similarities)}")
     print(f"   Mean similarity: {similarities.mean():.3f}")
     print(f"   Std deviation: {similarities.std():.3f}")
@@ -78,7 +78,7 @@ def analyze_similarity_distribution():
     medium_threshold = np.percentile(similarities, 90)
     low_threshold = np.percentile(similarities, 75)
     
-    print(f"\n🎯 SUGGESTED THRESHOLDS:")
+    print(f"\n SUGGESTED THRESHOLDS:")
     print(f"   High precision (95th percentile): {high_threshold:.3f}")
     print(f"   Medium precision (90th percentile): {medium_threshold:.3f}")
     print(f"   High recall (75th percentile): {low_threshold:.3f}")
@@ -92,7 +92,7 @@ def analyze_similarity_distribution():
 
 def find_similar_logos_with_multiple_thresholds():
     """Find similar logos using multiple thresholds"""
-    print("🔗 MULTI-THRESHOLD SIMILARITY ANALYSIS")
+    print(" MULTI-THRESHOLD SIMILARITY ANALYSIS")
     print("=" * 60)
     
     # Get threshold recommendations
@@ -103,17 +103,17 @@ def find_similar_logos_with_multiple_thresholds():
         results = pickle.load(f)
     
     successful_logos = results['successful_logos']
-    print(f"\n🚀 Processing {len(successful_logos)} logos with multiple thresholds")
+    print(f"\n Processing {len(successful_logos)} logos with multiple thresholds")
     
     from similarity_pipeline import FourierLogoAnalyzer, UnionFind
     analyzer = FourierLogoAnalyzer()
     
     # Extract features (reuse if already computed)
-    print("🔍 Extracting features...")
+    print(" Extracting features...")
     analyzed_logos = analyzer.analyze_logo_batch(successful_logos)
     valid_logos = [logo for logo in analyzed_logos if logo['features']['valid']]
     
-    print(f"✅ {len(valid_logos)} logos with valid features")
+    print(f" {len(valid_logos)} logos with valid features")
     
     # Test multiple thresholds
     thresholds = {
@@ -126,7 +126,7 @@ def find_similar_logos_with_multiple_thresholds():
     results_by_threshold = {}
     
     for threshold_name, threshold_value in thresholds.items():
-        print(f"\n🎯 Testing threshold: {threshold_name} ({threshold_value:.3f})")
+        print(f"\n Testing threshold: {threshold_name} ({threshold_value:.3f})")
         
         similar_pairs = []
         comparison_count = 0
@@ -188,11 +188,11 @@ def find_similar_logos_with_multiple_thresholds():
         }
     
     # Show results summary
-    print(f"\n📊 THRESHOLD COMPARISON RESULTS:")
+    print(f"\n THRESHOLD COMPARISON RESULTS:")
     print("=" * 60)
     
     for threshold_name, result in results_by_threshold.items():
-        print(f"🎯 {threshold_name.upper()} threshold ({result['threshold']:.3f}):")
+        print(f" {threshold_name.upper()} threshold ({result['threshold']:.3f}):")
         print(f"   Similar pairs: {len(result['similar_pairs'])}")
         print(f"   Clusters: {len(result['clusters'])}")
         print(f"   Websites in clusters: {result['clustered_websites']}")
@@ -218,7 +218,7 @@ def find_similar_logos_with_multiple_thresholds():
     elif results_by_threshold['very_low']['similar_pairs']:
         best_threshold = 'very_low'
     
-    print(f"💾 Saving results using {best_threshold} threshold")
+    print(f" Saving results using {best_threshold} threshold")
     
     best_results = results_by_threshold[best_threshold]
     
@@ -242,7 +242,7 @@ def find_similar_logos_with_multiple_thresholds():
         df_pairs = pd.DataFrame(best_results['similar_pairs'], 
                                columns=['website1', 'website2', 'similarity'])
         df_pairs.to_csv('improved_similar_pairs.csv', index=False)
-        print(f"✅ Saved {len(best_results['similar_pairs'])} similar pairs to improved_similar_pairs.csv")
+        print(f" Saved {len(best_results['similar_pairs'])} similar pairs to improved_similar_pairs.csv")
     
     if best_results['clusters']:
         cluster_data = []
@@ -256,9 +256,9 @@ def find_similar_logos_with_multiple_thresholds():
         
         df_clusters = pd.DataFrame(cluster_data)
         df_clusters.to_csv('improved_logo_clusters.csv', index=False)
-        print(f"✅ Saved {len(best_results['clusters'])} clusters to improved_logo_clusters.csv")
+        print(f" Saved {len(best_results['clusters'])} clusters to improved_logo_clusters.csv")
     
-    print(f"\n🎉 IMPROVED SIMILARITY ANALYSIS COMPLETE!")
+    print(f"\n IMPROVED SIMILARITY ANALYSIS COMPLETE!")
     print(f"   - Best threshold: {best_results['threshold']:.3f}")
     print(f"   - Similar pairs found: {len(best_results['similar_pairs'])}")
     print(f"   - Clusters formed: {len(best_results['clusters'])}")

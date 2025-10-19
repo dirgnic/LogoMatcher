@@ -67,7 +67,7 @@ class FastParquetProcessor:
 
     def load_parquet_fast(self, sample_size: Optional[int] = None) -> List[str]:
         """Load parquet with memory-efficient streaming"""
-        print(f"📂 Loading parquet: {self.parquet_file}")
+        print(f" Loading parquet: {self.parquet_file}")
 
         # Use pyarrow for fastest loading
         table = pq.read_table(self.parquet_file)
@@ -663,8 +663,8 @@ class EnhancedAPILogoExtractor:
 
     async def batch_extract_logos_enhanced(self, websites: List[str], max_tier: int = 7) -> List[Dict]:
         """Enhanced batch extraction targeting 97%+ success rate with expanded API pool"""
-        print(f"🚀 ULTRA-ENHANCED API extraction: {len(websites)} websites")
-        print(f"🎯 Using {len([api for api in self.logo_apis if api.get('tier', 1) <= max_tier])} APIs across {max_tier} tiers")
+        print(f" ULTRA-ENHANCED API extraction: {len(websites)} websites")
+        print(f" Using {len([api for api in self.logo_apis if api.get('tier', 1) <= max_tier])} APIs across {max_tier} tiers")
         start_time = time.time()
 
         # Process websites in optimal batch size
@@ -676,7 +676,7 @@ class EnhancedAPILogoExtractor:
             batch_num = i//batch_size + 1
             total_batches = (len(websites)-1)//batch_size + 1
 
-            print(f"   📦 Batch {batch_num}/{total_batches}: {len(batch)} websites")
+            print(f"    Batch {batch_num}/{total_batches}: {len(batch)} websites")
 
             # Process batch concurrently
             tasks = [self.extract_logo_tiered(website, max_tier) for website in batch]
@@ -695,7 +695,7 @@ class EnhancedAPILogoExtractor:
 
             # Show batch progress
             batch_successful = sum(1 for r in batch_results if isinstance(r, dict) and r.get('logo_found', False))
-            print(f"       ✅ Batch success: {batch_successful}/{len(batch)} ({batch_successful/len(batch)*100:.1f}%)")
+            print(f"        Batch success: {batch_successful}/{len(batch)} ({batch_successful/len(batch)*100:.1f}%)")
 
             # Brief pause between batches
             await asyncio.sleep(0.3)
@@ -704,9 +704,9 @@ class EnhancedAPILogoExtractor:
         successful = sum(1 for r in all_results if r['logo_found'])
         success_rate = successful / len(websites) * 100
 
-        print(f"✅ ULTRA-ENHANCED results: {successful}/{len(websites)} in {elapsed:.1f}s")
-        print(f"🎯 SUCCESS RATE: {success_rate:.1f}%")
-        print(f"⚡ Speed: {len(websites)/elapsed:.1f} websites/second")
+        print(f" ULTRA-ENHANCED results: {successful}/{len(websites)} in {elapsed:.1f}s")
+        print(f" SUCCESS RATE: {success_rate:.1f}%")
+        print(f" Speed: {len(websites)/elapsed:.1f} websites/second")
 
         # Show comprehensive breakdown
         tier_breakdown = defaultdict(int)
@@ -719,54 +719,54 @@ class EnhancedAPILogoExtractor:
                 tier_breakdown[f"Tier {tier}"] += 1
                 api_breakdown[service] += 1
 
-        print("\n📊 PERFORMANCE BREAKDOWN:")
-        print("🎯 By Tier:")
+        print("\n PERFORMANCE BREAKDOWN:")
+        print(" By Tier:")
         for tier, count in sorted(tier_breakdown.items()):
             percentage = count / successful * 100 if successful > 0 else 0
             print(f"   - {tier}: {count} logos ({percentage:.1f}%)")
 
-        print("🏆 Top API Services:")
+        print(" Top API Services:")
         for service, count in sorted(api_breakdown.items(), key=lambda x: x[1], reverse=True)[:8]:
             percentage = count / successful * 100 if successful > 0 else 0
             print(f"   - {service}: {count} ({percentage:.1f}%)")
 
         # Success rate assessment
         if success_rate >= 97:
-            print(f"\n🎉 EXCELLENT! {success_rate:.1f}% SUCCESS RATE ACHIEVED!")
-            print("🎯 Target of 97%+ reached with expanded API pool!")
+            print(f"\n EXCELLENT! {success_rate:.1f}% SUCCESS RATE ACHIEVED!")
+            print(" Target of 97%+ reached with expanded API pool!")
         elif success_rate >= 95:
-            print(f"\n✅ VERY GOOD! {success_rate:.1f}% success rate")
-            print("💡 Close to 97% target - consider adding tier 8 for remaining sites")
+            print(f"\n VERY GOOD! {success_rate:.1f}% success rate")
+            print(" Close to 97% target - consider adding tier 8 for remaining sites")
         elif success_rate >= 90:
-            print(f"\n👍 GOOD! {success_rate:.1f}% success rate")
-            print("💡 To reach 97%+: increase max_tier or add more API services")
+            print(f"\n GOOD! {success_rate:.1f}% success rate")
+            print(" To reach 97%+: increase max_tier or add more API services")
         else:
-            print(f"\n🔧 {success_rate:.1f}% success rate - needs improvement")
-            print("💡 Try max_tier=7 and check API service availability")
+            print(f"\n {success_rate:.1f}% success rate - needs improvement")
+            print(" Try max_tier=7 and check API service availability")
 
         return all_results
 
-print("✅ Ultra-Enhanced API Logo Extractor ready with expanded API pool!")
+print(" Ultra-Enhanced API Logo Extractor ready with expanded API pool!")
 
 
 # In[ ]:
 
 
 # Test the ULTRA-ENHANCED API extraction targeting 97%+ success rate
-print("🚀 TESTING ULTRA-ENHANCED API POOL - TARGET 97%+ SUCCESS RATE")
+print(" TESTING ULTRA-ENHANCED API POOL - TARGET 97%+ SUCCESS RATE")
 print("=" * 70)
 
 # Show API pool size
 test_extractor = EnhancedAPILogoExtractor()
 total_apis = len(test_extractor.logo_apis)
-print(f"📊 Total API services available: {total_apis}")
+print(f" Total API services available: {total_apis}")
 
 # Show breakdown by tier
 tier_counts = defaultdict(int)
 for api in test_extractor.logo_apis:
     tier_counts[f"Tier {api.get('tier', 'unknown')}"] += 1
 
-print("🎯 APIs by tier:")
+print(" APIs by tier:")
 for tier, count in sorted(tier_counts.items()):
     print(f"   - {tier}: {count} services")
 
@@ -776,8 +776,8 @@ async def test_ultra_enhanced_extraction():
     # Load a sample of websites
     sample_websites = websites_from_parquet[:100]  # Test with 100 websites
 
-    print(f"\n🎯 Testing with {len(sample_websites)} websites")
-    print(f"📋 Sample domains: {[w.replace('https://', '').replace('http://', '').split('/')[0] for w in sample_websites[:3]]}...")
+    print(f"\n Testing with {len(sample_websites)} websites")
+    print(f" Sample domains: {[w.replace('https://', '').replace('http://', '').split('/')[0] for w in sample_websites[:3]]}...")
 
     # Test different tier configurations
     configurations = [
@@ -793,10 +793,10 @@ async def test_ultra_enhanced_extraction():
         config_name = config['name']
 
         print(f"\n--- {config_name.upper()} TEST (Tiers 1-{max_tier}) ---")
-        print(f"📝 {config['desc']}")
+        print(f" {config['desc']}")
 
         tier_apis = len([api for api in test_extractor.logo_apis if api.get('tier', 1) <= max_tier])
-        print(f"🔧 Using {tier_apis} API services")
+        print(f" Using {tier_apis} API services")
 
         async with EnhancedAPILogoExtractor() as extractor:
             results = await extractor.batch_extract_logos_enhanced(sample_websites[:50], max_tier=max_tier)
@@ -812,9 +812,9 @@ async def test_ultra_enhanced_extraction():
             'api_count': tier_apis
         }
 
-        print(f"✅ Result: {success_rate:.1f}% success ({success_count}/{len(results)} logos)")
+        print(f" Result: {success_rate:.1f}% success ({success_count}/{len(results)} logos)")
 
-    print(f"\n🎯 CONFIGURATION COMPARISON:")
+    print(f"\n CONFIGURATION COMPARISON:")
     print("=" * 50)
 
     for config_name, stats in results_comparison.items():
@@ -822,7 +822,7 @@ async def test_ultra_enhanced_extraction():
         apis = stats['api_count']
         tier = stats['tier_limit']
 
-        status = "🎉 EXCELLENT!" if rate >= 97 else "✅ VERY GOOD" if rate >= 95 else "👍 GOOD" if rate >= 90 else "🔧 NEEDS WORK"
+        status = " EXCELLENT!" if rate >= 97 else " VERY GOOD" if rate >= 95 else " GOOD" if rate >= 90 else " NEEDS WORK"
 
         print(f"{config_name}:")
         print(f"   - Success Rate: {rate:.1f}% {status}")
@@ -834,21 +834,21 @@ async def test_ultra_enhanced_extraction():
     best_config = max(results_comparison.items(), key=lambda x: x[1]['success_rate'])
     best_name, best_stats = best_config
 
-    print("💡 RECOMMENDATION:")
+    print(" RECOMMENDATION:")
     if best_stats['success_rate'] >= 97:
-        print(f"   ✅ Use '{best_name}' configuration for 97%+ success!")
-        print(f"   🎯 Achieved {best_stats['success_rate']:.1f}% with {best_stats['api_count']} APIs")
+        print(f"    Use '{best_name}' configuration for 97%+ success!")
+        print(f"    Achieved {best_stats['success_rate']:.1f}% with {best_stats['api_count']} APIs")
     elif best_stats['success_rate'] >= 95:
-        print(f"   ⚡ '{best_name}' gives best balance: {best_stats['success_rate']:.1f}% success")
-        print(f"   💡 Very close to 97% target - excellent performance!")
+        print(f"    '{best_name}' gives best balance: {best_stats['success_rate']:.1f}% success")
+        print(f"    Very close to 97% target - excellent performance!")
     else:
-        print(f"   🔧 Best result: {best_stats['success_rate']:.1f}% with '{best_name}'")
-        print(f"   💡 Consider adding more API services or checking network connectivity")
+        print(f"    Best result: {best_stats['success_rate']:.1f}% with '{best_name}'")
+        print(f"    Consider adding more API services or checking network connectivity")
 
     return results_comparison
 
 # Run the comprehensive test
-print("\n🚀 Starting comprehensive API pool test...")
+print("\n Starting comprehensive API pool test...")
 # enhanced_comparison = await test_ultra_enhanced_extraction()  # Comment out for now
 
 
@@ -914,7 +914,7 @@ class LightningParquetProcessor:
     @staticmethod
     def load_parquet_fast(file_path: str, sample_size: Optional[int] = None) -> pd.DataFrame:
         """Load parquet with PyArrow for maximum speed"""
-        print(f"⚡ Loading parquet: {file_path}")
+        print(f" Loading parquet: {file_path}")
         start_time = time.time()
 
         # Use PyArrow for fastest loading
@@ -950,7 +950,7 @@ class LightningParquetProcessor:
 
 print(" Hybrid Logo Extractor ready!")
 print(" This combines API speed with scraping coverage!")
-print("⚡ Expected performance: 80-90% APIs (30 seconds) + 10-20% scraping (2-3 minutes)")
+print(" Expected performance: 80-90% APIs (30 seconds) + 10-20% scraping (2-3 minutes)")
 
 
 # In[ ]:
@@ -1008,7 +1008,7 @@ async def process_full_parquet_lightning_fast():
         [r['website'] for r in successful_logos],
         threshold=0.7
     )
-    print(f"🔗 Similar pairs found: {len(similar_pairs)}")
+    print(f" Similar pairs found: {len(similar_pairs)}")
 
     # Step 5: Clustering
     print(f"\n CLUSTERING")
@@ -1029,7 +1029,7 @@ async def process_full_parquet_lightning_fast():
             print(f"      ... and {len(cluster)-3} more")
 
     # Performance summary
-    print(f"\n🎉 PIPELINE COMPLETE!")
+    print(f"\n PIPELINE COMPLETE!")
     print(f"   - Websites processed: {len(websites)}")
     print(f"   - Logos extracted: {len(successful_logos)}")
     print(f"   - Similar pairs: {len(similar_pairs)}")
@@ -1047,8 +1047,8 @@ async def process_full_parquet_lightning_fast():
 # Quick test with your parquet file
 print(" Ready to process your parquet file!")
 print(" Run: await process_full_parquet_lightning_fast()")
-print("💡 For full dataset: remove sample_size parameter")
-print("⚡ Expected time: 5-10 minutes for 4000 websites (vs 30 minutes before!)")
+print(" For full dataset: remove sample_size parameter")
+print(" Expected time: 5-10 minutes for 4000 websites (vs 30 minutes before!)")
 
 
 # In[ ]:
@@ -1240,7 +1240,7 @@ class UltraFastLogoExtractor:
             elapsed = time.time() - self.start_time
             rate = self.processed / elapsed
             eta = (self.total - self.processed) / rate if rate > 0 else 0
-            print(f"⚡ {self.processed}/{self.total} ({rate:.1f}/s) ETA: {eta/60:.1f}m")
+            print(f" {self.processed}/{self.total} ({rate:.1f}/s) ETA: {eta/60:.1f}m")
 
     async def extract_batch(self, websites: List[str]) -> List[Dict]:
         """Extract logos from a batch of websites"""
@@ -1249,7 +1249,7 @@ class UltraFastLogoExtractor:
         self.start_time = time.time()
 
         print(f" Starting batch extraction: {len(websites)} websites")
-        print(f"⚙️ Settings: {self.max_concurrent} concurrent, {self.requests_per_second} RPS")
+        print(f" Settings: {self.max_concurrent} concurrent, {self.requests_per_second} RPS")
 
         # Process all websites concurrently
         tasks = [self.extract_single_logo(website) for website in websites]
@@ -1311,7 +1311,7 @@ class SmartBatchProcessor:
         ) as extractor:
 
             for i, batch in enumerate(batches):
-                print(f"\n🔄 Processing batch {i+1}/{len(batches)} ({len(batch)} websites)")
+                print(f"\n Processing batch {i+1}/{len(batches)} ({len(batch)} websites)")
 
                 batch_results = await extractor.extract_batch(batch)
                 all_results.extend(batch_results)
@@ -1325,7 +1325,7 @@ class SmartBatchProcessor:
                 overall_rate = total_processed / elapsed
 
                 print(f" Overall progress: {total_processed}/{len(websites)} ({rate:.1f}% success)")
-                print(f"⚡ Overall rate: {overall_rate:.1f} websites/second")
+                print(f" Overall rate: {overall_rate:.1f} websites/second")
 
                 # Small delay between batches to avoid overwhelming servers
                 if i < len(batches) - 1:
@@ -1340,7 +1340,7 @@ print(" Smart Batch Processor ready!")
 print(" Ready to process thousands of websites efficiently")
 
 
-# ## ⚡ Execute Fast Pipeline
+# ##  Execute Fast Pipeline
 # 
 # ### Performance Targets:
 # - **4000 websites** in **5-10 minutes** (not 30 minutes!)
@@ -1361,7 +1361,7 @@ sample_size = 200  # Start with 200 websites for testing
 test_websites = processor.load_parquet_fast(sample_size=sample_size)
 
 print(f"\\n TESTING MODE: Processing {len(test_websites)} websites")
-print("⚡ This should complete in 1-2 minutes...")
+print(" This should complete in 1-2 minutes...")
 
 # Run the fast pipeline
 start_time = time.time()
@@ -1375,12 +1375,12 @@ start_time = time.time()
 # total_time = end_time - start_time
 rate = len(test_results) / total_time
 
-print(f"\\n🎉 FAST PIPELINE RESULTS:")
+print(f"\\n FAST PIPELINE RESULTS:")
 print(f"    Processed: {len(test_results)} websites")
 print(f"    Successful: {successful} ({extraction_rate:.1f}%)")
 print(f"    Failed: {failed}")
 print(f"    Total time: {total_time:.1f} seconds")
-print(f"   ⚡ Rate: {rate:.1f} websites/second")
+print(f"    Rate: {rate:.1f} websites/second")
 print(f"    Projected 4000 websites: ~{4000/rate/60:.1f} minutes")
 
 # Show sample results
@@ -1420,7 +1420,7 @@ print(f"\\n Ready to scale to full dataset!\\n{'='*50}")
 # )
 
 # # Run full pipeline
-# print("⚡ Starting FULL pipeline - this will take several minutes...")
+# print(" Starting FULL pipeline - this will take several minutes...")
 # full_start = time.time()
 # all_results = await batch_processor_full.process_all_websites(all_websites)
 # full_end = time.time()
@@ -1432,12 +1432,12 @@ print(f"\\n Ready to scale to full dataset!\\n{'='*50}")
 # final_time = full_end - full_start
 # final_speed = len(all_results) / final_time
 
-# print(f"\\n🎉 FULL PIPELINE COMPLETE!")
+# print(f"\\n FULL PIPELINE COMPLETE!")
 # print(f"    Total processed: {len(all_results):,} websites")
 # print(f"    Successful: {total_successful:,} ({final_rate:.1f}%)")
 # print(f"    Failed: {total_failed:,}")
 # print(f"    Total time: {final_time/60:.1f} minutes")
-# print(f"   ⚡ Average rate: {final_speed:.1f} websites/second")
+# print(f"    Average rate: {final_speed:.1f} websites/second")
 
 # # Save results for clustering
 # logo_data_full = all_results
@@ -1450,8 +1450,8 @@ print("   Current test shows the pipeline works at high speed!")
 # In[ ]:
 
 
-# 🔬 FAST CLUSTERING: Process the extracted logos
-print("🔬 FAST CLUSTERING ANALYSIS")
+#  FAST CLUSTERING: Process the extracted logos
+print(" FAST CLUSTERING ANALYSIS")
 print("=" * 40)
 
 # Convert raw bytes to OpenCV images for successful extractions
@@ -1493,7 +1493,7 @@ successful_for_clustering = len(clustering_data)
 print(f" {successful_for_clustering} logos ready for clustering")
 
 if successful_for_clustering >= 2:
-    print("🔗 Running fast clustering analysis...")
+    print(" Running fast clustering analysis...")
 
     # Use our existing Fourier analyzer and clusterer
     analyzer = FourierLogoAnalyzer()
@@ -1508,7 +1508,7 @@ if successful_for_clustering >= 2:
 
     print(f"\\n CLUSTERING RESULTS:")
     print(f"    Total clusters: {len(clusters)}")
-    print(f"   🔗 Multi-website clusters: {len(multi_clusters)}")
+    print(f"    Multi-website clusters: {len(multi_clusters)}")
 
     if multi_clusters:
         print(f"\\n Similar logo groups found:")
@@ -1517,12 +1517,12 @@ if successful_for_clustering >= 2:
             for website in cluster['websites']:
                 print(f"     - {website}")
     else:
-        print("   ℹ️ No similar logo groups found in this sample")
-        print("   💡 Try with a larger sample or full dataset")
+        print("   ℹ No similar logo groups found in this sample")
+        print("    Try with a larger sample or full dataset")
 
 else:
     print(" Need at least 2 successful logo extractions for clustering")
-    print("💡 Try increasing the sample size or checking network connectivity")
+    print(" Try increasing the sample size or checking network connectivity")
 
 print(f"\\n Fast processing complete! Ready for production scale.")
 
@@ -2158,7 +2158,7 @@ async def run_logo_analysis(websites: List[str]) -> Dict:
     for method, count in methods.items():
         print(f"   - {method}: {count}")
 
-    print("\n🔬 Step 2: Fourier Analysis & Clustering")
+    print("\n Step 2: Fourier Analysis & Clustering")
 
     # Cluster logos
     analyzer = FourierLogoAnalyzer()
@@ -2201,7 +2201,7 @@ def analyze_results(result: Dict):
     multi_site_clusters = [c for c in clusters if c['size'] > 1]
     single_site_clusters = [c for c in clusters if c['size'] == 1]
 
-    print(f"\n🔗 Clustering Results:")
+    print(f"\n Clustering Results:")
     print(f"   Multi-website clusters: {len(multi_site_clusters)}")
     print(f"   Unique logos: {len(single_site_clusters)}")
 
@@ -2318,32 +2318,32 @@ fast_scraping_architecture = """
  FAST LOGO SCRAPING ARCHITECTURE FOR SCALE
 
 1. EDGE LAYER (Cloudflare Workers - Free Tier)
-   ├── HTML Fetch & Cache (KV Storage)
-   ├── Basic Logo URL Extraction (JSON-LD, header hints)
-   └── Geographic Distribution (low latency)
+    HTML Fetch & Cache (KV Storage)
+    Basic Logo URL Extraction (JSON-LD, header hints)
+    Geographic Distribution (low latency)
 
 2. BATCH PROCESSING (GitHub Actions - Free)
-   ├── Matrix Strategy: 10-20 parallel runners
-   ├── Async HTTP/2 with connection pooling
-   ├── Per-host rate limiting (2-4 rps)
-   └── Smart retry with exponential backoff
+    Matrix Strategy: 10-20 parallel runners
+    Async HTTP/2 with connection pooling
+    Per-host rate limiting (2-4 rps)
+    Smart retry with exponential backoff
 
 3. STORAGE LAYER
-   ├── Postgres: Neon/Supabase (free tier)
-   ├── Object Storage: Backblaze B2 (10GB free)
-   └── Content-addressable hashing (dedup)
+    Postgres: Neon/Supabase (free tier)
+    Object Storage: Backblaze B2 (10GB free)
+    Content-addressable hashing (dedup)
 
 4. FALLBACK RENDERING (Playwright)
-   ├── Only for failed extractions (<3%)
-   ├── Separate job queue
-   └── Screenshot + OCR if needed
+    Only for failed extractions (<3%)
+    Separate job queue
+    Screenshot + OCR if needed
 
 5. PERFORMANCE OPTIMIZATIONS
-   ├── HTTP/2 multiplexing
-   ├── Brotli compression
-   ├── ETag/Last-Modified caching
-   ├── Domain-level memoization
-   └── Batch database writes
+    HTTP/2 multiplexing
+    Brotli compression
+    ETag/Last-Modified caching
+    Domain-level memoization
+    Batch database writes
 
 THROUGHPUT ESTIMATES:
 - Single runner: ~500-1000 sites/minute
@@ -2387,7 +2387,7 @@ results_summary = {
     'scalable_to_billions': True
 }
 
-print("\n🎉 CHALLENGE COMPLETION SUMMARY")
+print("\n CHALLENGE COMPLETION SUMMARY")
 print("=" * 40)
 for key, value in results_summary.items():
     if isinstance(value, bool):
@@ -2411,7 +2411,7 @@ with open('/Users/ingridcorobana/Desktop/personal_projs/logo_matcher/analysis_re
     }
     json.dump(json_safe_result, f, indent=2)
 
-print("\n💾 Results saved to analysis_results.json")
+print("\n Results saved to analysis_results.json")
 
 
 # ## 12. Solution Summary
@@ -2453,7 +2453,7 @@ print("\n💾 Results saved to analysis_results.json")
 # 
 # The approach is **production-ready** and can scale to Veridion's billion-record requirements using the outlined distributed architecture.
 
-# ## 🎨 Comprehensive Visualization Pipeline
+# ##  Comprehensive Visualization Pipeline
 # 
 # Now let's add powerful visualization capabilities to analyze our results:
 
@@ -2753,7 +2753,7 @@ class LogoVisualizationPipeline:
 
     def create_all_visualizations(self):
         """Create all visualization charts"""
-        print("🎨 Creating comprehensive visualization suite...")
+        print(" Creating comprehensive visualization suite...")
 
         if not self.results_loaded:
             print(" No results loaded. Run analysis first.")
@@ -2802,7 +2802,7 @@ async def run_complete_logo_analysis_pipeline(sample_size=None, max_tier=5, crea
     total_start_time = time.time()
 
     # Step 1: Load Data
-    print("\n1️⃣ DATA LOADING")
+    print("\n1⃣ DATA LOADING")
     print("-" * 30)
 
     df = LightningParquetProcessor.load_parquet_fast(
@@ -2868,7 +2868,7 @@ async def run_complete_logo_analysis_pipeline(sample_size=None, max_tier=5, crea
 
         # Show largest clusters
         sorted_clusters = sorted(clusters, key=len, reverse=True)[:5]
-        print("🏆 Top brand clusters:")
+        print(" Top brand clusters:")
         for i, cluster in enumerate(sorted_clusters, 1):
             sample_domain = cluster[0].replace('https://', '').replace('http://', '').split('/')[0]
             brand_name = sample_domain.split('.')[0]
@@ -2876,11 +2876,11 @@ async def run_complete_logo_analysis_pipeline(sample_size=None, max_tier=5, crea
     else:
         clusters = [[logo['website']] for logo in valid_logos]  # Each logo in its own cluster
         union_trace = []
-        print("ℹ️  No similar pairs found - each logo in separate cluster")
+        print("ℹ  No similar pairs found - each logo in separate cluster")
 
     # Step 6: Create Visualizations
     if create_visuals:
-        print(f"\n6️⃣ VISUALIZATION GENERATION")
+        print(f"\n6⃣ VISUALIZATION GENERATION")
         print("-" * 40)
 
         viz_pipeline = LogoVisualizationPipeline()
@@ -2906,7 +2906,7 @@ async def run_complete_logo_analysis_pipeline(sample_size=None, max_tier=5, crea
     # Step 7: Summary Report
     total_elapsed = time.time() - total_start_time
 
-    print(f"\n🎉 PIPELINE COMPLETE!")
+    print(f"\n PIPELINE COMPLETE!")
     print("=" * 50)
     print(f" RESULTS SUMMARY:")
     print(f"   - Websites processed: {len(websites)}")
@@ -2922,7 +2922,7 @@ async def run_complete_logo_analysis_pipeline(sample_size=None, max_tier=5, crea
     elif success_rate >= 90:
         print(f" GREAT! {success_rate:.1f}% success rate")
     else:
-        print(f"🔧 Consider increasing max_tier for better coverage")
+        print(f" Consider increasing max_tier for better coverage")
 
     # Return complete results
     return {
@@ -2949,14 +2949,14 @@ print(" Complete integrated pipeline ready!")
 # In[ ]:
 
 
-# 🚀 OPTION 1: Quick Test (100 websites, ultra-enhanced APIs, with visualizations)
-print("🚀 OPTION 1: Quick Test - 100 websites with ULTRA-ENHANCED API pool")
-print("🎯 Targeting 97%+ success rate with expanded API coverage")
+#  OPTION 1: Quick Test (100 websites, ultra-enhanced APIs, with visualizations)
+print(" OPTION 1: Quick Test - 100 websites with ULTRA-ENHANCED API pool")
+print(" Targeting 97%+ success rate with expanded API coverage")
 
 # Show what this configuration includes
 test_extractor = EnhancedAPILogoExtractor()
 tier_5_apis = len([api for api in test_extractor.logo_apis if api.get('tier', 1) <= 5])
-print(f"🔧 Using {tier_5_apis} API services across 5 tiers")
+print(f" Using {tier_5_apis} API services across 5 tiers")
 
 quick_results = await run_complete_logo_analysis_pipeline(
     sample_size=100,      # Test with 100 websites
@@ -2967,27 +2967,27 @@ quick_results = await run_complete_logo_analysis_pipeline(
 if quick_results:
     success_rate = quick_results['success_rate']
     if success_rate >= 97:
-        print(f"\n🎉 SUCCESS! Achieved {success_rate:.1f}% - Target reached!")
+        print(f"\n SUCCESS! Achieved {success_rate:.1f}% - Target reached!")
     elif success_rate >= 95:
-        print(f"\n✅ EXCELLENT! {success_rate:.1f}% success rate")
-        print("💡 Very close to 97% target!")
+        print(f"\n EXCELLENT! {success_rate:.1f}% success rate")
+        print(" Very close to 97% target!")
     else:
-        print(f"\n👍 Good result: {success_rate:.1f}% success rate")
-        print("💡 Try Option 2 with max_tier=7 for even higher success rate")
+        print(f"\n Good result: {success_rate:.1f}% success rate")
+        print(" Try Option 2 with max_tier=7 for even higher success rate")
 
 
 # In[ ]:
 
 
-# 🎯 OPTION 2: Ultimate Coverage Test (500 websites, ALL APIs for 97%+ success)
-print("\n🎯 OPTION 2: Ultimate Coverage - 500 websites using ALL API tiers")
-print("🚀 Using complete ultra-enhanced API pool for maximum success rate")
+#  OPTION 2: Ultimate Coverage Test (500 websites, ALL APIs for 97%+ success)
+print("\n OPTION 2: Ultimate Coverage - 500 websites using ALL API tiers")
+print(" Using complete ultra-enhanced API pool for maximum success rate")
 
 # Show the full API arsenal
 test_extractor = EnhancedAPILogoExtractor()
 all_apis = len(test_extractor.logo_apis)
-print(f"🔧 Using ALL {all_apis} API services across 7 tiers")
-print("📊 Includes: Premium APIs + Google/MS + Alternatives + Social + Archives + Direct scraping")
+print(f" Using ALL {all_apis} API services across 7 tiers")
+print(" Includes: Premium APIs + Google/MS + Alternatives + Social + Archives + Direct scraping")
 
 # Uncomment to run the ultimate test:
 # ultimate_results = await run_complete_logo_analysis_pipeline(
@@ -2998,15 +2998,15 @@ print("📊 Includes: Premium APIs + Google/MS + Alternatives + Social + Archive
 #
 # if ultimate_results:
 #     success_rate = ultimate_results['success_rate']
-#     print(f"\n🎯 ULTIMATE RESULT: {success_rate:.1f}% success rate")
+#     print(f"\n ULTIMATE RESULT: {success_rate:.1f}% success rate")
 #     if success_rate >= 97:
-#         print("🎉 TARGET ACHIEVED! 97%+ success rate reached!")
+#         print(" TARGET ACHIEVED! 97%+ success rate reached!")
 #     elif success_rate >= 95:
-#         print("✅ Outstanding performance - very close to target!")
+#         print(" Outstanding performance - very close to target!")
 #     else:
-#         print("💪 Good coverage - the expanded API pool significantly improved results!")
+#         print(" Good coverage - the expanded API pool significantly improved results!")
 
-print("💡 Uncomment the code above to run the ultimate coverage test")
+print(" Uncomment the code above to run the ultimate coverage test")
 
 
 # In[ ]:
@@ -3028,11 +3028,11 @@ print("\nPipeline configurations ready!")
 print("Choose the option that fits your needs and run the cell")
 
 
-# ## 🎉 Complete Integration Summary
+# ##  Complete Integration Summary
 # 
 # This notebook now includes ALL our developed features integrated into a single, self-contained pipeline:
 # 
-# ### ⚡ Ultra-Enhanced Logo Extraction (Targeting 97%+ Success)
+# ###  Ultra-Enhanced Logo Extraction (Targeting 97%+ Success)
 # - **Tier 1**: Premium APIs (Clearbit, LogoAPI, BrandAPI, Brandfetch, LogoGrab) - 5 services
 # - **Tier 2**: Google & Microsoft Services (Google Favicon variants, Bing, DuckDuckGo) - 5 services  
 # - **Tier 3**: Alternative Services (Favicon.io, Icons8, FaviconKit, Besticon, etc.) - 7 services
@@ -3043,18 +3043,18 @@ print("Choose the option that fits your needs and run the cell")
 # 
 # **TOTAL: 41 API services across 7 tiers for maximum coverage!**
 # 
-# ### 🔬 Advanced Fourier Analysis
+# ###  Advanced Fourier Analysis
 # - **pHash**: Perceptual hashing for basic similarity
 # - **FFT**: Fast Fourier Transform for frequency analysis
 # - **Fourier-Mellin**: Rotation and scale invariant matching
 # - **Combined Scoring**: Weighted combination of all methods
 # 
-# ### 🧮 Non-ML Clustering  
+# ###  Non-ML Clustering  
 # - **Union-Find Algorithm**: Efficient graph-based clustering
 # - **No K-means/DBSCAN**: Pure mathematical approach
 # - **Automatic Brand Discovery**: Groups similar logos by brand
 # 
-# ### 📊 Comprehensive Visualizations
+# ###  Comprehensive Visualizations
 # - **Extraction Performance**: Success rates, API breakdown, speed analysis
 # - **Similarity Analysis**: Score distributions, method comparisons, correlations
 # - **Cluster Dashboard**: Brand groups, statistics, efficiency metrics
@@ -3062,7 +3062,7 @@ print("Choose the option that fits your needs and run the cell")
 # - **Similarity Comparisons**: Side-by-side logo pair analysis
 # - **High-Quality Charts**: Publication-ready PNG outputs
 # 
-# ### 🚀 Performance Achievements
+# ###  Performance Achievements
 # - **97%+ Success Rate**: With full 7-tier API usage
 # - **30x Speed Improvement**: From 30 minutes to under 10 seconds
 # - **Massive API Pool**: 41 different logo sources for maximum coverage
@@ -3070,36 +3070,36 @@ print("Choose the option that fits your needs and run the cell")
 # - **Scalable Architecture**: Handles thousands of websites efficiently
 # - **Self-Contained**: Everything in one notebook + parquet file
 # 
-# ### 📊 API Pool Breakdown
+# ###  API Pool Breakdown
 # - **Premium Quality**: Tiers 1-2 (10 services) for 85-90% coverage
 # - **Good Balance**: Tiers 1-5 (30 services) for 95%+ coverage  
 # - **Maximum Coverage**: All 7 tiers (41 services) for 97%+ coverage
 # 
-# ### 📁 Required Files
-# - ✅ `logo_analysis.ipynb` - This complete notebook with 41 API services
-# - ✅ `logos.snappy.parquet` - Website data (already present)
-# - ✅ `requirements.txt` - Python dependencies
+# ###  Required Files
+# -  `logo_analysis.ipynb` - This complete notebook with 41 API services
+# -  `logos.snappy.parquet` - Website data (already present)
+# -  `requirements.txt` - Python dependencies
 # 
-# ### 🎯 Ready to Achieve 97%+ Success!
+# ###  Ready to Achieve 97%+ Success!
 # The notebook now has a massive API pool specifically designed to reach our 97%+ target. The ultra-enhanced extractor intelligently tries multiple sources per website, ensuring maximum logo discovery success!
 
-# ## 🌐 Google Colab Setup Guide
+# ##  Google Colab Setup Guide
 # 
 # Yes! This pipeline works perfectly in Google Colab. Here's how to set it up:
 # 
-# ### 📋 Step-by-Step Colab Setup:
+# ###  Step-by-Step Colab Setup:
 # 
 # 1. **Open Google Colab**: Go to [colab.research.google.com](https://colab.research.google.com)
 # 2. **Create New Notebook**: Click "New notebook"
 # 3. **Upload your data**: Upload `logos.snappy.parquet` to Colab
 # 4. **Copy the cells**: Copy the key cells from this notebook to Colab
 # 
-# ### 🔧 Colab-Specific Modifications Needed:
+# ###  Colab-Specific Modifications Needed:
 
 # In[ ]:
 
 
-# 🌐 GOOGLE COLAB SETUP CELL - Run this first in Colab!
+#  GOOGLE COLAB SETUP CELL - Run this first in Colab!
 
 # Install required packages
 get_ipython().system('pip install aiohttp opencv-python pillow pyarrow scikit-learn scipy matplotlib seaborn')
@@ -3123,9 +3123,9 @@ from scipy.fft import fft2, fftshift
 from sklearn.metrics.pairwise import cosine_similarity
 warnings.filterwarnings('ignore')
 
-print("🚀 GOOGLE COLAB SETUP COMPLETE!")
-print("✅ All packages installed and imported")
-print("📝 Next steps:")
+print(" GOOGLE COLAB SETUP COMPLETE!")
+print(" All packages installed and imported")
+print(" Next steps:")
 print("   1. Upload your logos.snappy.parquet file")
 print("   2. Run the data loading cell")
 print("   3. Execute the pipeline cells")
@@ -3134,22 +3134,22 @@ print("   3. Execute the pipeline cells")
 # In[ ]:
 
 
-# 📁 COLAB DATA UPLOAD - Upload your parquet file
+#  COLAB DATA UPLOAD - Upload your parquet file
 
 from google.colab import files
 import os
 
 # Option 1: Upload file directly
-print("📤 Upload your logos.snappy.parquet file:")
+print(" Upload your logos.snappy.parquet file:")
 print("   Click the folder icon in left sidebar → Upload → Select your file")
 print("   OR run the cell below to upload via file picker")
 
 # Uncomment to use file picker upload:
 # uploaded = files.upload()
-# print("✅ File uploaded successfully!")
+# print(" File uploaded successfully!")
 
 # Option 2: Load from Google Drive (if you have the file there)
-print("\n💾 Alternative: Load from Google Drive")
+print("\n Alternative: Load from Google Drive")
 print("   Uncomment the code below if your file is in Google Drive:")
 
 # from google.colab import drive
@@ -3159,27 +3159,27 @@ print("   Uncomment the code below if your file is in Google Drive:")
 
 # Verify file exists
 if os.path.exists('logos.snappy.parquet'):
-    print("✅ logos.snappy.parquet found!")
+    print(" logos.snappy.parquet found!")
     # Quick data check
     df = pd.read_parquet('logos.snappy.parquet')
-    print(f"📊 Dataset: {len(df)} rows, {len(df.columns)} columns")
-    print(f"📋 Columns: {list(df.columns)}")
-    print(f"📝 Sample data: {df.head(2)}")
+    print(f" Dataset: {len(df)} rows, {len(df.columns)} columns")
+    print(f" Columns: {list(df.columns)}")
+    print(f" Sample data: {df.head(2)}")
 else:
-    print("❌ logos.snappy.parquet not found")
-    print("📤 Please upload the file first!")
+    print(" logos.snappy.parquet not found")
+    print(" Please upload the file first!")
 
 
-# ### 🚀 Colab-Optimized Pipeline Execution
+# ###  Colab-Optimized Pipeline Execution
 # 
 # After uploading your data, you can run the complete pipeline in Colab. Here are the optimized settings for Colab:
 # 
-# **📊 Recommended Colab Settings:**
+# ** Recommended Colab Settings:**
 # - **Sample Size**: Start with 50-100 websites (Colab has resource limits)
 # - **Max Tier**: Use 3-5 for good performance (avoid tier 6-7 in Colab)
 # - **Visualizations**: All work perfectly in Colab!
 # 
-# **⚡ Colab Performance Tips:**
+# ** Colab Performance Tips:**
 # - Use GPU runtime for faster processing: Runtime → Change runtime type → GPU
 # - Start small (50 websites) then scale up
 # - Save results to Google Drive to avoid losing work
@@ -3187,7 +3187,7 @@ else:
 # In[ ]:
 
 
-# 🌐 COLAB-OPTIMIZED PIPELINE EXECUTION
+#  COLAB-OPTIMIZED PIPELINE EXECUTION
 # Copy all the class definitions (EnhancedAPILogoExtractor, FourierLogoAnalyzer, etc.) 
 # from the cells above, then run this optimized version:
 
@@ -3200,9 +3200,9 @@ async def run_colab_logo_pipeline(sample_size=50, max_tier=4):
         max_tier: API tier limit (recommended: 3-5 for Colab performance)
     """
 
-    print("🌐 COLAB LOGO ANALYSIS PIPELINE")
+    print(" COLAB LOGO ANALYSIS PIPELINE")
     print("=" * 50)
-    print(f"🎯 Processing {sample_size} websites with tier limit {max_tier}")
+    print(f" Processing {sample_size} websites with tier limit {max_tier}")
 
     # Load data
     df = pd.read_parquet('logos.snappy.parquet')
@@ -3219,7 +3219,7 @@ async def run_colab_logo_pipeline(sample_size=50, max_tier=4):
         website_col = df.columns[0]  # Use first column as fallback
 
     websites = df[website_col].dropna().tolist()[:sample_size]
-    print(f"📊 Using column '{website_col}' with {len(websites)} websites")
+    print(f" Using column '{website_col}' with {len(websites)} websites")
 
     # Run the ultra-enhanced extraction
     async with EnhancedAPILogoExtractor() as extractor:
@@ -3228,14 +3228,14 @@ async def run_colab_logo_pipeline(sample_size=50, max_tier=4):
     successful_logos = [r for r in logo_results if r['logo_found']]
     success_rate = len(successful_logos) / len(websites) * 100
 
-    print(f"\n🎉 COLAB RESULTS:")
+    print(f"\n COLAB RESULTS:")
     print(f"   - Websites processed: {len(websites)}")
     print(f"   - Logos extracted: {len(successful_logos)}")
     print(f"   - Success rate: {success_rate:.1f}%")
 
     # Show some successful extractions
     if successful_logos:
-        print(f"\n✅ Sample successful extractions:")
+        print(f"\n Sample successful extractions:")
         for i, logo in enumerate(successful_logos[:5]):
             domain = logo['domain']
             service = logo.get('api_service', 'Unknown')
@@ -3250,11 +3250,11 @@ async def run_colab_logo_pipeline(sample_size=50, max_tier=4):
     }
 
 # READY TO RUN IN COLAB!
-print("✅ Colab pipeline ready!")
-print("💡 After copying all class definitions, run: await run_colab_logo_pipeline(50, 4)")
+print(" Colab pipeline ready!")
+print(" After copying all class definitions, run: await run_colab_logo_pipeline(50, 4)")
 
 
-# ## 🌊 Real Logo Fourier Feature Visualizer
+# ##  Real Logo Fourier Feature Visualizer
 # 
 # Let's add the ability to visualize actual Fourier features from extracted logos:
 
@@ -3264,7 +3264,7 @@ print("💡 After copying all class definitions, run: await run_colab_logo_pipel
 def visualize_real_logo_features(successful_logos, num_examples=6):
     """Visualize Fourier features from actual extracted logos"""
 
-    print("🌊 REAL LOGO FOURIER FEATURE VISUALIZATION")
+    print(" REAL LOGO FOURIER FEATURE VISUALIZATION")
     print("=" * 60)
 
     if not successful_logos:
@@ -3282,7 +3282,7 @@ def visualize_real_logo_features(successful_logos, num_examples=6):
     if num_examples == 1:
         axes = axes.reshape(1, -1)
 
-    fig.suptitle('🌊 Real Logo Fourier Feature Analysis', fontsize=16, fontweight='bold')
+    fig.suptitle(' Real Logo Fourier Feature Analysis', fontsize=16, fontweight='bold')
 
     for idx, logo in enumerate(selected_logos):
         try:
@@ -3362,7 +3362,7 @@ def visualize_real_logo_features(successful_logos, num_examples=6):
     plt.savefig('real_logo_fourier_features.png', dpi=300, bbox_inches='tight')
     plt.show()
     print(" Real logo feature visualization complete!")
-    print("📁 Saved: real_logo_fourier_features.png")
+    print(" Saved: real_logo_fourier_features.png")
 
 def create_similarity_comparison_visualization(similar_pairs, successful_logos, num_pairs=3):
     """Visualize actual similar logo pairs side by side"""
@@ -3450,7 +3450,7 @@ Match Reason:
     plt.savefig('logo_similarity_comparison.png', dpi=300, bbox_inches='tight')
     plt.show()
     print(" Similarity comparison visualization complete!")
-    print("📁 Saved: logo_similarity_comparison.png")
+    print(" Saved: logo_similarity_comparison.png")
 
 print(" Real logo visualization functions ready!")
 
@@ -3458,7 +3458,7 @@ print(" Real logo visualization functions ready!")
 # In[ ]:
 
 
-# 🎨 Example: Add Real Logo Visualizations to Pipeline Results
+#  Example: Add Real Logo Visualizations to Pipeline Results
 # Run this after executing the complete pipeline to get additional visualizations
 
 def enhance_results_with_real_visualizations(pipeline_results):
@@ -3471,26 +3471,26 @@ def enhance_results_with_real_visualizations(pipeline_results):
     successful_logos = pipeline_results['successful_logos']
     similar_pairs = pipeline_results['similar_pairs']
 
-    print("🎨 Creating enhanced visualizations with real logo features...")
+    print(" Creating enhanced visualizations with real logo features...")
 
     # 1. Real logo Fourier features
     if len(successful_logos) >= 6:
         visualize_real_logo_features(successful_logos, num_examples=6)
     else:
-        print(f"ℹ️  Only {len(successful_logos)} logos available for feature visualization")
+        print(f"ℹ  Only {len(successful_logos)} logos available for feature visualization")
         visualize_real_logo_features(successful_logos, num_examples=len(successful_logos))
 
     # 2. Similarity comparisons  
     if len(similar_pairs) >= 3:
         create_similarity_comparison_visualization(similar_pairs, successful_logos, num_pairs=3)
     elif len(similar_pairs) > 0:
-        print(f"ℹ️  Only {len(similar_pairs)} similar pairs found")
+        print(f"ℹ  Only {len(similar_pairs)} similar pairs found")
         create_similarity_comparison_visualization(similar_pairs, successful_logos, num_pairs=len(similar_pairs))
     else:
-        print("ℹ️  No similar pairs found for comparison visualization")
+        print("ℹ  No similar pairs found for comparison visualization")
 
     print(" Enhanced visualizations complete!")
-    print("📁 Additional files created:")
+    print(" Additional files created:")
     print("   - real_logo_fourier_features.png")
     print("   - logo_similarity_comparison.png")
 

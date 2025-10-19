@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Logo Similarity Analysis & Clustering Pipeline
-🎯 Continue from logo extraction to similarity analysis and clustering
+ Continue from logo extraction to similarity analysis and clustering
 """
 
 import asyncio
@@ -54,7 +54,7 @@ class FourierLogoAnalyzer:
             return img_gray
             
         except Exception as e:
-            print(f"❌ Error preprocessing logo: {e}")
+            print(f" Error preprocessing logo: {e}")
             return None
     
     def compute_phash(self, img: np.ndarray) -> str:
@@ -181,7 +181,7 @@ class FourierLogoAnalyzer:
     
     def analyze_logo_batch(self, logos: List[Dict]) -> List[Dict]:
         """Extract features from a batch of logos"""
-        print(f"🔍 Analyzing {len(logos)} logos...")
+        print(f" Analyzing {len(logos)} logos...")
         start_time = time.time()
         
         analyzed_logos = []
@@ -201,19 +201,19 @@ class FourierLogoAnalyzer:
                     successful_analysis += 1
                     
             except Exception as e:
-                print(f"❌ Error analyzing {logo.get('website', 'unknown')}: {e}")
+                print(f" Error analyzing {logo.get('website', 'unknown')}: {e}")
                 logo_with_features = logo.copy()
                 logo_with_features['features'] = {'valid': False}
                 analyzed_logos.append(logo_with_features)
         
         elapsed = time.time() - start_time
-        print(f"✅ Feature extraction complete: {successful_analysis}/{len(logos)} in {elapsed:.1f}s")
+        print(f" Feature extraction complete: {successful_analysis}/{len(logos)} in {elapsed:.1f}s")
         
         return analyzed_logos
     
     def find_similar_pairs(self, analyzed_logos: List[Dict], threshold: float = 0.7) -> List[Tuple]:
         """Find pairs of similar logos"""
-        print(f"🔗 Finding similar pairs (threshold: {threshold})")
+        print(f" Finding similar pairs (threshold: {threshold})")
         start_time = time.time()
         
         valid_logos = [logo for logo in analyzed_logos if logo['features']['valid']]
@@ -239,7 +239,7 @@ class FourierLogoAnalyzer:
                     ))
         
         elapsed = time.time() - start_time
-        print(f"✅ Found {len(similar_pairs)} similar pairs in {elapsed:.1f}s")
+        print(f" Found {len(similar_pairs)} similar pairs in {elapsed:.1f}s")
         
         return similar_pairs
 
@@ -279,37 +279,37 @@ class UnionFind:
 async def continue_similarity_pipeline():
     """Continue the pipeline with similarity analysis and clustering"""
     
-    print("🚀 CONTINUING LOGO SIMILARITY PIPELINE")
+    print(" CONTINUING LOGO SIMILARITY PIPELINE")
     print("=" * 60)
     
     # Step 1: Load extracted logos
-    print("📂 Loading extracted logo results...")
+    print(" Loading extracted logo results...")
     try:
         with open('logo_extraction_results.pkl', 'rb') as f:
             results = pickle.load(f)
         
         successful_logos = results['successful_logos']
-        print(f"✅ Loaded {len(successful_logos)} logos for analysis")
+        print(f" Loaded {len(successful_logos)} logos for analysis")
         
     except FileNotFoundError:
-        print("❌ No logo results found. Run lightning_pipeline.py first.")
+        print(" No logo results found. Run lightning_pipeline.py first.")
         return
     
     # Step 2: Feature extraction and analysis
-    print(f"\n🔍 FEATURE EXTRACTION")
+    print(f"\n FEATURE EXTRACTION")
     print("-" * 30)
     
     analyzer = FourierLogoAnalyzer()
     analyzed_logos = analyzer.analyze_logo_batch(successful_logos)
     
     # Step 3: Similarity analysis
-    print(f"\n🔗 SIMILARITY ANALYSIS")
+    print(f"\n SIMILARITY ANALYSIS")
     print("-" * 30)
     
     similar_pairs = analyzer.find_similar_pairs(analyzed_logos, threshold=0.7)
     
     # Step 4: Clustering
-    print(f"\n🎯 CLUSTERING")
+    print(f"\n CLUSTERING")
     print("-" * 30)
     
     if similar_pairs:
@@ -329,7 +329,7 @@ async def continue_similarity_pipeline():
         # Get clusters
         clusters = uf.get_clusters()
         
-        print(f"📊 Found {len(clusters)} clusters with 2+ websites")
+        print(f" Found {len(clusters)} clusters with 2+ websites")
         
         # Show top clusters
         sorted_clusters = sorted(clusters, key=len, reverse=True)
@@ -341,11 +341,11 @@ async def continue_similarity_pipeline():
                 print(f"      ... and {len(cluster)-3} more")
     
     else:
-        print("❌ No similar pairs found with current threshold")
+        print(" No similar pairs found with current threshold")
         clusters = []
     
     # Step 5: Save results
-    print(f"\n💾 SAVING SIMILARITY RESULTS")
+    print(f"\n SAVING SIMILARITY RESULTS")
     print("-" * 30)
     
     similarity_results = {
@@ -374,18 +374,18 @@ async def continue_similarity_pipeline():
         
         df_clusters = pd.DataFrame(cluster_data)
         df_clusters.to_csv('logo_clusters.csv', index=False)
-        print(f"✅ Saved clusters to logo_clusters.csv")
+        print(f" Saved clusters to logo_clusters.csv")
     
     # Save similar pairs as CSV
     if similar_pairs:
         df_pairs = pd.DataFrame(similar_pairs, columns=['website1', 'website2', 'similarity'])
         df_pairs.to_csv('similar_pairs.csv', index=False)
-        print(f"✅ Saved similar pairs to similar_pairs.csv")
+        print(f" Saved similar pairs to similar_pairs.csv")
     
-    print(f"✅ Saved similarity analysis to similarity_analysis_results.pkl")
+    print(f" Saved similarity analysis to similarity_analysis_results.pkl")
     
     # Final summary
-    print(f"\n🎉 SIMILARITY PIPELINE COMPLETE!")
+    print(f"\n SIMILARITY PIPELINE COMPLETE!")
     print(f"   - Logos analyzed: {len(analyzed_logos)}")
     print(f"   - Valid features: {len([l for l in analyzed_logos if l['features']['valid']])}")
     print(f"   - Similar pairs: {len(similar_pairs)}")
@@ -396,5 +396,5 @@ async def continue_similarity_pipeline():
 
 
 if __name__ == "__main__":
-    print("🎯 Starting Logo Similarity Analysis Pipeline")
+    print(" Starting Logo Similarity Analysis Pipeline")
     results = asyncio.run(continue_similarity_pipeline())

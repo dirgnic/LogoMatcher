@@ -388,11 +388,11 @@ class LogoClusterer:
     
     async def cluster_websites(self, websites: List[str]) -> Dict:
         """Complete pipeline: extract → cluster → results"""
-        print(f"🚀 Clustering {len(websites)} websites...")
+        print(f" Clustering {len(websites)} websites...")
         start_time = time.time()
         
         # Extract logos
-        print("📥 Extracting logos...")
+        print(" Extracting logos...")
         async with FastLogoExtractor() as extractor:
             tasks = [extractor.extract_logo(url) for url in websites]
             logo_results = await asyncio.gather(*tasks, return_exceptions=True)
@@ -404,24 +404,24 @@ class LogoClusterer:
                 valid_logos.append(result)
         
         extraction_rate = len(valid_logos) / len(websites) * 100
-        print(f"✅ Extracted {len(valid_logos)}/{len(websites)} logos ({extraction_rate:.1f}%)")
+        print(f" Extracted {len(valid_logos)}/{len(websites)} logos ({extraction_rate:.1f}%)")
         
         if len(valid_logos) < 2:
             return self._empty_result(websites, logo_results, extraction_rate)
         
         # Compute features
-        print("🔬 Computing Fourier features...")
+        print(" Computing Fourier features...")
         features = []
         for logo in valid_logos:
             feat = self.analyzer.extract_features(logo['logo_data'])
             features.append(feat)
         
         # Pre-grouping: exact pHash matches
-        print("🔗 Pre-grouping exact pHash matches...")
+        print(" Pre-grouping exact pHash matches...")
         phash_groups = self._pregroup_exact_phash(features)
         
         # Build similarity graph
-        print("📊 Building similarity graph...")
+        print(" Building similarity graph...")
         n = len(valid_logos)
         uf = UnionFind(n)
         similarity_pairs = []
@@ -469,7 +469,7 @@ class LogoClusterer:
         clusters.sort(key=lambda x: x['size'], reverse=True)
         
         elapsed = time.time() - start_time
-        print(f"🎯 Found {len(clusters)} clusters in {elapsed:.1f}s")
+        print(f" Found {len(clusters)} clusters in {elapsed:.1f}s")
         
         return {
             'clusters': clusters,
@@ -525,7 +525,7 @@ async def main():
             if website and not website.startswith('#'):
                 websites.append(website)
     
-    print(f"📋 Loaded {len(websites)} websites from {args.input}")
+    print(f" Loaded {len(websites)} websites from {args.input}")
     
     # Run clustering
     clusterer = LogoClusterer(
@@ -543,7 +543,7 @@ async def main():
         json_result = json.loads(json.dumps(result, default=lambda x: x.tolist() if isinstance(x, np.ndarray) else str(x)))
         json.dump(json_result, f, indent=2)
     
-    print(f"💾 Saved results to {args.output}")
+    print(f" Saved results to {args.output}")
     
     # Optional CSV export
     if args.csv:
@@ -559,16 +559,16 @@ async def main():
         
         df = pd.DataFrame(rows)
         df.to_csv(args.csv, index=False)
-        print(f"💾 Saved CSV to {args.csv}")
+        print(f" Saved CSV to {args.csv}")
     
     # Print summary
-    print(f"\n📊 SUMMARY:")
+    print(f"\n SUMMARY:")
     print(f"   Extraction rate: {result['extraction_rate']:.1f}%")
     print(f"   Clusters found: {len(result['clusters'])}")
     print(f"   Largest cluster: {max([c['size'] for c in result['clusters']], default=0)} websites")
     
     if result['clusters']:
-        print(f"\n🔗 TOP CLUSTERS:")
+        print(f"\n TOP CLUSTERS:")
         for i, cluster in enumerate(result['clusters'][:5]):
             print(f"   {i+1}. {cluster['size']} websites: {', '.join(cluster['websites'][:3])}{'...' if cluster['size'] > 3 else ''}")
 

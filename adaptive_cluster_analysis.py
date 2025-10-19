@@ -8,16 +8,16 @@ from python_scraping_class import LogoAnalysisPipeline
 async def run_adaptive_clustering():
     """Run natural clustering with adaptive threshold to find optimal similarity level"""
     
-    print("🎯 ADAPTIVE THRESHOLD CLUSTERING ANALYSIS")
+    print(" ADAPTIVE THRESHOLD CLUSTERING ANALYSIS")
     print("=" * 60)
     
     # Load enhanced logo data
-    print("📋 Loading enhanced logo data...")
+    print(" Loading enhanced logo data...")
     with open('comprehensive_logo_extraction_fast_results.pkl', 'rb') as f:
         enhanced_data = pickle.load(f)
     
     successful_logos = enhanced_data.get('successful_logos', [])
-    print(f"✅ Loaded {len(successful_logos)} successful logos ({len(successful_logos)/4384*100:.2f}% success rate)")
+    print(f" Loaded {len(successful_logos)} successful logos ({len(successful_logos)/4384*100:.2f}% success rate)")
     
     # Remove duplicates by domain
     seen_domains = set()
@@ -27,7 +27,7 @@ async def run_adaptive_clustering():
             seen_domains.add(logo['domain'])
             unique_logos.append(logo)
     
-    print(f"🔄 Removed duplicates: {len(unique_logos)} unique domains")
+    print(f" Removed duplicates: {len(unique_logos)} unique domains")
     
     # Initialize pipeline
     pipeline = LogoAnalysisPipeline()
@@ -42,13 +42,13 @@ async def run_adaptive_clustering():
             'source': logo.get('source', 'unknown')
         })
     
-    print(f"✅ Prepared {len(pipeline_logos)} logos for analysis")
+    print(f" Prepared {len(pipeline_logos)} logos for analysis")
     
     # Try different thresholds to find the sweet spot
     thresholds = [0.95, 0.93, 0.91, 0.89, 0.87, 0.85]
     
     for threshold in thresholds:
-        print(f"\n🔍 Testing threshold: {threshold}")
+        print(f"\n Testing threshold: {threshold}")
         start_time = time.time()
         
         # Run similarity analysis
@@ -75,11 +75,11 @@ async def run_adaptive_clustering():
         
         analysis_time = time.time() - start_time
         
-        print(f"   📊 Found {len(similar_pairs)} similar pairs in {analysis_time:.1f}s")
+        print(f"    Found {len(similar_pairs)} similar pairs in {analysis_time:.1f}s")
         
         # Check if this threshold gives a reasonable number of pairs
         if len(similar_pairs) <= 10000:  # Reasonable number for clustering
-            print(f"✅ Threshold {threshold} looks good - proceeding with clustering...")
+            print(f" Threshold {threshold} looks good - proceeding with clustering...")
             
             # Create natural clusters
             if similar_pairs:
@@ -89,25 +89,25 @@ async def run_adaptive_clustering():
                 cluster_sizes = [len(cluster) for cluster in clusters]
                 cluster_sizes.sort(reverse=True)
                 
-                print(f"\n🎊 CLUSTERING RESULTS (Threshold: {threshold})")
+                print(f"\n CLUSTERING RESULTS (Threshold: {threshold})")
                 print(f"=" * 50)
-                print(f"📊 Total clusters: {len(clusters)}")
-                print(f"📈 Cluster sizes: {cluster_sizes[:10]}{'...' if len(cluster_sizes) > 10 else ''}")
-                print(f"🏆 Largest cluster: {max(cluster_sizes) if cluster_sizes else 0} domains")
-                print(f"📝 Average cluster size: {np.mean(cluster_sizes):.1f}")
+                print(f" Total clusters: {len(clusters)}")
+                print(f" Cluster sizes: {cluster_sizes[:10]}{'...' if len(cluster_sizes) > 10 else ''}")
+                print(f" Largest cluster: {max(cluster_sizes) if cluster_sizes else 0} domains")
+                print(f" Average cluster size: {np.mean(cluster_sizes):.1f}")
                 
                 # Show some example clusters
-                print(f"\n🎯 EXAMPLE CLUSTERS:")
+                print(f"\n EXAMPLE CLUSTERS:")
                 for i, cluster in enumerate(clusters[:5]):
                     print(f"Cluster {i+1} ({len(cluster)} domains): {cluster[:5]}{'...' if len(cluster) > 5 else ''}")
                 
                 return len(clusters), cluster_sizes, threshold
             else:
-                print(f"⚠️  No clusters found with threshold {threshold}")
+                print(f"  No clusters found with threshold {threshold}")
         else:
-            print(f"❌ Threshold {threshold} produces too many pairs ({len(similar_pairs)}) - trying higher threshold")
+            print(f" Threshold {threshold} produces too many pairs ({len(similar_pairs)}) - trying higher threshold")
     
-    print(f"\n❌ Could not find a suitable threshold")
+    print(f"\n Could not find a suitable threshold")
     return 0, [], None
 
 if __name__ == "__main__":
@@ -115,6 +115,6 @@ if __name__ == "__main__":
     cluster_count, sizes, best_threshold = asyncio.run(run_adaptive_clustering())
     
     if best_threshold:
-        print(f"\n🎉 FINAL RESULT: Found {cluster_count} natural clusters using threshold {best_threshold}")
+        print(f"\n FINAL RESULT: Found {cluster_count} natural clusters using threshold {best_threshold}")
     else:
-        print(f"\n💔 No suitable clustering threshold found")
+        print(f"\n No suitable clustering threshold found")

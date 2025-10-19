@@ -87,42 +87,42 @@ class LogoScrapingEngine:
             with open(pickle_file, 'rb') as f:
                 data = pickle.load(f)
             
-            print(f"📋 Loading existing logo data from {pickle_file}")
-            print(f"🔍 Data type: {type(data)}")
+            print(f" Loading existing logo data from {pickle_file}")
+            print(f" Data type: {type(data)}")
             
             # Handle different data structures like my_collab
             if isinstance(data, list):
                 # Direct list of logo results 
                 successful_logos = [r for r in data if r.get('logo_found', False)]
-                print(f"✅ Loaded {len(successful_logos)}/{len(data)} successful logos from list")
+                print(f" Loaded {len(successful_logos)}/{len(data)} successful logos from list")
                 return data
                 
             elif isinstance(data, dict):
-                print(f"📊 Dict keys: {list(data.keys())}")
+                print(f" Dict keys: {list(data.keys())}")
                 # Try different possible keys
                 for key in ['logo_results', 'successful_logos', 'results']:
                     if key in data:
                         results = data[key]
                         if isinstance(results, list):
                             successful_logos = [r for r in results if r.get('logo_found', False)]
-                            print(f"✅ Loaded {len(successful_logos)}/{len(results)} successful logos from '{key}'")
+                            print(f" Loaded {len(successful_logos)}/{len(results)} successful logos from '{key}'")
                             return results
                         elif isinstance(results, dict):
                             # Convert dict to list
                             result_list = list(results.values())
                             successful_logos = [r for r in result_list if r.get('logo_found', False)]
-                            print(f"✅ Loaded {len(successful_logos)}/{len(result_list)} successful logos from dict '{key}'")
+                            print(f" Loaded {len(successful_logos)}/{len(result_list)} successful logos from dict '{key}'")
                             return result_list
                 
                 # If no specific key found, return empty list
-                print(f"⚠️ No recognized logo results found in dict")
+                print(f" No recognized logo results found in dict")
                 return []
             else:
-                print(f"⚠️ Unexpected data type: {type(data)}")
+                print(f" Unexpected data type: {type(data)}")
                 return []
                 
         except Exception as e:
-            print(f"❌ Error loading pickle file {pickle_file}: {e}")
+            print(f" Error loading pickle file {pickle_file}: {e}")
             return []
     
     def _load_api_config(self, config_path: str) -> dict:
@@ -615,7 +615,7 @@ class LogoAnalysisPipeline:
         successful_logos = [r for r in logo_results_list if r.get('logo_found', False)]
         success_rate = len(successful_logos) / len(logo_results_list) * 100 if logo_results_list else 0
         
-        print(f"✅ Loaded {len(successful_logos)}/{len(logo_results_list)} successful logos ({success_rate:.1f}% success)")
+        print(f" Loaded {len(successful_logos)}/{len(logo_results_list)} successful logos ({success_rate:.1f}% success)")
         
         if len(successful_logos) < 2:
             print("ERROR: Need at least 2 successful logos for analysis")
@@ -655,7 +655,7 @@ class LogoAnalysisPipeline:
                             except Exception as e:
                                 continue  # Skip failed images
                 
-                print(f"✅ Prepared {len(logo_images)}/{len(successful_logos)} valid logo images")
+                print(f" Prepared {len(logo_images)}/{len(successful_logos)} valid logo images")
                 
                 if len(logo_images) < 2:
                     print("ERROR: Need at least 2 valid logo images for similarity analysis")

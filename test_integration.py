@@ -17,25 +17,25 @@ sys.path.insert(0, str(current_dir / "build"))
 
 try:
     from python_scraping_class import LogoAnalysisPipeline
-    print("✅ Python scraping class imported successfully")
+    print(" Python scraping class imported successfully")
 except ImportError as e:
-    print(f"❌ Failed to import Python scraping class: {e}")
+    print(f" Failed to import Python scraping class: {e}")
     sys.exit(1)
 
 # Test C++ module availability
 try:
     import fourier_math_cpp
     CPP_AVAILABLE = True
-    print("✅ C++ Fourier module available")
+    print(" C++ Fourier module available")
     print(f"   Thread pool capacity: {fourier_math_cpp.LogoAnalysisPipeline(128)}")
 except ImportError as e:
     CPP_AVAILABLE = False
-    print("⚠️ C++ Fourier module not available, using Python fallback")
+    print(" C++ Fourier module not available, using Python fallback")
     print(f"   Import error: {e}")
 
 async def test_logo_extraction():
     """Test the logo extraction functionality"""
-    print("\n🧪 Testing Logo Extraction...")
+    print("\n Testing Logo Extraction...")
     
     test_websites = [
         'google.com',
@@ -53,7 +53,7 @@ async def test_logo_extraction():
             results = await pipeline.scraper.extract_batch_logos(test_websites[:3])  # Test with first 3
         
         successful = [r for r in results if r.get('success')]
-        print(f"✅ Extraction test: {len(successful)}/{len(test_websites[:3])} logos extracted")
+        print(f" Extraction test: {len(successful)}/{len(test_websites[:3])} logos extracted")
         
         if len(successful) > 0:
             print(f"   Sample result: {successful[0]['domain']} ({successful[0]['size']} bytes)")
@@ -61,16 +61,16 @@ async def test_logo_extraction():
         return len(successful) > 0
         
     except Exception as e:
-        print(f"❌ Extraction test failed: {e}")
+        print(f" Extraction test failed: {e}")
         return False
 
 def test_cpp_fourier_analysis():
     """Test C++ Fourier analysis if available"""
     if not CPP_AVAILABLE:
-        print("\n⚠️ Skipping C++ tests - module not available")
+        print("\n Skipping C++ tests - module not available")
         return True
     
-    print("\n🧪 Testing C++ Fourier Analysis...")
+    print("\n Testing C++ Fourier Analysis...")
     
     try:
         # Create test images
@@ -103,7 +103,7 @@ def test_cpp_fourier_analysis():
         features = cpp_pipeline.analyze_single_logo(test_images[0])
         single_time = time.time() - start_time
         
-        print(f"✅ Single image analysis: {single_time*1000:.2f}ms")
+        print(f" Single image analysis: {single_time*1000:.2f}ms")
         print(f"   Features valid: {features.is_valid}")
         print(f"   Hash length: {len(features.perceptual_hash)}")
         print(f"   Feature vector size: {len(features.comprehensive_features)}")
@@ -114,7 +114,7 @@ def test_cpp_fourier_analysis():
         batch_time = time.time() - start_time
         
         valid_count = sum(1 for f in batch_features if f.is_valid)
-        print(f"✅ Batch analysis: {batch_time*1000:.2f}ms ({len(test_images)} images)")
+        print(f" Batch analysis: {batch_time*1000:.2f}ms ({len(test_images)} images)")
         print(f"   Valid features: {valid_count}/{len(test_images)}")
         
         # Test comprehensive analysis with clustering
@@ -122,13 +122,13 @@ def test_cpp_fourier_analysis():
         analysis_results = cpp_pipeline.compute_comprehensive_analysis(test_images, 0.4)
         analysis_time = time.time() - start_time
         
-        print(f"✅ Comprehensive analysis: {analysis_time*1000:.2f}ms")
+        print(f" Comprehensive analysis: {analysis_time*1000:.2f}ms")
         print(f"   Similarity matrix: {analysis_results['similarity_matrix'].shape}")
         print(f"   Clusters found: {len(analysis_results['clusters'])}")
         print(f"   Similarity scores: {len(analysis_results['similarity_scores'])}")
         
         # Performance benchmark
-        print("\n⚡ Running performance benchmark...")
+        print("\n Running performance benchmark...")
         benchmark = fourier_math_cpp.benchmark_analysis(test_images, 10)
         print(f"   Processing rate: {benchmark['images_per_second']:.1f} images/second")
         print(f"   Average time per iteration: {benchmark['avg_time_per_iteration_ms']:.2f}ms")
@@ -136,14 +136,14 @@ def test_cpp_fourier_analysis():
         return True
         
     except Exception as e:
-        print(f"❌ C++ analysis test failed: {e}")
+        print(f" C++ analysis test failed: {e}")
         import traceback
         traceback.print_exc()
         return False
 
 def test_python_fallback_analysis():
     """Test Python fallback analysis"""
-    print("\n🧪 Testing Python Fallback Analysis...")
+    print("\n Testing Python Fallback Analysis...")
     
     try:
         # Create pipeline with C++ disabled
@@ -177,7 +177,7 @@ def test_python_fallback_analysis():
         results = pipeline._python_similarity_analysis(test_logo_data, 0.4)
         python_time = time.time() - start_time
         
-        print(f"✅ Python analysis: {python_time*1000:.2f}ms")
+        print(f" Python analysis: {python_time*1000:.2f}ms")
         print(f"   Clusters found: {len(results['clusters'])}")
         print(f"   Similarity scores: {len(results['similarity_scores'])}")
         print(f"   Valid logos: {len(results['valid_logos'])}")
@@ -185,14 +185,14 @@ def test_python_fallback_analysis():
         return True
         
     except Exception as e:
-        print(f"❌ Python analysis test failed: {e}")
+        print(f" Python analysis test failed: {e}")
         import traceback
         traceback.print_exc()
         return False
 
 async def test_integrated_pipeline():
     """Test the complete integrated pipeline"""
-    print("\n🧪 Testing Integrated Pipeline...")
+    print("\n Testing Integrated Pipeline...")
     
     try:
         pipeline = LogoAnalysisPipeline()
@@ -208,7 +208,7 @@ async def test_integrated_pipeline():
             similarity_threshold=0.45
         )
         
-        print(f"✅ Integrated pipeline test: {results['status']}")
+        print(f" Integrated pipeline test: {results['status']}")
         if results['status'] == 'success':
             print(f"   Processing time: {results['total_time']:.2f}s")
             print(f"   Success rate: {results['performance_metrics']['success_rate']:.1%}")
@@ -217,25 +217,25 @@ async def test_integrated_pipeline():
         return results['status'] == 'success'
         
     except Exception as e:
-        print(f"❌ Integrated pipeline test failed: {e}")
+        print(f" Integrated pipeline test failed: {e}")
         import traceback
         traceback.print_exc()
         return False
 
 def test_architecture_separation():
     """Test that the architecture properly separates concerns"""
-    print("\n🧪 Testing Architecture Separation...")
+    print("\n Testing Architecture Separation...")
     
     try:
         from python_scraping_class import LogoScrapingEngine, LogoVisualizationEngine
         
         # Test that scraping engine handles I/O
         scraper = LogoScrapingEngine()
-        print("✅ Scraping engine instantiated")
+        print(" Scraping engine instantiated")
         
         # Test that visualization engine handles charts
         visualizer = LogoVisualizationEngine()
-        print("✅ Visualization engine instantiated")
+        print(" Visualization engine instantiated")
         
         # Test that C++ module handles mathematics (if available)
         if CPP_AVAILABLE:
@@ -243,23 +243,23 @@ def test_architecture_separation():
             extractor = fourier_math_cpp.LogoFeatureExtractor(128, 8)
             similarity = fourier_math_cpp.SimilarityComputer()
             clusterer = fourier_math_cpp.LogoClusterer()
-            print("✅ C++ mathematical components instantiated")
+            print(" C++ mathematical components instantiated")
         else:
-            print("⚠️ C++ mathematical components not available (using Python fallback)")
+            print(" C++ mathematical components not available (using Python fallback)")
         
-        print("✅ Architecture separation verified:")
+        print(" Architecture separation verified:")
         print("   - Python: I/O, visualization, orchestration")
         print("   - C++: Heavy mathematical computations (when available)")
         
         return True
         
     except Exception as e:
-        print(f"❌ Architecture separation test failed: {e}")
+        print(f" Architecture separation test failed: {e}")
         return False
 
 async def run_all_tests():
     """Run all integration tests"""
-    print("🚀 LOGO ANALYSIS INTEGRATION TESTS")
+    print(" LOGO ANALYSIS INTEGRATION TESTS")
     print("=" * 50)
     
     test_results = {}
@@ -281,14 +281,14 @@ async def run_all_tests():
     
     # Summary
     print("\n" + "=" * 50)
-    print("📊 TEST RESULTS SUMMARY")
+    print(" TEST RESULTS SUMMARY")
     print("=" * 50)
     
     passed = 0
     total = len(test_results)
     
     for test_name, result in test_results.items():
-        status = "✅ PASS" if result else "❌ FAIL"
+        status = " PASS" if result else " FAIL"
         print(f"{test_name.replace('_', ' ').title():20} : {status}")
         if result:
             passed += 1
@@ -296,13 +296,13 @@ async def run_all_tests():
     print(f"\nOverall: {passed}/{total} tests passed")
     
     if passed == total:
-        print("🎉 ALL TESTS PASSED! The two-part architecture is working correctly.")
-        print("\n📋 System Status:")
-        print(f"   Python Components: ✅ Functional")
-        print(f"   C++ Components: {'✅ Functional' if CPP_AVAILABLE else '⚠️ Using Python fallback'}")
-        print(f"   Integration: ✅ Working")
+        print(" ALL TESTS PASSED! The two-part architecture is working correctly.")
+        print("\n System Status:")
+        print(f"   Python Components:  Functional")
+        print(f"   C++ Components: {' Functional' if CPP_AVAILABLE else ' Using Python fallback'}")
+        print(f"   Integration:  Working")
     else:
-        print("⚠️ Some tests failed. Check the output above for details.")
+        print(" Some tests failed. Check the output above for details.")
     
     return passed == total
 
@@ -312,10 +312,10 @@ def main():
         success = asyncio.run(run_all_tests())
         sys.exit(0 if success else 1)
     except KeyboardInterrupt:
-        print("\n\n❌ Tests interrupted by user")
+        print("\n\n Tests interrupted by user")
         sys.exit(1)
     except Exception as e:
-        print(f"\n\n❌ Test suite failed: {e}")
+        print(f"\n\n Test suite failed: {e}")
         import traceback
         traceback.print_exc()
         sys.exit(1)

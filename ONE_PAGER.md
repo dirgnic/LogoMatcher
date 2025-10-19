@@ -1,6 +1,6 @@
 # Logo Clustering Pipeline: One-Page Overview
 
-## 🎯 **Problem: Group Websites by Visually Identical/Near-Identical Logos**
+##  **Problem: Group Websites by Visually Identical/Near-Identical Logos**
 
 **Goal**: Detect brand re-use across websites (not semantic similarity)  
 **Constraints**: No ML clustering (k-means/DBSCAN) — favor fast, explainable methods  
@@ -8,12 +8,12 @@
 
 ---
 
-## 🚀 **Pipeline Architecture**
+##  **Pipeline Architecture**
 
 ```
 websites.txt → DOM extraction → Fourier analysis → Union-Find → clusters.json
               ↓                 ↓                  ↓
-           📥 Fast Path      🔬 3 Methods      🔗 Graph Components
+            Fast Path       3 Methods       Graph Components
            • JSON-LD         • pHash (DCT)      • Hamming ≤ 6
            • Header/nav      • FFT low-freq     • Cosine ≥ 0.985  
            • Logo hints      • Fourier-Mellin   • Max cosine ≥ 0.995
@@ -22,7 +22,7 @@ websites.txt → DOM extraction → Fourier analysis → Union-Find → clusters
 
 ---
 
-## 📊 **Three Fourier Methods (No ML Clustering)**
+##  **Three Fourier Methods (No ML Clustering)**
 
 | Method | Purpose | Threshold | Invariance |
 |--------|---------|-----------|------------|
@@ -34,7 +34,7 @@ websites.txt → DOM extraction → Fourier analysis → Union-Find → clusters
 
 ---
 
-## 🔍 **Fast Extraction Strategy**
+##  **Fast Extraction Strategy**
 
 ### **DOM Heuristics (Fast Path)**
 1. **JSON-LD** `Organization.logo` (highest priority)
@@ -50,7 +50,7 @@ websites.txt → DOM extraction → Fourier analysis → Union-Find → clusters
 
 ---
 
-## 🔗 **Union-Find Clustering (No k-means/DBSCAN)**
+##  **Union-Find Clustering (No k-means/DBSCAN)**
 
 ```python
 # Build similarity graph
@@ -66,7 +66,7 @@ clusters = union_find.get_components()
 
 ---
 
-## 🎯 **Explainability Features**
+##  **Explainability Features**
 
 ### **k-NN Probe (No Clustering)**
 - **Interpretable features**: aspect ratio, RGB means, HSV hue bins, edge density, sharpness
@@ -83,7 +83,7 @@ else if edge_density >= 0.15:
 
 ---
 
-## ⚡ **Production Scale Pipeline**
+##  **Production Scale Pipeline**
 
 ### **Free/Cheap Compute Stack**
 - **Edge**: Cloudflare Workers + KV (cache JSON-LD, icons)
@@ -99,7 +99,7 @@ else if edge_density >= 0.15:
 
 ---
 
-## 📦 **Deliverables**
+##  **Deliverables**
 
 | File | Purpose |
 |------|---------|
@@ -111,7 +111,7 @@ else if edge_density >= 0.15:
 
 ---
 
-## 🔧 **Quick Start**
+##  **Quick Start**
 
 ```bash
 # Install dependencies
@@ -129,7 +129,7 @@ cat clusters.json | jq '.clusters[] | {size: .size, websites: .websites}'
 
 ---
 
-## ✅ **Key Innovations**
+##  **Key Innovations**
 
 1. **No ML clustering** — uses graph connectivity instead
 2. **Fourier everywhere** — DCT, FFT, Fourier-Mellin for robustness

@@ -10,7 +10,7 @@ def debug_logo_structure():
     with open('comprehensive_logo_extraction_fast_results.pkl', 'rb') as f:
         enhanced_data = pickle.load(f)
     
-    print("🔍 ENHANCED LOGO DATA STRUCTURE")
+    print(" ENHANCED LOGO DATA STRUCTURE")
     print("=" * 50)
     
     successful_logos = enhanced_data.get('successful_logos', [])

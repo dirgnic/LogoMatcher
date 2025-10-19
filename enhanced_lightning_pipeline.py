@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Enhanced Lightning Pipeline with Expanded API Pool
-🚀 Target: 97%+ logo extraction success rate
+ Target: 97%+ logo extraction success rate
 """
 
 import asyncio
@@ -375,7 +375,7 @@ class EnhancedAPILogoExtractor:
     
     async def batch_extract_logos_enhanced(self, websites: List[str], max_tier: int = 6) -> List[Dict]:
         """Enhanced batch extraction with tier limits for speed vs coverage balance"""
-        print(f"🚀 Enhanced API extraction: {len(websites)} websites (max tier: {max_tier})")
+        print(f" Enhanced API extraction: {len(websites)} websites (max tier: {max_tier})")
         start_time = time.time()
         
         # Process websites in smaller batches to prevent overwhelming
@@ -384,7 +384,7 @@ class EnhancedAPILogoExtractor:
         
         for i in range(0, len(websites), batch_size):
             batch = websites[i:i + batch_size]
-            print(f"   📦 Processing batch {i//batch_size + 1}/{(len(websites)-1)//batch_size + 1} ({len(batch)} websites)")
+            print(f"    Processing batch {i//batch_size + 1}/{(len(websites)-1)//batch_size + 1} ({len(batch)} websites)")
             
             # Process batch concurrently
             tasks = [self.extract_logo_tiered(website, max_tier) for website in batch]
@@ -407,8 +407,8 @@ class EnhancedAPILogoExtractor:
         elapsed = time.time() - start_time
         successful = sum(1 for r in all_results if r['logo_found'])
         
-        print(f"✅ Enhanced results: {successful}/{len(websites)} in {elapsed:.1f}s ({len(websites)/elapsed:.1f}/s)")
-        print(f"🎯 Success rate: {successful/len(websites)*100:.1f}%")
+        print(f" Enhanced results: {successful}/{len(websites)} in {elapsed:.1f}s ({len(websites)/elapsed:.1f}/s)")
+        print(f" Success rate: {successful/len(websites)*100:.1f}%")
         
         # Show tier and API breakdown
         tier_breakdown = defaultdict(int)
@@ -421,11 +421,11 @@ class EnhancedAPILogoExtractor:
                 tier_breakdown[f"Tier {tier}"] += 1
                 api_breakdown[service] += 1
         
-        print("📊 Tier performance:")
+        print(" Tier performance:")
         for tier, count in sorted(tier_breakdown.items()):
             print(f"   - {tier}: {count} logos")
         
-        print("📊 Top API services:")
+        print(" Top API services:")
         for service, count in sorted(api_breakdown.items(), key=lambda x: x[1], reverse=True)[:5]:
             print(f"   - {service}: {count}")
         
@@ -438,7 +438,7 @@ class LightningParquetProcessor:
     @staticmethod
     def load_parquet_fast(file_path: str, sample_size: Optional[int] = None) -> pd.DataFrame:
         """Load parquet with PyArrow for maximum speed"""
-        print(f"⚡ Loading parquet: {file_path}")
+        print(f" Loading parquet: {file_path}")
         start_time = time.time()
         
         # Use PyArrow for fastest loading
@@ -448,10 +448,10 @@ class LightningParquetProcessor:
         # Sample if requested
         if sample_size and len(df) > sample_size:
             df = df.sample(n=sample_size, random_state=42)
-            print(f"📊 Sampled {sample_size} from {len(table)} total websites")
+            print(f" Sampled {sample_size} from {len(table)} total websites")
         
         elapsed = time.time() - start_time
-        print(f"✅ Loaded {len(df)} websites in {elapsed:.2f}s")
+        print(f" Loaded {len(df)} websites in {elapsed:.2f}s")
         
         return df
     
@@ -475,7 +475,7 @@ class LightningParquetProcessor:
 async def process_enhanced_lightning_pipeline(sample_size: int = 100, max_tier: int = 4):
     """Enhanced lightning-fast pipeline targeting 97%+ success rate"""
     
-    print("🚀 ENHANCED LIGHTNING PIPELINE - TARGET 97%+ SUCCESS")
+    print(" ENHANCED LIGHTNING PIPELINE - TARGET 97%+ SUCCESS")
     print("=" * 65)
     
     # Step 1: Load parquet data
@@ -486,15 +486,15 @@ async def process_enhanced_lightning_pipeline(sample_size: int = 100, max_tier: 
     
     # Get website column
     website_col = LightningParquetProcessor.get_website_column(df)
-    print(f"📊 Website column detected: '{website_col}'")
+    print(f" Website column detected: '{website_col}'")
     
     websites = df[website_col].dropna().tolist()
-    print(f"📝 Processing {len(websites)} websites")
+    print(f" Processing {len(websites)} websites")
     
     # Step 2: Enhanced logo extraction
-    print(f"\n🎯 ENHANCED LOGO EXTRACTION")
+    print(f"\n ENHANCED LOGO EXTRACTION")
     print("-" * 35)
-    print(f"🔧 Using API tiers 1-{max_tier} (speed vs coverage balance)")
+    print(f" Using API tiers 1-{max_tier} (speed vs coverage balance)")
     
     async with EnhancedAPILogoExtractor() as extractor:
         logo_results = await extractor.batch_extract_logos_enhanced(websites, max_tier=max_tier)
@@ -503,21 +503,21 @@ async def process_enhanced_lightning_pipeline(sample_size: int = 100, max_tier: 
     successful_logos = [r for r in logo_results if r['logo_found']]
     success_rate = len(successful_logos)/len(websites)*100
     
-    print(f"\n✅ Enhanced extraction complete: {len(successful_logos)}/{len(websites)} logos")
-    print(f"🎯 Success rate: {success_rate:.1f}%")
+    print(f"\n Enhanced extraction complete: {len(successful_logos)}/{len(websites)} logos")
+    print(f" Success rate: {success_rate:.1f}%")
     
     # Recommendations for improvement
     if success_rate < 95:
-        print(f"\n💡 To reach 97%+ success rate:")
+        print(f"\n To reach 97%+ success rate:")
         print(f"   - Increase max_tier to 6 (adds web scraping fallbacks)")
         print(f"   - Current tier limit: {max_tier}")
         if max_tier < 6:
             print(f"   - Try: max_tier=6 for maximum coverage")
     else:
-        print(f"\n🎉 EXCELLENT! {success_rate:.1f}% success rate achieved!")
+        print(f"\n EXCELLENT! {success_rate:.1f}% success rate achieved!")
     
     # Step 4: Performance summary
-    print(f"\n🎉 ENHANCED PIPELINE COMPLETE!")
+    print(f"\n ENHANCED PIPELINE COMPLETE!")
     print(f"   - Websites processed: {len(websites)}")
     print(f"   - Logos extracted: {len(successful_logos)}")
     print(f"   - Success rate: {success_rate:.1f}%")
@@ -532,11 +532,11 @@ async def process_enhanced_lightning_pipeline(sample_size: int = 100, max_tier: 
 
 
 if __name__ == "__main__":
-    print("🚀 Starting Enhanced Lightning-Fast Logo Pipeline")
-    print("💡 Target: 97%+ logo extraction success rate")
+    print(" Starting Enhanced Lightning-Fast Logo Pipeline")
+    print(" Target: 97%+ logo extraction success rate")
     
     # Test with different tier limits
-    print("\n🔬 Testing tier performance...")
+    print("\n Testing tier performance...")
     
     # Quick test (tiers 1-2 only - fastest)
     print("\n--- TIER 1-2 TEST (Fastest) ---")
@@ -550,15 +550,15 @@ if __name__ == "__main__":
     print("\n--- TIER 1-6 TEST (Maximum Coverage) ---")
     results_full = asyncio.run(process_enhanced_lightning_pipeline(sample_size=50, max_tier=6))
     
-    print(f"\n🎯 TIER COMPARISON:")
+    print(f"\n TIER COMPARISON:")
     print(f"   - Tiers 1-2: {results_fast['success_rate']:.1f}% success")
     print(f"   - Tiers 1-4: {results_balanced['success_rate']:.1f}% success")  
     print(f"   - Tiers 1-6: {results_full['success_rate']:.1f}% success")
     
-    print(f"\n💡 RECOMMENDATION:")
+    print(f"\n RECOMMENDATION:")
     if results_full['success_rate'] >= 97:
-        print(f"   ✅ Use max_tier=6 for 97%+ success rate!")
+        print(f"    Use max_tier=6 for 97%+ success rate!")
     elif results_balanced['success_rate'] >= 95:
-        print(f"   ⚡ Use max_tier=4 for good balance (95%+ success)")
+        print(f"    Use max_tier=4 for good balance (95%+ success)")
     else:
-        print(f"   🔧 Consider adding more API services for better coverage")
+        print(f"    Consider adding more API services for better coverage")

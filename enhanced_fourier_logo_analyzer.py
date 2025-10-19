@@ -1010,7 +1010,7 @@ class FourierLogoAnalyzer:
     
     def analyze_logo_batch(self, logos: list) -> list:
         """Analyze batch of logos with ALL 2025 research features"""
-        print(f"🔬 Analyzing {len(logos)} logos with 2025 research features...")
+        print(f" Analyzing {len(logos)} logos with 2025 research features...")
         start_time = time.time()
         
         analyzed_logos = []
@@ -1054,15 +1054,15 @@ class FourierLogoAnalyzer:
                 analyzed_logos.append(logo_with_features)
         
         elapsed = time.time() - start_time
-        print(f"✅ Enhanced analysis completed: {successful_analysis}/{len(logos)} valid in {elapsed:.1f}s")
-        print(f"🔬 Features per logo: Traditional + 2025 Research + Deep Hashing")
-        print(f"📊 Deep features: 64-bit fused hash + semantic calibration + multi-scale analysis")
+        print(f" Enhanced analysis completed: {successful_analysis}/{len(logos)} valid in {elapsed:.1f}s")
+        print(f" Features per logo: Traditional + 2025 Research + Deep Hashing")
+        print(f" Deep features: 64-bit fused hash + semantic calibration + multi-scale analysis")
         
         return analyzed_logos
     
     def find_similar_pairs(self, analyzed_logos: list, threshold: float = 0.7) -> list:
         """Find similar pairs using enhanced multi-method comparison"""
-        print(f"🔍 Finding similar pairs with 2025 research methods (threshold: {threshold})...")
+        print(f" Finding similar pairs with 2025 research methods (threshold: {threshold})...")
         
         valid_logos = [logo for logo in analyzed_logos if logo['features']['valid']]
         similar_pairs = []
@@ -1114,10 +1114,10 @@ class FourierLogoAnalyzer:
                 except Exception as e:
                     continue
         
-        print(f"✅ Similar pairs found: {len(similar_pairs)} using deep hashing + multi-method analysis")
-        print(f"🧠 Deep hashing: Compact binary fusion + semantic calibration from arXiv:1610.07231")
+        print(f" Similar pairs found: {len(similar_pairs)} using deep hashing + multi-method analysis")
+        print(f" Deep hashing: Compact binary fusion + semantic calibration from arXiv:1610.07231")
         return similar_pairs
 
-print("🚀 Enhanced FourierLogoAnalyzer Ready!")
-print("✅ Features: Traditional Fourier + Advanced research + Deep hashing")
-print("✅ Multi-method similarity detection with compact binary codes")
+print(" Enhanced FourierLogoAnalyzer Ready!")
+print(" Features: Traditional Fourier + Advanced research + Deep hashing")
+print(" Multi-method similarity detection with compact binary codes")

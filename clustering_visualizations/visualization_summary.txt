@@ -1,0 +1,35 @@
+======================================================================
+CLUSTERING VISUALIZATION SUMMARY
+======================================================================
+
+Timestamp: 20251019_221530
+
+DATASET OVERVIEW
+----------------------------------------------------------------------
+Total Logos:           4,320
+Total Clusters:        376
+Singleton Count:       48 (1.1%)
+Average Cluster Size:  11.49
+Median Cluster Size:   13
+Largest Cluster:       39 logos
+Smallest Cluster:      1 logos
+
+CLUSTER SIZE DISTRIBUTION
+----------------------------------------------------------------------
+Singleton    (  1-  1):   48 clusters ( 12.8%)
+Small        (  2-  5):  107 clusters ( 28.5%)
+Medium       (  6- 10):   22 clusters (  5.9%)
+Large        ( 11- 20):  198 clusters ( 52.7%)
+Huge         ( 21-1000):    1 clusters (  0.3%)
+
+VISUALIZATIONS GENERATED
+----------------------------------------------------------------------
+1. 2D PCA Cluster Separation (cluster_separation_pca_2d.png)
+2. 2D t-SNE Cluster Separation (cluster_separation_tsne_2d.png)
+3. Interactive 3D Visualization (cluster_separation_3d.html)
+4. pHash Similarity Heatmap (phash_heatmap.png)
+5. Feature Distributions (feature_distributions.png)
+6. Cluster Statistics (cluster_statistics.png)
+7. Statistics Data (cluster_statistics.csv)
+
+======================================================================

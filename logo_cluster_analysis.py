@@ -456,8 +456,8 @@ def main():
         print(f"\n{method.replace('_', ' ').title()} clustering complete!")
         print(f"Generated {len(np.unique(cluster_labels))} clusters from {len(domains)} logos")
     
-    print(f"\n✓ Clustering analysis complete!")
-    print(f"✓ Check the generated files for detailed results and visualizations.")
+    print(f"\n Clustering analysis complete!")
+    print(f" Check the generated files for detailed results and visualizations.")
 
 if __name__ == "__main__":
     main()

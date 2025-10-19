@@ -1304,13 +1304,13 @@ class AdvancedLogoClusterer:
         
         # Load JPEG file paths
         self.jpeg_files = self._load_jpeg_paths()
-        print(f"🎯 Found {len(self.jpeg_files)} JPEG files for clustering analysis")
-        print(f"🔧 Enhanced semantic analysis enabled: Brand intelligence, visual analysis, hierarchical clustering")
+        print(f" Found {len(self.jpeg_files)} JPEG files for clustering analysis")
+        print(f" Enhanced semantic analysis enabled: Brand intelligence, visual analysis, hierarchical clustering")
     
     def _load_jpeg_paths(self):
         """Load all JPEG file paths with domain extraction"""
         if not os.path.exists(self.jpeg_folder):
-            print(f"❌ Error: Folder {self.jpeg_folder} not found!")
+            print(f" Error: Folder {self.jpeg_folder} not found!")
             return []
         
         jpeg_files = []
@@ -2210,8 +2210,8 @@ class AdvancedLogoClusterer:
     
     def extract_all_features_parallel(self):
         """Extract features for all logos using aggressive parallelism"""
-        print(f"🚀 Extracting comprehensive features from {len(self.jpeg_files)} logos...")
-        print(f"🧵 Using {self.max_workers} threads with batch size {self.batch_size}")
+        print(f" Extracting comprehensive features from {len(self.jpeg_files)} logos...")
+        print(f" Using {self.max_workers} threads with batch size {self.batch_size}")
         
         all_features = {}
         
@@ -2250,7 +2250,7 @@ class AdvancedLogoClusterer:
                 except Exception as e:
                     print(f"Batch processing error: {e}")
         
-        print(f"✅ Feature extraction completed for {len(all_features)} logos")
+        print(f" Feature extraction completed for {len(all_features)} logos")
         return all_features
     
     def compute_hamming_distance(self, hash1, hash2):
@@ -2632,7 +2632,7 @@ class AdvancedLogoClusterer:
         """
         Build similarity graph with contextual thresholds
         """
-        print(f"🔍 Building similarity graph ({context} mode) for {len(features_dict)} logos...")
+        print(f" Building similarity graph ({context} mode) for {len(features_dict)} logos...")
         
         domains = list(features_dict.keys())
         similarity_edges = []
@@ -2646,7 +2646,7 @@ class AdvancedLogoClusterer:
             print("   Using splitting thresholds for large cluster division...")
         
         total_comparisons = len(domains) * (len(domains) - 1) // 2
-        print(f"📊 Total pairwise comparisons: {total_comparisons:,}")
+        print(f" Total pairwise comparisons: {total_comparisons:,}")
         
         completed = 0
         for i in range(len(domains)):
@@ -2693,7 +2693,7 @@ class AdvancedLogoClusterer:
                 if completed % 10000 == 0:
                     print(f"   Progress: {completed:,}/{total_comparisons:,} ({completed/total_comparisons*100:.1f}%)")
         
-        print(f"✅ Found {len(similarity_edges)} similarity edges in {context} mode")
+        print(f" Found {len(similarity_edges)} similarity edges in {context} mode")
         return similarity_edges
 
     def build_similarity_graph(self, features_dict):
@@ -2701,13 +2701,13 @@ class AdvancedLogoClusterer:
         Build graph of similar logos using parallel pairwise comparison
         Implements graph-based clustering approach from solution outline
         """
-        print(f"🔍 Building similarity graph for {len(features_dict)} logos...")
-        print(f"🧵 Using {self.max_workers} threads for pairwise comparison...")
+        print(f" Building similarity graph for {len(features_dict)} logos...")
+        print(f" Using {self.max_workers} threads for pairwise comparison...")
         
         domains = list(features_dict.keys())
         total_comparisons = len(domains) * (len(domains) - 1) // 2
         
-        print(f"📊 Total pairwise comparisons: {total_comparisons:,}")
+        print(f" Total pairwise comparisons: {total_comparisons:,}")
         
         # Create comparison task list
         comparison_tasks = []
@@ -2722,7 +2722,7 @@ class AdvancedLogoClusterer:
             for i in range(0, len(comparison_tasks), batch_size)
         ]
         
-        print(f"📦 Split into {len(batches)} batches of ~{batch_size} comparisons each")
+        print(f" Split into {len(batches)} batches of ~{batch_size} comparisons each")
         
         # Graph represented as adjacency list
         similarity_edges = []
@@ -2785,7 +2785,7 @@ class AdvancedLogoClusterer:
                 except Exception as e:
                     print(f"Batch comparison error: {e}")
         
-        print(f"✅ Similarity graph built with {len(similarity_edges)} edges")
+        print(f" Similarity graph built with {len(similarity_edges)} edges")
         return similarity_edges, domains
     
     def find_connected_components(self, edges, domains):
@@ -2793,7 +2793,7 @@ class AdvancedLogoClusterer:
         Find connected components in similarity graph using Union-Find
         Each component represents a cluster of similar logos
         """
-        print(f"🔗 Finding connected components (clusters)...")
+        print(f" Finding connected components (clusters)...")
         
         # Union-Find data structure
         n = len(domains)
@@ -2843,7 +2843,7 @@ class AdvancedLogoClusterer:
         multi_clusters = [c for c in clusters if len(c) > 1]
         singleton_clusters = [c for c in clusters if len(c) == 1]
         
-        print(f"📈 Clustering Results:")
+        print(f" Clustering Results:")
         print(f"   Total clusters: {len(clusters)}")
         print(f"   Multi-logo clusters: {len(multi_clusters)}")
         print(f"   Singleton clusters: {len(singleton_clusters)}")
@@ -2859,7 +2859,7 @@ class AdvancedLogoClusterer:
         
         multi_clusters = [c for c in clusters if len(c) > 1]
         
-        print(f"📊 Cluster Distribution:")
+        print(f" Cluster Distribution:")
         cluster_sizes = {}
         for cluster in clusters:
             size = len(cluster)
@@ -2870,7 +2870,7 @@ class AdvancedLogoClusterer:
             print(f"   Size {size}: {count} clusters")
         
         # Sample interesting clusters
-        print(f"\n🔍 Sample Multi-Logo Clusters:")
+        print(f"\n Sample Multi-Logo Clusters:")
         for i, cluster in enumerate(multi_clusters[:5]):
             print(f"\nCluster {i+1} ({len(cluster)} logos):")
             
@@ -2955,17 +2955,17 @@ class AdvancedLogoClusterer:
         # Print summary of saved files
         multi_clusters = sum(1 for cluster in clusters if len(cluster) > 1)
         
-        print(f"\n💾 Results saved:")
-        print(f"   📊 Clusters CSV: {csv_path}")
-        print(f"   📖 Detailed analysis: {txt_path}")
+        print(f"\n Results saved:")
+        print(f"    Clusters CSV: {csv_path}")
+        print(f"    Detailed analysis: {txt_path}")
         if edges_csv:
-            print(f"   🔗 Edges CSV: {edges_csv}")
-        print(f"   📦 Complete results: {pkl_path}")
+            print(f"    Edges CSV: {edges_csv}")
+        print(f"    Complete results: {pkl_path}")
         
         if multi_clusters > 0:
-            print(f"\n🎯 Found {multi_clusters} meaningful logo clusters!")
+            print(f"\n Found {multi_clusters} meaningful logo clusters!")
         else:
-            print(f"\n🔍 All logos remain in singleton clusters - check detailed analysis")
+            print(f"\n All logos remain in singleton clusters - check detailed analysis")
         
         return csv_path, edges_csv, pkl_path
     
@@ -3131,7 +3131,7 @@ class AdvancedLogoClusterer:
         """
         Save comprehensive human-readable cluster analysis to text file
         """
-        print(f"💾 Saving detailed cluster analysis to {txt_path}")
+        print(f" Saving detailed cluster analysis to {txt_path}")
         
         with open(txt_path, 'w', encoding='utf-8') as f:
             # Header
@@ -3220,12 +3220,12 @@ class AdvancedLogoClusterer:
                     f.write(f"  Brand coherence score: {brand_coherence:.3f}\n")
                     
                     if brand_coherence < 0.5:
-                        f.write(f"  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!\n")
+                        f.write(f"   LOW COHERENCE: Multiple unrelated brands detected!\n")
                     f.write("\n")
                 else:
                     brand_name = list(brand_families.keys())[0] if brand_families else "unknown"
                     f.write(f"PURE BRAND CLUSTER: '{brand_name}'\n")
-                    f.write(f"  ✅ HIGH COHERENCE: Single brand family\n")
+                    f.write(f"   HIGH COHERENCE: Single brand family\n")
                     f.write("\n")
                 
                 # Industry analysis
@@ -3236,9 +3236,9 @@ class AdvancedLogoClusterer:
                         f.write(f"  {industry}: {count} logos ({percentage:.1f}%)\n")
                     
                     if len(industries) == 1:
-                        f.write(f"  ✅ INDUSTRY COHERENT: Single industry cluster\n")
+                        f.write(f"   INDUSTRY COHERENT: Single industry cluster\n")
                     else:
-                        f.write(f"  ⚠️ MIXED INDUSTRIES: {len(industries)} different industries\n")
+                        f.write(f"   MIXED INDUSTRIES: {len(industries)} different industries\n")
                     f.write("\n")
                 
                 # List all domains in cluster
@@ -3338,7 +3338,7 @@ class AdvancedLogoClusterer:
             f.write(f"\n")
             f.write(f"Analysis complete. Check individual clusters above for detailed examination.\n")
         
-        print(f"✅ Detailed analysis saved to {txt_path}")
+        print(f" Detailed analysis saved to {txt_path}")
 
     def enhanced_similarity_analysis(self, features1, features2):
         """
@@ -3437,7 +3437,7 @@ class AdvancedLogoClusterer:
         OPTIMIZED singleton merging using smart pre-filtering
         Goal: Reduce cluster count efficiently without exhaustive comparison
         """
-        print("🔗 Merging singleton clusters with optimized approach...")
+        print(" Merging singleton clusters with optimized approach...")
         
         multi_clusters = [c for c in clusters if len(c) > 1]
         singletons = [c[0] for c in clusters if len(c) == 1]  # Extract domain names
@@ -3636,7 +3636,7 @@ class AdvancedLogoClusterer:
         Split oversized clusters using stricter thresholds
         Goal: Prevent giant clusters that group too many disparate logos
         """
-        print("✂️ Splitting large clusters with stricter thresholds...")
+        print(" Splitting large clusters with stricter thresholds...")
         
         small_clusters = []
         split_count = 0
@@ -3669,7 +3669,7 @@ class AdvancedLogoClusterer:
         AGGRESSIVE final optimization targeting 30-50 clusters
         Much more aggressive merging when we have too many small clusters
         """
-        print(f"🎯 Aggressive final optimization for 30-50 clusters...")
+        print(f" Aggressive final optimization for 30-50 clusters...")
         
         current_count = len(clusters)
         
@@ -3781,7 +3781,7 @@ class AdvancedLogoClusterer:
         multi_clusters = [c for c in clusters if len(c) > 1]
         singleton_clusters = [c for c in clusters if len(c) == 1]
         
-        print(f"📊 Final Cluster Distribution:")
+        print(f" Final Cluster Distribution:")
         print(f"   Total clusters: {len(clusters)} (Target: ≤50)")
         print(f"   Multi-logo clusters: {len(multi_clusters)}")
         print(f"   Singleton clusters: {len(singleton_clusters)}")
@@ -3799,13 +3799,13 @@ class AdvancedLogoClusterer:
             size = len(cluster)
             cluster_sizes[size] = cluster_sizes.get(size, 0) + 1
         
-        print(f"\n📈 Cluster Size Distribution:")
+        print(f"\n Cluster Size Distribution:")
         for size in sorted(cluster_sizes.keys(), reverse=True)[:10]:
             count = cluster_sizes[size]
             print(f"   Size {size}: {count} clusters")
         
         # Show largest clusters
-        print(f"\n🔍 Largest Multi-Logo Clusters:")
+        print(f"\n Largest Multi-Logo Clusters:")
         multi_clusters.sort(key=len, reverse=True)
         
         for i, cluster in enumerate(multi_clusters[:5]):
@@ -3838,22 +3838,22 @@ def main():
     logo_folders = [d for d in os.listdir('.') if d.startswith('extracted_logos_')]
     
     if not logo_folders:
-        print("❌ No extracted logos folder found!")
+        print(" No extracted logos folder found!")
         print("Please run extract_logos_to_jpg.py first")
         return
     
     # Use most recent folder
     logo_folder = sorted(logo_folders)[-1]
-    print(f"📁 Using logo folder: {logo_folder}")
+    print(f" Using logo folder: {logo_folder}")
     
     # Initialize advanced clusterer
     clusterer = AdvancedLogoClusterer(logo_folder)
     
     if len(clusterer.jpeg_files) == 0:
-        print("❌ No JPEG files found!")
+        print(" No JPEG files found!")
         return
     
-    print(f"🎯 Smart Clustering Parameters:")
+    print(f" Smart Clustering Parameters:")
     print(f"   Strict thresholds: pHash ≤{clusterer.phash_threshold_strict}, ORB ≥{clusterer.orb_match_threshold_strict}, Color ≥{clusterer.color_corr_threshold_strict}")
     print(f"   Relaxed thresholds: pHash ≤{clusterer.phash_threshold_relaxed}, ORB ≥{clusterer.orb_match_threshold_relaxed}, Color ≥{clusterer.color_corr_threshold_relaxed}")
     print(f"   Target: ≤50 clusters through smart multi-phase approach")
@@ -3950,7 +3950,7 @@ def main():
     print("Creating 3-level brand hierarchy...")
     hierarchy = clusterer.hierarchical_clusterer.create_hierarchical_clusters(features_dict)
     
-    print(f"✅ Hierarchical structure created:")
+    print(f" Hierarchical structure created:")
     print(f"   Level 1 (Brand families): {len(hierarchy)} families")
     
     level2_count = sum(len(h['level_2']) for h in hierarchy.values())
@@ -3967,7 +3967,7 @@ def main():
     # Assess cluster quality
     quality_metrics = clusterer.assess_cluster_quality(clusters, features_dict)
     
-    print(f"📊 Quality Assessment Results:")
+    print(f" Quality Assessment Results:")
     print(f"   Overall Quality Score: {quality_metrics['overall_quality']:.3f}/1.000")
     print(f"   Brand Coherence: {quality_metrics['avg_brand_coherence']:.3f}")
     print(f"   Industry Coherence: {quality_metrics['avg_industry_coherence']:.3f}")
@@ -3978,12 +3978,12 @@ def main():
     over_merged = clusterer.detect_over_merged_clusters(clusters, features_dict)
     
     if over_merged:
-        print(f"\n⚠️  Detected {len(over_merged)} potentially over-merged clusters:")
+        print(f"\n  Detected {len(over_merged)} potentially over-merged clusters:")
         for om in over_merged[:3]:  # Show top 3
             print(f"   Cluster {om['cluster_id']}: {om['cluster_size']} logos, "
                   f"{om['unique_brands']} brands (coherence: {om['brand_coherence']:.3f})")
     else:
-        print(f"\n✅ No over-merged clusters detected")
+        print(f"\n No over-merged clusters detected")
     
     # Save results
     save_results = clusterer.save_clustering_results(
@@ -4009,20 +4009,20 @@ def main():
     total_logos = len(features_dict)
     multi_clusters = len([c for c in clusters if len(c) > 1])
     
-    print(f"✅ Successfully clustered {total_logos} logos with semantic intelligence")
-    print(f"✅ Final result: {len(clusters)} clusters (Target: 30-50)")
-    print(f"✅ Found {multi_clusters} groups of similar logos")
-    print(f"✅ Method: Advanced semantic clustering with brand intelligence")
-    print(f"✅ Features: Multi-scale hashing + OCR + Brand families + Industry classification")
-    print(f"✅ Quality Score: {quality_metrics['overall_quality']:.3f}/1.000")
-    print(f"✅ Brand Coherence: {quality_metrics['avg_brand_coherence']:.3f}")
+    print(f" Successfully clustered {total_logos} logos with semantic intelligence")
+    print(f" Final result: {len(clusters)} clusters (Target: 30-50)")
+    print(f" Found {multi_clusters} groups of similar logos")
+    print(f" Method: Advanced semantic clustering with brand intelligence")
+    print(f" Features: Multi-scale hashing + OCR + Brand families + Industry classification")
+    print(f" Quality Score: {quality_metrics['overall_quality']:.3f}/1.000")
+    print(f" Brand Coherence: {quality_metrics['avg_brand_coherence']:.3f}")
     
-    print(f"\n💾 Advanced Results Saved:")
-    print(f"   📊 Cluster data: {csv_path}")
-    print(f"   🏗️  Brand hierarchy: {hierarchy_path}")
-    print(f"   📈 Quality metrics: {quality_path}")
+    print(f"\n Advanced Results Saved:")
+    print(f"    Cluster data: {csv_path}")
+    print(f"     Brand hierarchy: {hierarchy_path}")
+    print(f"    Quality metrics: {quality_path}")
     
-    success_emoji = "🎉" if 30 <= len(clusters) <= 50 else "⚠️"
+    success_emoji = "" if 30 <= len(clusters) <= 50 else ""
     if 30 <= len(clusters) <= 50:
         status = "SUCCESS"
     elif len(clusters) < 30:
@@ -4036,15 +4036,15 @@ def main():
     print(f"   Multi-logo clusters: {multi_clusters}")
     
     if 30 <= len(clusters) <= 50:
-        print(f"   🎯 PERFECT! Achieved target range of 30-50 clusters!")
+        print(f"    PERFECT! Achieved target range of 30-50 clusters!")
     elif len(clusters) < 30:
-        print(f"   📈 Too few clusters - clusters were over-merged")
-        print(f"   💡 Large clusters should be split for better granularity")
+        print(f"    Too few clusters - clusters were over-merged")
+        print(f"    Large clusters should be split for better granularity")
     else:
-        print(f"   � Too many clusters - need more aggressive merging")
-        print(f"   💡 More conservative merging needed")
+        print(f"    Too many clusters - need more aggressive merging")
+        print(f"    More conservative merging needed")
     
-    print(f"\n🚀 Smart Clustering Advantages:")
+    print(f"\n Smart Clustering Advantages:")
     print(f"   • Adaptive thresholds based on clustering context")
     print(f"   • Singleton merging reduces over-segmentation")
     print(f"   • Large cluster splitting prevents mega-clusters")

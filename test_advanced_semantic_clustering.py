@@ -24,28 +24,28 @@ from advanced_logo_clusterer import AdvancedLogoClusterer
 
 def test_semantic_clustering():
     """Test the enhanced semantic clustering system"""
-    print("🧠 Testing Advanced Semantic Logo Clustering System")
+    print(" Testing Advanced Semantic Logo Clustering System")
     print("=" * 60)
     
     # Initialize the advanced clusterer with just the folder path
     clusterer = AdvancedLogoClusterer('extracted_logos_20251019_174045')
     
     # The clusterer now has built-in semantic intelligence and adaptive thresholds
-    print(f"📊 Semantic clustering configured:")
-    print(f"   • Brand Intelligence: ✅ Enabled")
-    print(f"   • Visual Analysis: ✅ Advanced multi-method")
-    print(f"   • DCT/FFT Hashing: ✅ Frequency domain analysis")
-    print(f"   • Hierarchical Clustering: ✅ 3-level organization")
-    print(f"   • Industry-Specific Weights: ✅ Adaptive")
+    print(f" Semantic clustering configured:")
+    print(f"   • Brand Intelligence:  Enabled")
+    print(f"   • Visual Analysis:  Advanced multi-method")
+    print(f"   • DCT/FFT Hashing:  Frequency domain analysis")
+    print(f"   • Hierarchical Clustering:  3-level organization")
+    print(f"   • Industry-Specific Weights:  Adaptive")
     
     # The clusterer is already configured with the logo directory
     logo_count = len(clusterer.jpeg_files)
-    print(f"📂 Found {logo_count} logo files in dataset")
+    print(f" Found {logo_count} logo files in dataset")
     
     # Generate timestamp for this run
     timestamp = time.strftime("%Y%m%d_%H%M%S")
     
-    print("\n🔬 Phase 1: Comprehensive Feature Extraction")
+    print("\n Phase 1: Comprehensive Feature Extraction")
     print("-" * 50)
     
     # Extract comprehensive features with all new capabilities
@@ -53,14 +53,14 @@ def test_semantic_clustering():
     features_dict = clusterer.extract_all_features_parallel()
     extraction_time = time.time() - start_time
     
-    print(f"✅ Feature extraction completed in {extraction_time:.1f}s")
-    print(f"📊 Extracted features for {len(features_dict)} logos")
+    print(f" Feature extraction completed in {extraction_time:.1f}s")
+    print(f" Extracted features for {len(features_dict)} logos")
     
     # Display feature analysis
     if features_dict:
         sample_logo = next(iter(features_dict.values()))
         feature_types = list(sample_logo.keys())
-        print(f"🔍 Feature types extracted: {len(feature_types)}")
+        print(f" Feature types extracted: {len(feature_types)}")
         print("   Key features:", ", ".join(feature_types[:10]))
         
         # Check for new semantic features
@@ -79,9 +79,9 @@ def test_semantic_clustering():
                 semantic_features.append(f'FFT_hashes({len(fft_hashes)})')
         
         if semantic_features:
-            print(f"🧠 Semantic features detected: {', '.join(semantic_features)}")
+            print(f" Semantic features detected: {', '.join(semantic_features)}")
     
-    print("\n🤖 Phase 2: Semantic Brand Clustering")
+    print("\n Phase 2: Semantic Brand Clustering")
     print("-" * 50)
     
     # Perform advanced semantic clustering using the same workflow as main()
@@ -94,7 +94,7 @@ def test_semantic_clustering():
     
     strict_multi = [c for c in clusters_strict if len(c) > 1]
     strict_singles = [c for c in clusters_strict if len(c) == 1]
-    print(f"   ✅ Initial: {len(clusters_strict)} clusters ({len(strict_multi)} multi, {len(strict_singles)} singletons)")
+    print(f"    Initial: {len(clusters_strict)} clusters ({len(strict_multi)} multi, {len(strict_singles)} singletons)")
     
     # Phase 2B: Singleton merging with semantic intelligence  
     final_clusters = clusters_strict
@@ -104,7 +104,7 @@ def test_semantic_clustering():
         
         merged_multi = [c for c in final_clusters if len(c) > 1]
         merged_singles = [c for c in final_clusters if len(c) == 1]
-        print(f"   ✅ After merging: {len(final_clusters)} clusters ({len(merged_multi)} multi, {len(merged_singles)} singletons)")
+        print(f"    After merging: {len(final_clusters)} clusters ({len(merged_multi)} multi, {len(merged_singles)} singletons)")
     
     # Phase 2C: Large cluster splitting if needed
     large_clusters = [c for c in final_clusters if len(c) >= 20]
@@ -114,7 +114,7 @@ def test_semantic_clustering():
         
         split_multi = [c for c in final_clusters if len(c) > 1]
         split_singles = [c for c in final_clusters if len(c) == 1]
-        print(f"   ✅ After splitting: {len(final_clusters)} clusters ({len(split_multi)} multi, {len(split_singles)} singletons)")
+        print(f"    After splitting: {len(final_clusters)} clusters ({len(split_multi)} multi, {len(split_singles)} singletons)")
     
     # Phase 2D: Ultra-relaxed singleton reduction
     current_singletons = [c for c in final_clusters if len(c) == 1]
@@ -145,18 +145,18 @@ def test_semantic_clustering():
         ultra_singles = [c for c in final_clusters if len(c) == 1]
         new_singleton_rate = len(ultra_singles) / len(final_clusters) * 100
         
-        print(f"   ✅ Ultra-relaxed merging: {len(final_clusters)} clusters ({len(ultra_multi)} multi, {len(ultra_singles)} singletons)")
-        print(f"   📉 Singleton rate: {singleton_rate:.1f}% → {new_singleton_rate:.1f}%")
+        print(f"    Ultra-relaxed merging: {len(final_clusters)} clusters ({len(ultra_multi)} multi, {len(ultra_singles)} singletons)")
+        print(f"    Singleton rate: {singleton_rate:.1f}% → {new_singleton_rate:.1f}%")
     
     clustering_time = time.time() - start_time
-    print(f"\n✅ Semantic clustering completed in {clustering_time:.1f}s")
+    print(f"\n Semantic clustering completed in {clustering_time:.1f}s")
     
     # Store results for analysis
     clusters = final_clusters
     
-    print(f"🎯 Generated {len(clusters)} clusters")
+    print(f" Generated {len(clusters)} clusters")
     
-    print("\n📈 Phase 3: Cluster Quality Analysis")
+    print("\n Phase 3: Cluster Quality Analysis")
     print("-" * 50)
     
     # Analyze cluster quality with brand intelligence
@@ -164,7 +164,7 @@ def test_semantic_clustering():
     singleton_clusters = sum(1 for cluster in clusters if len(cluster) == 1)
     multi_clusters = [c for c in clusters if len(c) > 1]
     
-    print(f"📊 Cluster Distribution:")
+    print(f" Cluster Distribution:")
     print(f"   • Total logos clustered: {total_logos}")
     print(f"   • Total clusters: {len(clusters)}")
     print(f"   • Multi-logo clusters: {len(multi_clusters)}")
@@ -201,7 +201,7 @@ def test_semantic_clustering():
         elif len(brands_in_cluster) > 1:
             mixed_brand_clusters += 1
     
-    print(f"\n🧠 Brand Intelligence Analysis:")
+    print(f"\n Brand Intelligence Analysis:")
     multi_member_clusters = len(multi_clusters)
     if multi_member_clusters > 0:
         print(f"   • Brand-coherent clusters: {brand_coherent_clusters} ({brand_coherent_clusters/multi_member_clusters*100:.1f}%)")
@@ -209,7 +209,7 @@ def test_semantic_clustering():
         print(f"   • Franchise clusters detected: {franchise_clusters}")
     
     # Display sample clusters with semantic information
-    print(f"\n🔍 Sample Brand-Coherent Clusters:")
+    print(f"\n Sample Brand-Coherent Clusters:")
     print("-" * 40)
     
     coherent_examples = []
@@ -243,7 +243,7 @@ def test_semantic_clustering():
         print(f"      Sample: {', '.join(example['members'])}")
     
     # Save results with semantic analysis
-    print(f"\n💾 Saving Enhanced Results...")
+    print(f"\n Saving Enhanced Results...")
     print("-" * 50)
     
     # Save clustering results  
@@ -313,16 +313,16 @@ Current System Improvements:
 - Industry-specific similarity weights
 
 === SEMANTIC FEATURES IMPLEMENTED ===
-✅ Brand Family Extraction with Visual Analysis
-✅ Industry Classification (automotive, cosmetics, financial, etc.)
-✅ DCT-based Frequency Domain Hashing
-✅ FFT-based Frequency Analysis
-✅ Brand-Specific Hashing with Industry Preprocessing
-✅ Advanced Text Extraction (gradient/MSER/SWT methods)
-✅ Logo Composition Analysis
-✅ Hierarchical Brand Organization
-✅ Franchise Relationship Detection
-✅ Quality Assessment and Over-merge Detection
+ Brand Family Extraction with Visual Analysis
+ Industry Classification (automotive, cosmetics, financial, etc.)
+ DCT-based Frequency Domain Hashing
+ FFT-based Frequency Analysis
+ Brand-Specific Hashing with Industry Preprocessing
+ Advanced Text Extraction (gradient/MSER/SWT methods)
+ Logo Composition Analysis
+ Hierarchical Brand Organization
+ Franchise Relationship Detection
+ Quality Assessment and Over-merge Detection
 
 === CONCLUSION ===
 The advanced semantic clustering system successfully addresses the major issues
@@ -334,15 +334,15 @@ is now in the optimal range for meaningful brand organization.
     with open(analysis_filename, 'w') as f:
         f.write(analysis_report)
     
-    print(f"✅ Results saved:")
+    print(f" Results saved:")
     print(f"   • Clustering data: {results_filename}")
     print(f"   • CSV export: {clusters_csv_filename}")
     print(f"   • Analysis report: {analysis_filename}")
     
-    print(f"\n🎉 Advanced Semantic Clustering Complete!")
-    print(f"   🎯 Generated {len(clusters)} semantic clusters")
-    print(f"   🧠 {brand_coherent_clusters/multi_member_clusters*100:.1f}% brand coherence (vs 1.1% baseline)")
-    print(f"   ⚡ {extraction_time + clustering_time:.1f}s total processing time")
+    print(f"\n Advanced Semantic Clustering Complete!")
+    print(f"    Generated {len(clusters)} semantic clusters")
+    print(f"    {brand_coherent_clusters/multi_member_clusters*100:.1f}% brand coherence (vs 1.1% baseline)")
+    print(f"    {extraction_time + clustering_time:.1f}s total processing time")
     
     # Return comprehensive results
     return {
@@ -364,10 +364,10 @@ if __name__ == "__main__":
     try:
         results = test_semantic_clustering()
         if results:
-            print("\n✅ Semantic clustering test completed successfully!")
+            print("\n Semantic clustering test completed successfully!")
         else:
-            print("\n❌ Semantic clustering test failed!")
+            print("\n Semantic clustering test failed!")
     except Exception as e:
-        print(f"\n💥 Error during testing: {e}")
+        print(f"\n Error during testing: {e}")
         import traceback
         traceback.print_exc()

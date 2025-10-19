@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Real-time Logo Fourier Feature Visualizer
-🌊 Visualize actual Fourier features from extracted logos
+ Visualize actual Fourier features from extracted logos
 """
 
 import numpy as np
@@ -16,7 +16,7 @@ from similarity_pipeline import FourierLogoAnalyzer
 def visualize_real_logo_features(num_examples=6):
     """Visualize Fourier features from actual extracted logos"""
     
-    print("🌊 REAL LOGO FOURIER FEATURE VISUALIZATION")
+    print(" REAL LOGO FOURIER FEATURE VISUALIZATION")
     print("=" * 60)
     
     # Load extracted logos
@@ -24,9 +24,9 @@ def visualize_real_logo_features(num_examples=6):
         with open('logo_extraction_results.pkl', 'rb') as f:
             results = pickle.load(f)
         successful_logos = results['successful_logos'][:50]  # Take first 50 for speed
-        print(f"📊 Loaded {len(successful_logos)} logos for analysis")
+        print(f" Loaded {len(successful_logos)} logos for analysis")
     except FileNotFoundError:
-        print("❌ No logo results found. Run the extraction pipeline first.")
+        print(" No logo results found. Run the extraction pipeline first.")
         return
     
     # Initialize analyzer
@@ -39,7 +39,7 @@ def visualize_real_logo_features(num_examples=6):
     if num_examples == 1:
         axes = axes.reshape(1, -1)
     
-    fig.suptitle('🌊 Real Logo Fourier Feature Analysis', fontsize=16, fontweight='bold')
+    fig.suptitle(' Real Logo Fourier Feature Analysis', fontsize=16, fontweight='bold')
     
     for idx, logo in enumerate(selected_logos):
         try:
@@ -107,7 +107,7 @@ def visualize_real_logo_features(num_examples=6):
                 ax.text(0.5, 0.5, 'F-M Features\nFailed', ha='center', va='center', transform=ax.transAxes)
             
         except Exception as e:
-            print(f"⚠️ Error processing {logo['website']}: {e}")
+            print(f" Error processing {logo['website']}: {e}")
             # Fill row with error messages
             for col in range(5):
                 axes[idx, col].text(0.5, 0.5, f'Error\n{logo["website"][:15]}...', 
@@ -116,13 +116,13 @@ def visualize_real_logo_features(num_examples=6):
     
     plt.tight_layout()
     plt.savefig('real_logo_fourier_features.png', dpi=300, bbox_inches='tight')
-    print("💾 Saved: real_logo_fourier_features.png")
+    print(" Saved: real_logo_fourier_features.png")
     plt.show()
 
 def create_similarity_comparison_visualization():
     """Create visualization comparing similar vs dissimilar logo pairs"""
     
-    print("\n🔍 SIMILARITY COMPARISON VISUALIZATION")
+    print("\n SIMILARITY COMPARISON VISUALIZATION")
     print("=" * 60)
     
     try:
@@ -136,11 +136,11 @@ def create_similarity_comparison_visualization():
                 pairs_df = pd.read_csv('improved_similar_pairs.csv')
                 
                 if len(pairs_df) == 0:
-                    print("❌ No similar pairs found in results")
+                    print(" No similar pairs found in results")
                     return
                     
         except FileNotFoundError:
-            print("❌ No similarity results found. Run similarity analysis first.")
+            print(" No similarity results found. Run similarity analysis first.")
             return
         
         # Get logos by website name for lookup
@@ -173,7 +173,7 @@ def create_similarity_comparison_visualization():
         if len(examples) == 1:
             axes = axes.reshape(1, -1)
         
-        fig.suptitle('🔍 Logo Similarity Comparison Analysis', fontsize=16, fontweight='bold')
+        fig.suptitle(' Logo Similarity Comparison Analysis', fontsize=16, fontweight='bold')
         
         analyzer = FourierLogoAnalyzer()
         
@@ -269,15 +269,15 @@ def create_similarity_comparison_visualization():
         
         plt.tight_layout()
         plt.savefig('logo_similarity_comparison.png', dpi=300, bbox_inches='tight')
-        print("💾 Saved: logo_similarity_comparison.png")
+        print(" Saved: logo_similarity_comparison.png")
         plt.show()
         
     except Exception as e:
-        print(f"❌ Error creating similarity visualization: {e}")
+        print(f" Error creating similarity visualization: {e}")
 
 def main():
     """Run real logo feature visualizations"""
-    print("🎨 REAL LOGO FOURIER VISUALIZATION PIPELINE")
+    print(" REAL LOGO FOURIER VISUALIZATION PIPELINE")
     print("=" * 60)
     
     # Create real logo feature visualization
@@ -286,8 +286,8 @@ def main():
     # Create similarity comparison
     create_similarity_comparison_visualization()
     
-    print("\n✅ Real logo visualizations completed!")
-    print("📁 Generated files:")
+    print("\n Real logo visualizations completed!")
+    print(" Generated files:")
     print("   • real_logo_fourier_features.png")
     print("   • logo_similarity_comparison.png")
 

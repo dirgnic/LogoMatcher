@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Lightning-Fast Logo Processing Pipeline
-🚀 Process 4000+ websites in 5-10 minutes using API-first approach
+ Process 4000+ websites in 5-10 minutes using API-first approach
 """
 
 import asyncio
@@ -140,7 +140,7 @@ class APILogoExtractor:
     
     async def batch_extract_logos(self, websites: List[str]) -> List[Dict]:
         """Extract logos for multiple websites using APIs"""
-        print(f"🚀 API extraction: {len(websites)} websites")
+        print(f" API extraction: {len(websites)} websites")
         start_time = time.time()
         
         # Process all websites concurrently (APIs are fast!)
@@ -162,7 +162,7 @@ class APILogoExtractor:
         elapsed = time.time() - start_time
         successful = sum(1 for r in valid_results if r['logo_found'])
         
-        print(f"✅ API results: {successful}/{len(websites)} in {elapsed:.1f}s ({len(websites)/elapsed:.1f}/s)")
+        print(f" API results: {successful}/{len(websites)} in {elapsed:.1f}s ({len(websites)/elapsed:.1f}/s)")
         
         # Show API service breakdown
         api_breakdown = defaultdict(int)
@@ -171,7 +171,7 @@ class APILogoExtractor:
                 service = result.get('api_service', 'unknown')
                 api_breakdown[service] += 1
         
-        print("📊 API service breakdown:")
+        print(" API service breakdown:")
         for service, count in api_breakdown.items():
             print(f"   - {service}: {count}")
         
@@ -184,7 +184,7 @@ class LightningParquetProcessor:
     @staticmethod
     def load_parquet_fast(file_path: str, sample_size: Optional[int] = None) -> pd.DataFrame:
         """Load parquet with PyArrow for maximum speed"""
-        print(f"⚡ Loading parquet: {file_path}")
+        print(f" Loading parquet: {file_path}")
         start_time = time.time()
         
         # Use PyArrow for fastest loading
@@ -194,10 +194,10 @@ class LightningParquetProcessor:
         # Sample if requested
         if sample_size and len(df) > sample_size:
             df = df.sample(n=sample_size, random_state=42)
-            print(f"📊 Sampled {sample_size} from {len(table)} total websites")
+            print(f" Sampled {sample_size} from {len(table)} total websites")
         
         elapsed = time.time() - start_time
-        print(f"✅ Loaded {len(df)} websites in {elapsed:.2f}s")
+        print(f" Loaded {len(df)} websites in {elapsed:.2f}s")
         
         return df
     
@@ -221,7 +221,7 @@ class LightningParquetProcessor:
 async def process_lightning_fast_pipeline(sample_size: int = 100):
     """Complete lightning-fast pipeline"""
     
-    print("🚀 LIGHTNING-FAST LOGO PROCESSING PIPELINE")
+    print(" LIGHTNING-FAST LOGO PROCESSING PIPELINE")
     print("=" * 60)
     
     # Step 1: Load parquet data
@@ -232,13 +232,13 @@ async def process_lightning_fast_pipeline(sample_size: int = 100):
     
     # Get website column
     website_col = LightningParquetProcessor.get_website_column(df)
-    print(f"📊 Website column detected: '{website_col}'")
+    print(f" Website column detected: '{website_col}'")
     
     websites = df[website_col].dropna().tolist()
-    print(f"📝 Processing {len(websites)} websites")
+    print(f" Processing {len(websites)} websites")
     
     # Step 2: Extract logos using API approach
-    print(f"\n🎯 LOGO EXTRACTION")
+    print(f"\n LOGO EXTRACTION")
     print("-" * 30)
     
     async with APILogoExtractor() as extractor:
@@ -246,10 +246,10 @@ async def process_lightning_fast_pipeline(sample_size: int = 100):
     
     # Step 3: Results analysis
     successful_logos = [r for r in logo_results if r['logo_found']]
-    print(f"\n✅ Logo extraction complete: {len(successful_logos)}/{len(websites)} logos")
+    print(f"\n Logo extraction complete: {len(successful_logos)}/{len(websites)} logos")
     
     # Step 4: Performance summary
-    print(f"\n🎉 PIPELINE COMPLETE!")
+    print(f"\n PIPELINE COMPLETE!")
     print(f"   - Websites processed: {len(websites)}")
     print(f"   - Logos extracted: {len(successful_logos)}")
     print(f"   - Success rate: {len(successful_logos)/len(websites)*100:.1f}%")
@@ -262,13 +262,13 @@ async def process_lightning_fast_pipeline(sample_size: int = 100):
 
 
 if __name__ == "__main__":
-    print("🚀 Starting Lightning-Fast Logo Pipeline")
-    print("💡 Processing sample of 100 websites (change sample_size for more)")
+    print(" Starting Lightning-Fast Logo Pipeline")
+    print(" Processing sample of 100 websites (change sample_size for more)")
     
     # Run the pipeline
     results = asyncio.run(process_lightning_fast_pipeline(sample_size=100))
     
-    print(f"\n🎯 Ready to scale to full dataset!")
+    print(f"\n Ready to scale to full dataset!")
     print(f"   - For 1000 websites: ~30 seconds")
     print(f"   - For 4000 websites: ~2 minutes")
     print(f"   - Much faster than 30 minutes scraping!")

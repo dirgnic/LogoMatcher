@@ -20,14 +20,14 @@ class BuildManager:
         self.system = platform.system()
         self.machine = platform.machine()
         
-        print(f"🚀 Logo Analysis C++ Module Build Manager")
+        print(f" Logo Analysis C++ Module Build Manager")
         print(f"System: {self.system} {self.machine}")
         print(f"Python: {sys.version.split()[0]}")
         print(f"Project: {self.project_dir}")
     
     def check_system_requirements(self):
         """Check if system has required tools"""
-        print("\n🔍 Checking system requirements...")
+        print("\n Checking system requirements...")
         
         requirements = {
             'python3': 'Python 3.8+',
@@ -44,29 +44,29 @@ class BuildManager:
         missing = []
         for cmd, desc in requirements.items():
             if not shutil.which(cmd):
-                missing.append(f"❌ {cmd} ({desc})")
+                missing.append(f" {cmd} ({desc})")
             else:
-                print(f"✅ {cmd} found")
+                print(f" {cmd} found")
         
         if missing:
-            print(f"\n❌ Missing requirements:")
+            print(f"\n Missing requirements:")
             for item in missing:
                 print(f"  {item}")
             
             if self.system == 'Darwin':
-                print("\n💡 To install missing tools on macOS:")
+                print("\n To install missing tools on macOS:")
                 print("  - Install Xcode Command Line Tools: xcode-select --install")
                 print("  - Install Homebrew: /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"")
                 print("  - Install CMake: brew install cmake")
             
             return False
         
-        print("✅ All system requirements met")
+        print(" All system requirements met")
         return True
     
     def install_python_dependencies(self):
         """Install required Python packages"""
-        print("\n📦 Installing Python dependencies...")
+        print("\n Installing Python dependencies...")
         
         dependencies = [
             'pybind11>=2.10.0',
@@ -81,16 +81,16 @@ class BuildManager:
                 subprocess.run([sys.executable, '-m', 'pip', 'install', dep], 
                              check=True, capture_output=True)
             
-            print("✅ Python dependencies installed")
+            print(" Python dependencies installed")
             return True
             
         except subprocess.CalledProcessError as e:
-            print(f"❌ Failed to install dependencies: {e}")
+            print(f" Failed to install dependencies: {e}")
             return False
     
     def build_with_cmake(self):
         """Build using CMake (recommended)"""
-        print("\n🔨 Building with CMake...")
+        print("\n Building with CMake...")
         
         try:
             # Create build directory
@@ -114,16 +114,16 @@ class BuildManager:
                 '-j'  # Use all available cores
             ], check=True)
             
-            print("✅ CMake build successful")
+            print(" CMake build successful")
             return True
             
         except subprocess.CalledProcessError as e:
-            print(f"❌ CMake build failed: {e}")
+            print(f" CMake build failed: {e}")
             return False
     
     def build_with_setuppy(self):
         """Build using setup.py (fallback)"""
-        print("\n🔨 Building with setup.py...")
+        print("\n Building with setup.py...")
         
         try:
             subprocess.run([
@@ -131,16 +131,16 @@ class BuildManager:
                 'build_ext', '--inplace'
             ], check=True, cwd=self.project_dir)
             
-            print("✅ setup.py build successful")
+            print(" setup.py build successful")
             return True
             
         except subprocess.CalledProcessError as e:
-            print(f"❌ setup.py build failed: {e}")
+            print(f" setup.py build failed: {e}")
             return False
     
     def test_module(self):
         """Test the built module"""
-        print("\n🧪 Testing built module...")
+        print("\n Testing built module...")
         
         # Add build directory to Python path
         build_path = str(self.build_dir)
@@ -155,7 +155,7 @@ class BuildManager:
         try:
             # Try importing the module
             import fourier_math_cpp
-            print("✅ Module import successful")
+            print(" Module import successful")
             
             # Basic functionality test
             import numpy as np
@@ -168,37 +168,37 @@ class BuildManager:
             features = pipeline.analyze_single_logo(test_images[0])
             
             if features.is_valid:
-                print("✅ Single image analysis working")
+                print(" Single image analysis working")
             else:
-                print("⚠️ Single image analysis returned invalid features")
+                print(" Single image analysis returned invalid features")
             
             # Test batch analysis
             batch_features = pipeline.analyze_logo_batch(test_images)
             valid_count = sum(1 for f in batch_features if f.is_valid)
-            print(f"✅ Batch analysis: {valid_count}/{len(test_images)} valid")
+            print(f" Batch analysis: {valid_count}/{len(test_images)} valid")
             
             # Performance benchmark
             print("Running performance benchmark...")
             benchmark = fourier_math_cpp.benchmark_analysis(test_images, 3)
-            print(f"⚡ Performance: {benchmark['images_per_second']:.1f} images/second")
+            print(f" Performance: {benchmark['images_per_second']:.1f} images/second")
             
             return True
             
         except ImportError as e:
-            print(f"❌ Module import failed: {e}")
+            print(f" Module import failed: {e}")
             print("   Check that the module was built correctly")
             return False
         except Exception as e:
-            print(f"❌ Module test failed: {e}")
+            print(f" Module test failed: {e}")
             return False
     
     def clean_build(self):
         """Clean build artifacts"""
-        print("\n🧹 Cleaning build artifacts...")
+        print("\n Cleaning build artifacts...")
         
         if self.build_dir.exists():
             shutil.rmtree(self.build_dir)
-            print("✅ Build directory cleaned")
+            print(" Build directory cleaned")
         
         # Clean setup.py artifacts
         for pattern in ['*.so', '*.pyd', 'build/', 'dist/', '*.egg-info/']:
@@ -208,28 +208,28 @@ class BuildManager:
                 elif path.is_dir():
                     shutil.rmtree(path)
         
-        print("✅ All build artifacts cleaned")
+        print(" All build artifacts cleaned")
     
     def install_module(self):
         """Install the module to site-packages"""
-        print("\n📦 Installing module...")
+        print("\n Installing module...")
         
         try:
             subprocess.run([
                 sys.executable, '-m', 'pip', 'install', '.'
             ], check=True, cwd=self.project_dir)
             
-            print("✅ Module installed successfully")
+            print(" Module installed successfully")
             return True
             
         except subprocess.CalledProcessError as e:
-            print(f"❌ Installation failed: {e}")
+            print(f" Installation failed: {e}")
             return False
     
     def run_full_build(self, clean_first=False, install=False):
         """Run the complete build process"""
         print("\n" + "="*60)
-        print("🚀 STARTING FULL BUILD PROCESS")
+        print(" STARTING FULL BUILD PROCESS")
         print("="*60)
         
         if clean_first:
@@ -246,11 +246,11 @@ class BuildManager:
         # Step 3: Build (try CMake first, fallback to setup.py)
         build_success = self.build_with_cmake()
         if not build_success:
-            print("\n⚠️ CMake build failed, trying setup.py...")
+            print("\n CMake build failed, trying setup.py...")
             build_success = self.build_with_setuppy()
         
         if not build_success:
-            print("\n❌ All build methods failed")
+            print("\n All build methods failed")
             return False
         
         # Step 4: Test the module
@@ -263,7 +263,7 @@ class BuildManager:
                 return False
         
         print("\n" + "="*60)
-        print("🎉 BUILD PROCESS COMPLETE!")
+        print(" BUILD PROCESS COMPLETE!")
         print("="*60)
         print(f"Module location: {self.build_dir}")
         print("\nNext steps:")

@@ -41,7 +41,7 @@ def get_compiler_flags():
             '-fslp-vectorize',
             '-ffp-contract=fast'
         ])
-        print("🚀 Detected Apple Silicon M3 - enabling advanced optimizations")
+        print(" Detected Apple Silicon M3 - enabling advanced optimizations")
     
     # Intel Mac optimizations
     elif platform.system() == 'Darwin' and platform.machine() == 'x86_64':
@@ -51,7 +51,7 @@ def get_compiler_flags():
             '-mavx2',
             '-mfma'
         ])
-        print("⚡ Detected Intel Mac - enabling AVX2/FMA optimizations")
+        print(" Detected Intel Mac - enabling AVX2/FMA optimizations")
     
     # Linux optimizations
     elif platform.system() == 'Linux':
@@ -59,7 +59,7 @@ def get_compiler_flags():
             '-march=native',
             '-mtune=native'
         ])
-        print("🐧 Detected Linux - enabling native optimizations")
+        print(" Detected Linux - enabling native optimizations")
     
     return flags
 
@@ -129,7 +129,7 @@ class BuildExt(build_ext):
         
         # Custom compiler detection and optimization
         compiler_type = self.compiler.compiler_type
-        print(f"📦 Using compiler: {compiler_type}")
+        print(f" Using compiler: {compiler_type}")
         
         # Add compiler-specific flags
         if compiler_type == 'unix':
@@ -142,9 +142,9 @@ class BuildExt(build_ext):
                 ])
         
         # Build with progress reporting
-        print("🔨 Building C++ extension with performance optimizations...")
+        print(" Building C++ extension with performance optimizations...")
         super().build_extensions()
-        print("✅ C++ extension built successfully!")
+        print(" C++ extension built successfully!")
     
     def check_dependencies(self):
         """Check for required build dependencies"""
@@ -152,17 +152,17 @@ class BuildExt(build_ext):
         # Check for C++17 support
         try:
             self.compiler.compile(['fourier_math.cpp'], extra_preargs=['-std=c++17'])
-            print("✅ C++17 support confirmed")
+            print(" C++17 support confirmed")
         except:
-            print("❌ C++17 support required but not available")
+            print(" C++17 support required but not available")
             sys.exit(1)
         
         # Check for pybind11
         try:
             import pybind11
-            print(f"✅ pybind11 {pybind11.__version__} found")
+            print(f" pybind11 {pybind11.__version__} found")
         except ImportError:
-            print("❌ pybind11 required but not installed")
+            print(" pybind11 required but not installed")
             print("   Install with: pip install pybind11")
             sys.exit(1)
 
@@ -243,7 +243,7 @@ setup(
 # Build instructions for users
 if __name__ == "__main__":
     print("\n" + "="*60)
-    print("🚀 HIGH-PERFORMANCE C++ FOURIER MATHEMATICS MODULE")
+    print(" HIGH-PERFORMANCE C++ FOURIER MATHEMATICS MODULE")
     print("="*60)
     print(f"System: {platform.system()} {platform.machine()}")
     print(f"Python: {sys.version}")
@@ -255,7 +255,7 @@ if __name__ == "__main__":
         print("  Clean build:       python setup.py clean --all")
         print("\nOptimization levels:")
         print("  🟢 Full optimization (-O3, vectorization)")
-        print("  🔵 Apple Silicon specific tuning (M3 Pro/Max)")
-        print("  ⚡ Accelerate framework integration (macOS)")
+        print("   Apple Silicon specific tuning (M3 Pro/Max)")
+        print("   Accelerate framework integration (macOS)")
     
     print("\n" + "="*60)

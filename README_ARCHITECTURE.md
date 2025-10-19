@@ -1,71 +1,71 @@
 # Logo Analysis Pipeline: Python + C++ Hybrid Architecture
 
-## 🚀 Overview
+##  Overview
 
 This is a high-performance logo analysis pipeline redesigned as a **two-part architecture** that separates concerns for optimal performance on MacBook Pro 2024 systems:
 
 - **Python Engine**: Handles scraping, I/O operations, data management, and visualization
 - **C++ Engine**: Handles computationally intensive Fourier mathematics and similarity analysis
 
-## 🏗️ Architecture Design
+##  Architecture Design
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                    PYTHON SCRAPING & VISUALIZATION              │
-│                                                                 │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐ │
-│  │ LogoScrapingEngine │  │ LogoVisualization │  │ LogoAnalysis     │ │
-│  │                 │  │ Engine           │  │ Pipeline        │ │
-│  │ • API Extraction│  │ • Performance    │  │ • Orchestration │ │
-│  │ • Caching       │  │   Charts         │  │ • Integration   │ │
-│  │ • Preprocessing │  │ • Similarity     │  │ • Results       │ │
-│  │ • Data Mgmt     │  │   Heatmaps       │  │   Management    │ │
-│  └─────────────────┘  └─────────────────┘  └─────────────────┘ │
-└─────────────────────────────────────────────────────────────────┘
-                                   │
+
+                    PYTHON SCRAPING & VISUALIZATION              
+                                                                 
+       
+   LogoScrapingEngine    LogoVisualization    LogoAnalysis      
+                      Engine              Pipeline         
+   • API Extraction   • Performance       • Orchestration  
+   • Caching            Charts            • Integration    
+   • Preprocessing    • Similarity        • Results        
+   • Data Mgmt          Heatmaps            Management     
+       
+
+                                   
                           Python Bindings (pybind11)
-                                   │
-┌─────────────────────────────────────────────────────────────────┐
-│                    C++ FOURIER MATHEMATICS                      │
-│                                                                 │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐ │
-│  │ FourierAnalyzer │  │ SimilarityComputer │ │ LogoClusterer   │ │
-│  │                 │  │                 │  │                 │ │
-│  │ • FFT/IFFT      │  │ • Cosine Sim    │  │ • Union-Find    │ │
-│  │ • DCT/Mellin    │  │ • Hamming Dist  │  │ • Threshold     │ │
-│  │ • Feature       │  │ • Matrix Ops    │  │ • Hierarchical  │ │
-│  │   Extraction    │  │ • Batch Proc    │  │ • Adaptive      │ │
-│  └─────────────────┘  └─────────────────┘  └─────────────────┘ │
-└─────────────────────────────────────────────────────────────────┘
+                                   
+
+                    C++ FOURIER MATHEMATICS                      
+                                                                 
+       
+   FourierAnalyzer    SimilarityComputer   LogoClusterer    
+                                                          
+   • FFT/IFFT         • Cosine Sim       • Union-Find     
+   • DCT/Mellin       • Hamming Dist     • Threshold      
+   • Feature          • Matrix Ops       • Hierarchical   
+     Extraction       • Batch Proc       • Adaptive       
+       
+
 ```
 
-## 📁 File Structure
+##  File Structure
 
 ```
 logo_matcher/
-├── 🐍 PYTHON LAYER
-│   ├── python_scraping_class.py      # Main Python engine
-│   ├── test_integration.py           # Integration tests
-│   └── logo_apis_config.json         # API configuration
-│
-├── ⚡ C++ LAYER  
-│   ├── fourier_math.hpp              # C++ header definitions
-│   ├── fourier_math.cpp              # C++ implementation
-│   └── python_bindings.cpp           # pybind11 interface
-│
-├── 🔧 BUILD SYSTEM
-│   ├── setup.py                      # Python setup script
-│   ├── CMakeLists.txt               # CMake build config
-│   └── build_module.py              # Automated build script
-│
-└── 📊 ORIGINAL FILES (preserved)
-    ├── complete_pipeline.py
-    ├── lightning_pipeline.py
-    ├── similarity_pipeline.py
-    └── visualization_pipeline.py
+  PYTHON LAYER
+    python_scraping_class.py      # Main Python engine
+    test_integration.py           # Integration tests
+    logo_apis_config.json         # API configuration
+
+  C++ LAYER  
+    fourier_math.hpp              # C++ header definitions
+    fourier_math.cpp              # C++ implementation
+    python_bindings.cpp           # pybind11 interface
+
+  BUILD SYSTEM
+    setup.py                      # Python setup script
+    CMakeLists.txt               # CMake build config
+    build_module.py              # Automated build script
+
+  ORIGINAL FILES (preserved)
+     complete_pipeline.py
+     lightning_pipeline.py
+     similarity_pipeline.py
+     visualization_pipeline.py
 ```
 
-## 🛠️ Quick Setup
+##  Quick Setup
 
 ### Option 1: Automated Build (Recommended)
 
@@ -107,7 +107,7 @@ pipeline = LogoAnalysisPipeline()
 results = await pipeline.run_complete_analysis(websites)
 ```
 
-## 🚀 Usage Examples
+##  Usage Examples
 
 ### Basic Logo Analysis
 
@@ -155,7 +155,7 @@ print(f"Processing time: {results['processing_time_ms']:.2f}ms")
 print(f"Similarity matrix shape: {results['similarity_matrix'].shape}")
 ```
 
-## 📊 Performance Characteristics
+##  Performance Characteristics
 
 ### MacBook Pro 2024 M3 Pro/Max Optimizations
 
@@ -173,7 +173,7 @@ print(f"Similarity matrix shape: {results['similarity_matrix'].shape}")
 | **Python Only** | ~50-80 logos/sec | Fallback mode |
 | **5K Websites** | ~35-45 minutes | Complete pipeline |
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Run integration tests
@@ -192,7 +192,7 @@ print(f'Performance: {result[\"images_per_second\"]:.1f} images/sec')
 "
 ```
 
-## 🔧 Configuration
+##  Configuration
 
 ### API Configuration (logo_apis_config.json)
 
@@ -230,7 +230,7 @@ pipeline = fourier_math_cpp.LogoAnalysisPipeline(
 )
 ```
 
-## 🆚 Architecture Comparison
+##  Architecture Comparison
 
 | Aspect | Original Pipeline | New Hybrid Architecture |
 |--------|-------------------|------------------------|
@@ -242,7 +242,7 @@ pipeline = fourier_math_cpp.LogoAnalysisPipeline(
 | **Maintainability** | Single language | Clear separation |
 | **Fallback** | N/A | Automatic Python fallback |
 
-## 🔍 Technical Details
+##  Technical Details
 
 ### C++ Optimizations
 
@@ -258,7 +258,7 @@ pipeline = fourier_math_cpp.LogoAnalysisPipeline(
 - **Smart Caching**: SHA-256 based disk caching with expiration
 - **Progress Tracking**: Real-time performance monitoring
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### C++ Build Issues
 
@@ -301,7 +301,7 @@ print(f"CPU cores: {psutil.cpu_count()}")
 print(f"Memory: {psutil.virtual_memory().total // (1024**3)} GB")
 ```
 
-## 📈 Future Enhancements
+##  Future Enhancements
 
 1. **GPU Acceleration**: CUDA/Metal compute shaders for Fourier transforms
 2. **Distributed Processing**: Multi-machine clustering support
@@ -309,11 +309,11 @@ print(f"Memory: {psutil.virtual_memory().total // (1024**3)} GB")
 4. **Real-time Processing**: Streaming logo analysis
 5. **Cloud Integration**: AWS/Azure batch processing
 
-## 📝 License
+##  License
 
 This project maintains the same license as the original logo analysis pipeline.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Original logo analysis pipeline developers
 - pybind11 team for excellent Python-C++ integration

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Save and Access Lightning Pipeline Results
-🎯 Process and save your logo extraction results
+ Process and save your logo extraction results
 """
 
 import asyncio
@@ -13,7 +13,7 @@ import time
 
 async def save_results():
     """Run pipeline and save results to files"""
-    print("🚀 Running pipeline and saving results...")
+    print(" Running pipeline and saving results...")
     
     # Run the full pipeline
     results = await process_lightning_fast_pipeline(sample_size=None)
@@ -23,7 +23,7 @@ async def save_results():
     logo_results = results['logo_results']
     successful_logos = results['successful_logos']
     
-    print(f"\n💾 Saving results to files...")
+    print(f"\n Saving results to files...")
     
     # 1. Save as JSON (human readable)
     results_json = {
@@ -54,11 +54,11 @@ async def save_results():
     df_successful = pd.DataFrame(successful_logos)
     df_successful.to_csv('successful_logo_extractions.csv', index=False)
     
-    print(f"✅ Results saved to:")
-    print(f"   📄 logo_extraction_results.json - Full results (human readable)")
-    print(f"   📊 logo_extraction_results.csv - All results as CSV")
-    print(f"   ✅ successful_logo_extractions.csv - Only successful extractions")
-    print(f"   🐍 logo_extraction_results.pkl - Python objects")
+    print(f" Results saved to:")
+    print(f"    logo_extraction_results.json - Full results (human readable)")
+    print(f"    logo_extraction_results.csv - All results as CSV")
+    print(f"    successful_logo_extractions.csv - Only successful extractions")
+    print(f"    logo_extraction_results.pkl - Python objects")
     
     return results
 
@@ -67,10 +67,10 @@ def load_results():
     try:
         with open('logo_extraction_results.pkl', 'rb') as f:
             results = pickle.load(f)
-        print("✅ Loaded results from logo_extraction_results.pkl")
+        print(" Loaded results from logo_extraction_results.pkl")
         return results
     except FileNotFoundError:
-        print("❌ No saved results found. Run save_results() first.")
+        print(" No saved results found. Run save_results() first.")
         return None
 
 def show_summary():
@@ -79,29 +79,29 @@ def show_summary():
         with open('logo_extraction_results.json', 'r') as f:
             data = json.load(f)
         
-        print("📊 LOGO EXTRACTION SUMMARY")
+        print(" LOGO EXTRACTION SUMMARY")
         print("=" * 50)
-        print(f"🕒 Timestamp: {data['timestamp']}")
-        print(f"🌐 Total websites: {data['total_websites']:,}")
-        print(f"✅ Successful extractions: {data['successful_extractions']:,}")
-        print(f"📈 Success rate: {data['success_rate']:.1f}%")
-        print(f"\n🔧 API Service Breakdown:")
-        print(f"   🏢 Clearbit: {data['summary']['clearbit_logos']:,}")
-        print(f"   🌐 Google Favicon: {data['summary']['google_favicon_logos']:,}")
-        print(f"   ❌ Failed: {data['summary']['failed_extractions']:,}")
+        print(f" Timestamp: {data['timestamp']}")
+        print(f" Total websites: {data['total_websites']:,}")
+        print(f" Successful extractions: {data['successful_extractions']:,}")
+        print(f" Success rate: {data['success_rate']:.1f}%")
+        print(f"\n API Service Breakdown:")
+        print(f"    Clearbit: {data['summary']['clearbit_logos']:,}")
+        print(f"    Google Favicon: {data['summary']['google_favicon_logos']:,}")
+        print(f"    Failed: {data['summary']['failed_extractions']:,}")
         
     except FileNotFoundError:
-        print("❌ No results file found. Run the pipeline first.")
+        print(" No results file found. Run the pipeline first.")
 
 def access_logos():
     """Access the logo data for further processing"""
     results = load_results()
     if results:
         successful_logos = results['successful_logos']
-        print(f"🎯 You have {len(successful_logos)} logos ready for similarity analysis!")
+        print(f" You have {len(successful_logos)} logos ready for similarity analysis!")
         
         # Show first few examples
-        print(f"\n📋 First 5 successful extractions:")
+        print(f"\n First 5 successful extractions:")
         for i, logo in enumerate(successful_logos[:5]):
             print(f"   {i+1}. {logo['website']} -> {logo['api_service']}")
         
@@ -109,7 +109,7 @@ def access_logos():
     return []
 
 if __name__ == "__main__":
-    print("🎯 Logo Results Manager")
+    print(" Logo Results Manager")
     print("Options:")
     print("1. Run pipeline and save results")
     print("2. Show summary of existing results")

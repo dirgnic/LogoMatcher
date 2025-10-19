@@ -174,7 +174,7 @@ MIXED BRAND CLUSTER (144 different brand families detected):
   Brand family 'seattlewa': 1 logos
   Brand family 'pottstownpa': 1 logos
   Brand coherence score: 0.007
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 130 logos (90.3%)
@@ -182,7 +182,7 @@ INDUSTRY DISTRIBUTION:
   automotive: 3 logos (2.1%)
   cosmetics: 3 logos (2.1%)
   financial: 1 logos (0.7%)
-  ⚠️ MIXED INDUSTRIES: 5 different industries
+   MIXED INDUSTRIES: 5 different industries
 
 DOMAINS IN CLUSTER:
     1. Aamcolubbock (aamcolubbock)
@@ -481,11 +481,11 @@ CLUSTER #2 (Original ID: 184)
 Size: 94 logos
 ------------------------------------------------------------
 PURE BRAND CLUSTER: 'mazda'
-  ✅ HIGH COHERENCE: Single brand family
+   HIGH COHERENCE: Single brand family
 
 INDUSTRY DISTRIBUTION:
   automotive: 94 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Mazda Autohaus Stiefel Muehlacker 1 (mazda-autohaus-stiefel-muehlacker_1)
@@ -733,14 +733,14 @@ MIXED BRAND CLUSTER (48 different brand families detected):
   Brand family 'linde-finance': 4 logos
   Brand family 'lindehomecare': 1 logos
   Brand coherence score: 0.291
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 75 logos (87.2%)
   automotive: 6 logos (7.0%)
   financial: 4 logos (4.7%)
   industrial: 1 logos (1.2%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Allthingswater (allthingswater)
@@ -923,11 +923,11 @@ CLUSTER #4 (Original ID: 183)
 Size: 82 logos
 ------------------------------------------------------------
 PURE BRAND CLUSTER: 'toyota'
-  ✅ HIGH COHERENCE: Single brand family
+   HIGH COHERENCE: Single brand family
 
 INDUSTRY DISTRIBUTION:
   automotive: 82 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Toyotasonkar (toyotasonkar)
@@ -1176,12 +1176,12 @@ MIXED BRAND CLUSTER (73 different brand families detected):
   Brand family 'manchesterct': 1 logos
   Brand family 'lasvegas': 1 logos
   Brand coherence score: 0.014
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 72 logos (98.6%)
   financial: 1 logos (1.4%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Aamcotulsa Brokenarrow (aamcotulsa-brokenarrow)
@@ -1338,11 +1338,11 @@ CLUSTER #6 (Original ID: 181)
 Size: 70 logos
 ------------------------------------------------------------
 PURE BRAND CLUSTER: 'mazda'
-  ✅ HIGH COHERENCE: Single brand family
+   HIGH COHERENCE: Single brand family
 
 INDUSTRY DISTRIBUTION:
   automotive: 70 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Mazda Autohaus Kalina Gelsenkirchen (mazda-autohaus-kalina-gelsenkirchen)
@@ -1500,7 +1500,7 @@ MIXED BRAND CLUSTER (2 different brand families detected):
 INDUSTRY DISTRIBUTION:
   automotive: 35 logos (51.5%)
   general: 33 logos (48.5%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Greatplacetowork 36 (greatplacetowork_36)
@@ -1666,13 +1666,13 @@ MIXED BRAND CLUSTER (18 different brand families detected):
   Brand family 'veolia': 3 logos
   Brand family 'renaultmonterrey': 2 logos
   Brand coherence score: 0.226
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   industrial: 31 logos (50.0%)
   general: 17 logos (27.4%)
   technology: 14 logos (22.6%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Daikin Ksa (daikin-ksa)
@@ -1866,11 +1866,11 @@ MIXED BRAND CLUSTER (58 different brand families detected):
   Brand family 'kia-strehle-dresden': 1 logos
   Brand family 'kia-beyschlag': 1 logos
   Brand coherence score: 0.034
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   automotive: 59 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Kia Ebner Baienfurt (kia-ebner-baienfurt)
@@ -2013,12 +2013,12 @@ MIXED BRAND CLUSTER (13 different brand families detected):
   Brand family 'allianz-assistance': 1 logos
   Brand family 'mercyships': 15 logos
   Brand coherence score: 0.259
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 57 logos (98.3%)
   industrial: 1 logos (1.7%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Engie 8 (engie_8)
@@ -2198,14 +2198,14 @@ MIXED BRAND CLUSTER (52 different brand families detected):
   Brand family 'culligangeneva': 1 logos
   Brand family 'culliganwaterwyoming': 1 logos
   Brand coherence score: 0.052
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 52 logos (89.7%)
   automotive: 4 logos (6.9%)
   cosmetics: 1 logos (1.7%)
   industrial: 1 logos (1.7%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Infiniti 2 (infiniti_2)
@@ -2340,7 +2340,7 @@ MIXED BRAND CLUSTER (4 different brand families detected):
 
 INDUSTRY DISTRIBUTION:
   general: 58 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Bakertilly 27 (bakertilly_27)
@@ -2475,12 +2475,12 @@ MIXED BRAND CLUSTER (7 different brand families detected):
   Brand family 'einhell': 14 logos
   Brand family 'manpowergroup': 14 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 52 logos (92.9%)
   industrial: 4 logos (7.1%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Actemium 24 (actemium_24)
@@ -2636,7 +2636,7 @@ MIXED BRAND CLUSTER (29 different brand families detected):
 
 INDUSTRY DISTRIBUTION:
   general: 56 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Medef Corse (medef-corse)
@@ -2769,12 +2769,12 @@ MIXED BRAND CLUSTER (9 different brand families detected):
   Brand family 'renault-fama': 2 logos
   Brand family 'fmlogistic': 13 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 39 logos (75.0%)
   automotive: 13 logos (25.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Subaru 12 (subaru_12)
@@ -2896,11 +2896,11 @@ MIXED BRAND CLUSTER (6 different brand families detected):
   Brand family 'linde-gas': 9 logos
   Brand family 'linde-medica': 1 logos
   Brand coherence score: 0.481
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 52 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Zalando 6 (zalando_6)
@@ -3042,14 +3042,14 @@ MIXED BRAND CLUSTER (26 different brand families detected):
   Brand family 'brother': 4 logos
   Brand family 'brother-industrial': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 39 logos (78.0%)
   healthcare: 5 logos (10.0%)
   automotive: 5 logos (10.0%)
   industrial: 1 logos (2.0%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Linexofwilliston (linexofwilliston)
@@ -3182,13 +3182,13 @@ MIXED BRAND CLUSTER (21 different brand families detected):
   Brand family 'moore': 1 logos
   Brand family 'pkf': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 48 logos (96.0%)
   automotive: 1 logos (2.0%)
   healthcare: 1 logos (2.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Enterprise 2 (enterprise_2)
@@ -3307,12 +3307,12 @@ MIXED BRAND CLUSTER (7 different brand families detected):
   Brand family 'ford': 12 logos
   Brand family 'adra': 12 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 34 logos (70.8%)
   automotive: 14 logos (29.2%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Rjelinek (rjelinek)
@@ -3432,12 +3432,12 @@ MIXED BRAND CLUSTER (12 different brand families detected):
   Brand family 'bbraun': 21 logos
   Brand family 'bbraun-vetcare': 2 logos
   Brand coherence score: 0.457
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 44 logos (95.7%)
   automotive: 2 logos (4.3%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Intersport 11 (intersport_11)
@@ -3556,13 +3556,13 @@ MIXED BRAND CLUSTER (15 different brand families detected):
   Brand family 'daikincareers': 2 logos
   Brand family 'wurth': 5 logos
   Brand coherence score: 0.244
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 41 logos (91.1%)
   industrial: 2 logos (4.4%)
   automotive: 2 logos (4.4%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Nobleprog 7 (nobleprog_7)
@@ -3688,13 +3688,13 @@ MIXED BRAND CLUSTER (24 different brand families detected):
   Brand family 'spitex-zimmerberg': 1 logos
   Brand family 'spitex-rotbachtal': 1 logos
   Brand coherence score: 0.489
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   automotive: 22 logos (48.9%)
   general: 22 logos (48.9%)
   industrial: 1 logos (2.2%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Honda Mulhouse (honda-mulhouse)
@@ -3810,12 +3810,12 @@ MIXED BRAND CLUSTER (14 different brand families detected):
   Brand family 'bauder': 5 logos
   Brand family 'lindt': 5 logos
   Brand coherence score: 0.114
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 36 logos (81.8%)
   automotive: 8 logos (18.2%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Toysrus 4 (toysrus_4)
@@ -3921,7 +3921,7 @@ MIXED BRAND CLUSTER (3 different brand families detected):
 
 INDUSTRY DISTRIBUTION:
   general: 44 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Veolia 15 (veolia_15)
@@ -4047,7 +4047,7 @@ MIXED BRAND CLUSTER (22 different brand families detected):
 INDUSTRY DISTRIBUTION:
   general: 38 logos (90.5%)
   industrial: 4 logos (9.5%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Spitex Region Kreuzlingen (spitex-region-kreuzlingen)
@@ -4152,11 +4152,11 @@ MIXED BRAND CLUSTER (9 different brand families detected):
   Brand family 'avia': 2 logos
   Brand family 'isover': 4 logos
   Brand coherence score: 0.400
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 40 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Synlab 10 (synlab_10)
@@ -4263,13 +4263,13 @@ MIXED BRAND CLUSTER (15 different brand families detected):
   Brand family 'toysrus': 4 logos
   Brand family 'ford': 4 logos
   Brand coherence score: 0.200
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 27 logos (67.5%)
   automotive: 9 logos (22.5%)
   industrial: 4 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Overheaddoorcompanyjackson (overheaddoorcompanyjackson)
@@ -4380,14 +4380,14 @@ MIXED BRAND CLUSTER (19 different brand families detected):
   Brand family 'daikin': 2 logos
   Brand family 'desjoyauxcreuse': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 29 logos (72.5%)
   industrial: 6 logos (15.0%)
   automotive: 4 logos (10.0%)
   financial: 1 logos (2.5%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Mazda 17 (mazda_17)
@@ -4494,13 +4494,13 @@ MIXED BRAND CLUSTER (15 different brand families detected):
   Brand family 'intersport': 3 logos
   Brand family 'solatube': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 29 logos (72.5%)
   automotive: 8 logos (20.0%)
   healthcare: 3 logos (7.5%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Pefc 6 (pefc_6)
@@ -4608,13 +4608,13 @@ MIXED BRAND CLUSTER (16 different brand families detected):
   Brand family 'ikea': 4 logos
   Brand family 'narscosmetics': 4 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 33 logos (82.5%)
   cosmetics: 4 logos (10.0%)
   healthcare: 3 logos (7.5%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Habitatindiana (habitatindiana)
@@ -4719,14 +4719,14 @@ MIXED BRAND CLUSTER (13 different brand families detected):
   Brand family 'pkfcs': 1 logos
   Brand family 'pkfea': 1 logos
   Brand coherence score: 0.375
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 33 logos (82.5%)
   technology: 3 logos (7.5%)
   industrial: 2 logos (5.0%)
   food: 2 logos (5.0%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Veolia 49 (veolia_49)
@@ -4827,7 +4827,7 @@ MIXED BRAND CLUSTER (5 different brand families detected):
 INDUSTRY DISTRIBUTION:
   general: 38 logos (97.4%)
   automotive: 1 logos (2.6%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Nestle 5 (nestle_5)
@@ -4933,13 +4933,13 @@ MIXED BRAND CLUSTER (16 different brand families detected):
   Brand family 'hertz-autopozicovna': 1 logos
   Brand family 'hertz-autopujcovna': 1 logos
   Brand coherence score: 0.263
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 25 logos (65.8%)
   industrial: 10 logos (26.3%)
   automotive: 3 logos (7.9%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Daikin 1 (daikin_1)
@@ -5032,11 +5032,11 @@ MIXED BRAND CLUSTER (5 different brand families detected):
   Brand family 'wwf': 15 logos
   Brand family 'wwfchina': 4 logos
   Brand coherence score: 0.395
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 38 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Bakertilly 32 (bakertilly_32)
@@ -5133,12 +5133,12 @@ MIXED BRAND CLUSTER (9 different brand families detected):
   Brand family 'mitsubishielectric-printing': 2 logos
   Brand family 'mitsubishielectric': 6 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 27 logos (75.0%)
   automotive: 9 logos (25.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Servier 21 (servier_21)
@@ -5240,11 +5240,11 @@ MIXED BRAND CLUSTER (18 different brand families detected):
   Brand family 'pkfsingapore': 1 logos
   Brand family 'pkfboston': 1 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 36 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Holidayland Durmersheim (holidayland-durmersheim)
@@ -5334,11 +5334,11 @@ MIXED BRAND CLUSTER (6 different brand families detected):
   Brand family 'vkf-renzel': 17 logos
   Brand family 'captrain': 1 logos
   Brand coherence score: 0.472
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 36 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Zkteco 6 (zkteco_6)
@@ -5431,7 +5431,7 @@ MIXED BRAND CLUSTER (5 different brand families detected):
 INDUSTRY DISTRIBUTION:
   general: 18 logos (50.0%)
   automotive: 18 logos (50.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Axabreakdown (axabreakdown)
@@ -5535,13 +5535,13 @@ MIXED BRAND CLUSTER (20 different brand families detected):
   Brand family 'budget': 2 logos
   Brand family 'analytik-jena': 2 logos
   Brand coherence score: 0.114
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 28 logos (80.0%)
   industrial: 4 logos (11.4%)
   automotive: 3 logos (8.6%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Manpowergroup 3 (manpowergroup_3)
@@ -5634,14 +5634,14 @@ MIXED BRAND CLUSTER (11 different brand families detected):
   Brand family 'shimadzu-techno': 2 logos
   Brand family 'toyota': 9 logos
   Brand coherence score: 0.257
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 15 logos (42.9%)
   industrial: 9 logos (25.7%)
   automotive: 9 logos (25.7%)
   technology: 2 logos (5.7%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Renaultcampeche (renaultcampeche)
@@ -5729,7 +5729,7 @@ MIXED BRAND CLUSTER (2 different brand families detected):
 INDUSTRY DISTRIBUTION:
   general: 18 logos (51.4%)
   automotive: 17 logos (48.6%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Mazda 10 (mazda_10)
@@ -5817,7 +5817,7 @@ MIXED BRAND CLUSTER (3 different brand families detected):
 
 INDUSTRY DISTRIBUTION:
   general: 33 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Reedglobal 15 (reedglobal_15)
@@ -5908,12 +5908,12 @@ MIXED BRAND CLUSTER (13 different brand families detected):
   Brand family 'edenredrewards': 1 logos
   Brand family 'funiber': 8 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 28 logos (87.5%)
   technology: 4 logos (12.5%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Veolia 14 (veolia_14)
@@ -6003,13 +6003,13 @@ MIXED BRAND CLUSTER (14 different brand families detected):
   Brand family 'gulf-japan': 1 logos
   Brand family 'gulfcombustibles': 1 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 21 logos (65.6%)
   industrial: 9 logos (28.1%)
   retail: 2 logos (6.2%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Wuerthmarket (wuerthmarket)
@@ -6098,12 +6098,12 @@ MIXED BRAND CLUSTER (13 different brand families detected):
   Brand family 'pingusenglish': 6 logos
   Brand family 'pingusenglishbd': 2 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 24 logos (75.0%)
   automotive: 8 logos (25.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Dulux (dulux)
@@ -6184,12 +6184,12 @@ MIXED BRAND CLUSTER (5 different brand families detected):
   Brand family 'titancontainers': 8 logos
   Brand family 'mazda': 8 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 24 logos (75.0%)
   automotive: 8 logos (25.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Duracell (duracell)
@@ -6271,13 +6271,13 @@ MIXED BRAND CLUSTER (6 different brand families detected):
   Brand family 'actemium': 6 logos
   Brand family 'equans': 3 logos
   Brand coherence score: 0.400
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 15 logos (50.0%)
   automotive: 12 logos (40.0%)
   technology: 3 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Veoliawatertech 2 (veoliawatertech_2)
@@ -6364,13 +6364,13 @@ MIXED BRAND CLUSTER (15 different brand families detected):
   Brand family 'crocssa': 2 logos
   Brand family 'toyota': 3 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 18 logos (60.0%)
   automotive: 9 logos (30.0%)
   food: 3 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Subway Franchise (subway-franchise)
@@ -6457,13 +6457,13 @@ MIXED BRAND CLUSTER (15 different brand families detected):
   Brand family 'ibc-solar': 3 logos
   Brand family 'pilotpen': 3 logos
   Brand coherence score: 0.200
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 22 logos (73.3%)
   automotive: 6 logos (20.0%)
   food: 2 logos (6.7%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Toyotatokullar (toyotatokullar)
@@ -6554,13 +6554,13 @@ MIXED BRAND CLUSTER (19 different brand families detected):
   Brand family 'ymcaswv': 1 logos
   Brand family 'ymcawaycross': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 18 logos (60.0%)
   industrial: 9 logos (30.0%)
   automotive: 3 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Actemium 25 (actemium_25)
@@ -6644,13 +6644,13 @@ MIXED BRAND CLUSTER (12 different brand families detected):
   Brand family 'renault-materom': 3 logos
   Brand family 'ovb': 3 logos
   Brand coherence score: 0.200
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 21 logos (70.0%)
   automotive: 6 logos (20.0%)
   industrial: 3 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Reedglobal 16 (reedglobal_16)
@@ -6739,12 +6739,12 @@ MIXED BRAND CLUSTER (17 different brand families detected):
   Brand family 'hansa-flex': 3 logos
   Brand family 'wurth': 3 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 21 logos (70.0%)
   automotive: 9 logos (30.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Cdvibenelux (cdvibenelux)
@@ -6826,12 +6826,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'allianz': 4 logos
   Brand family 'allianz-peev': 4 logos
   Brand coherence score: 0.241
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 28 logos (96.6%)
   industrial: 1 logos (3.4%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Wolterskluwer 1 (wolterskluwer_1)
@@ -6910,12 +6910,12 @@ MIXED BRAND CLUSTER (9 different brand families detected):
   Brand family 'gjwnwd': 1 logos
   Brand family 'gjw-hessen': 1 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 21 logos (75.0%)
   automotive: 7 logos (25.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Toyotasud (toyotasud)
@@ -6996,14 +6996,14 @@ MIXED BRAND CLUSTER (13 different brand families detected):
   Brand family 'mazda': 5 logos
   Brand family 'mazda-bcr': 2 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 13 logos (46.4%)
   automotive: 8 logos (28.6%)
   technology: 6 logos (21.4%)
   industrial: 1 logos (3.6%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Lidl Immobilien (lidl-immobilien)
@@ -7080,12 +7080,12 @@ MIXED BRAND CLUSTER (9 different brand families detected):
   Brand family 'rsmthailand': 1 logos
   Brand family 'rsmrecruitment': 1 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 21 logos (75.0%)
   cosmetics: 7 logos (25.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Fleishmanhillard 6 (fleishmanhillard_6)
@@ -7165,11 +7165,11 @@ MIXED BRAND CLUSTER (12 different brand families detected):
   Brand family 'affidea': 6 logos
   Brand family 'synlab': 1 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 28 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Wurth 5 (wurth_5)
@@ -7242,12 +7242,12 @@ MIXED BRAND CLUSTER (5 different brand families detected):
   Brand family 'bbraun': 7 logos
   Brand family 'toyota': 7 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 21 logos (75.0%)
   automotive: 7 logos (25.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Pragroup (pragroup)
@@ -7320,12 +7320,12 @@ MIXED BRAND CLUSTER (5 different brand families detected):
   Brand family 'mtn': 6 logos
   Brand family 'mersen': 7 logos
   Brand coherence score: 0.280
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 18 logos (72.0%)
   automotive: 7 logos (28.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Aiesec (aiesec)
@@ -7405,13 +7405,13 @@ MIXED BRAND CLUSTER (18 different brand families detected):
   Brand family 'bioderma': 2 logos
   Brand family 'alosindustrials': 1 logos
   Brand coherence score: 0.125
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 19 logos (79.2%)
   automotive: 3 logos (12.5%)
   industrial: 2 logos (8.3%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Amway 2 (amway_2)
@@ -7476,13 +7476,13 @@ MIXED BRAND CLUSTER (5 different brand families detected):
   Brand family 'jll': 6 logos
   Brand family 'jungheinrich': 6 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 18 logos (75.0%)
   industrial: 4 logos (16.7%)
   automotive: 2 logos (8.3%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Mazdalakeland 1 (mazdalakeland_1)
@@ -7551,12 +7551,12 @@ MIXED BRAND CLUSTER (9 different brand families detected):
   Brand family 'ymcaup': 1 logos
   Brand family 'ymcasf': 1 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 18 logos (75.0%)
   retail: 6 logos (25.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Thebodyshop 5 (thebodyshop_5)
@@ -7623,12 +7623,12 @@ MIXED BRAND CLUSTER (7 different brand families detected):
   Brand family 'engie': 4 logos
   Brand family 'laborelec': 2 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   automotive: 12 logos (50.0%)
   general: 12 logos (50.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Toyota Givors (toyota-givors)
@@ -7699,14 +7699,14 @@ MIXED BRAND CLUSTER (11 different brand families detected):
   Brand family 'mazda': 4 logos
   Brand family 'mazda-warszawa-bemo': 2 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   industrial: 7 logos (29.2%)
   automotive: 7 logos (29.2%)
   retail: 6 logos (25.0%)
   general: 4 logos (16.7%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Shopee 1 (shopee_1)
@@ -7775,12 +7775,12 @@ MIXED BRAND CLUSTER (9 different brand families detected):
   Brand family 'modshair-hannover': 1 logos
   Brand family 'astrazeneca': 6 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 18 logos (75.0%)
   automotive: 6 logos (25.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Mazdaoforlandpark (mazdaoforlandpark)
@@ -7851,12 +7851,12 @@ MIXED BRAND CLUSTER (11 different brand families detected):
   Brand family 'axa-assistance': 6 logos
   Brand family 'misterwhat': 6 logos
   Brand coherence score: 0.250
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 18 logos (75.0%)
   industrial: 6 logos (25.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Europa Union Bremen (europa-union-bremen)
@@ -7930,13 +7930,13 @@ MIXED BRAND CLUSTER (14 different brand families detected):
   Brand family 'orbico': 1 logos
   Brand family 'orbico-kenoanyagok': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 14 logos (70.0%)
   industrial: 4 logos (20.0%)
   automotive: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Pamline (pamline)
@@ -7999,13 +7999,13 @@ MIXED BRAND CLUSTER (11 different brand families detected):
   Brand family 'toysrus': 2 logos
   Brand family 'toyota': 2 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 12 logos (60.0%)
   automotive: 6 logos (30.0%)
   industrial: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Kiajc 1 (kiajc_1)
@@ -8072,14 +8072,14 @@ MIXED BRAND CLUSTER (15 different brand families detected):
   Brand family 'genan': 1 logos
   Brand family 'castsoftware': 1 logos
   Brand coherence score: 0.200
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 12 logos (60.0%)
   automotive: 4 logos (20.0%)
   technology: 3 logos (15.0%)
   industrial: 1 logos (5.0%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Cfmoto (cfmoto)
@@ -8144,7 +8144,7 @@ MIXED BRAND CLUSTER (13 different brand families detected):
   Brand family 'howden': 2 logos
   Brand family 'pearsonclinical': 2 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 13 logos (65.0%)
@@ -8152,7 +8152,7 @@ INDUSTRY DISTRIBUTION:
   financial: 2 logos (10.0%)
   healthcare: 2 logos (10.0%)
   industrial: 1 logos (5.0%)
-  ⚠️ MIXED INDUSTRIES: 5 different industries
+   MIXED INDUSTRIES: 5 different industries
 
 DOMAINS IN CLUSTER:
     1. Altengt (altengt)
@@ -8213,13 +8213,13 @@ MIXED BRAND CLUSTER (9 different brand families detected):
   Brand family 'renault-argenteuil': 2 logos
   Brand family 'synergiejobs': 2 logos
   Brand coherence score: 0.300
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   automotive: 10 logos (50.0%)
   general: 8 logos (40.0%)
   industrial: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Vans 3 (vans_3)
@@ -8283,13 +8283,13 @@ MIXED BRAND CLUSTER (12 different brand families detected):
   Brand family 'funiber': 2 logos
   Brand family 'santillana': 2 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 16 logos (80.0%)
   automotive: 3 logos (15.0%)
   industrial: 1 logos (5.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Carlsjr 2 (carlsjr_2)
@@ -8354,13 +8354,13 @@ MIXED BRAND CLUSTER (13 different brand families detected):
   Brand family 'hyundaichullora': 1 logos
   Brand family 'hyundaiblacktown': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 10 logos (50.0%)
   automotive: 8 logos (40.0%)
   industrial: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Orange 12 (orange_12)
@@ -8424,13 +8424,13 @@ MIXED BRAND CLUSTER (12 different brand families detected):
   Brand family 'papajohns': 1 logos
   Brand family 'toyota': 2 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 16 logos (80.0%)
   industrial: 2 logos (10.0%)
   automotive: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Budget Ireland 1 (budget-ireland_1)
@@ -8493,14 +8493,14 @@ MIXED BRAND CLUSTER (11 different brand families detected):
   Brand family 'culliganbetterwater': 1 logos
   Brand family 'nutriciababy': 2 logos
   Brand coherence score: 0.200
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 12 logos (60.0%)
   automotive: 4 logos (20.0%)
   industrial: 2 logos (10.0%)
   retail: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Mazdaofsouthcharlotte (mazdaofsouthcharlotte)
@@ -8564,13 +8564,13 @@ MIXED BRAND CLUSTER (12 different brand families detected):
   Brand family 'stocanada': 2 logos
   Brand family 'avia-ramonville': 2 logos
   Brand coherence score: 0.150
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 13 logos (65.0%)
   automotive: 4 logos (20.0%)
   healthcare: 3 logos (15.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Crif (crif)
@@ -8635,12 +8635,12 @@ MIXED BRAND CLUSTER (13 different brand families detected):
   Brand family 'benu': 2 logos
   Brand family 'patheon': 2 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 18 logos (90.0%)
   automotive: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Plameco Rheinsieg (plameco-rheinsieg)
@@ -8702,12 +8702,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'solatube': 2 logos
   Brand family 'bonprix': 2 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 18 logos (90.0%)
   automotive: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Nobleprog 4 (nobleprog_4)
@@ -8771,13 +8771,13 @@ MIXED BRAND CLUSTER (12 different brand families detected):
   Brand family 'viessmann': 1 logos
   Brand family 'vetpartners': 1 logos
   Brand coherence score: 0.200
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 12 logos (60.0%)
   automotive: 6 logos (30.0%)
   industrial: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Mazdaofchicagoland 1 (mazdaofchicagoland_1)
@@ -8844,12 +8844,12 @@ MIXED BRAND CLUSTER (15 different brand families detected):
   Brand family 'overheaddoorriverton': 1 logos
   Brand family 'aviabienert': 2 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 16 logos (80.0%)
   automotive: 4 logos (20.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Eis (eis)
@@ -8914,14 +8914,14 @@ MIXED BRAND CLUSTER (13 different brand families detected):
   Brand family 'mazda': 2 logos
   Brand family 'pingusenglish': 2 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 13 logos (65.0%)
   automotive: 3 logos (15.0%)
   cosmetics: 2 logos (10.0%)
   industrial: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Renaultamericas (renaultamericas)
@@ -8983,12 +8983,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'pingusenglish': 2 logos
   Brand family 'carlsjr': 2 logos
   Brand coherence score: 0.200
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 12 logos (60.0%)
   automotive: 8 logos (40.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Mazdacorpuschristi 1 (mazdacorpuschristi_1)
@@ -9052,12 +9052,12 @@ MIXED BRAND CLUSTER (12 different brand families detected):
   Brand family 'equansservices': 1 logos
   Brand family 'equans': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 18 logos (90.0%)
   industrial: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Budget 4 (budget_4)
@@ -9124,13 +9124,13 @@ MIXED BRAND CLUSTER (15 different brand families detected):
   Brand family 'lamborghini-rotterdam': 1 logos
   Brand family 'lamborghini-stuttgart': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 16 logos (80.0%)
   automotive: 2 logos (10.0%)
   food: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Sonepar 3 (sonepar_3)
@@ -9196,12 +9196,12 @@ MIXED BRAND CLUSTER (14 different brand families detected):
   Brand family 'intersport-alpedhuez': 1 logos
   Brand family 'intersport-crestvoland': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 17 logos (85.0%)
   automotive: 3 logos (15.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Pingusenglish 14 (pingusenglish_14)
@@ -9262,13 +9262,13 @@ MIXED BRAND CLUSTER (9 different brand families detected):
   Brand family 'veka': 2 logos
   Brand family 'aliaxis': 2 logos
   Brand coherence score: 0.200
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 16 logos (80.0%)
   cosmetics: 2 logos (10.0%)
   automotive: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Decathlon 10 (decathlon_10)
@@ -9332,12 +9332,12 @@ MIXED BRAND CLUSTER (12 different brand families detected):
   Brand family 'carlsjr': 2 logos
   Brand family 'adra': 2 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 18 logos (90.0%)
   automotive: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Fmlogistic 2 (fmlogistic_2)
@@ -9402,13 +9402,13 @@ MIXED BRAND CLUSTER (13 different brand families detected):
   Brand family 'lightspeedhq': 2 logos
   Brand family 'renaultchiva': 2 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 16 logos (80.0%)
   automotive: 2 logos (10.0%)
   technology: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Nutricia 5 (nutricia_5)
@@ -9474,13 +9474,13 @@ MIXED BRAND CLUSTER (14 different brand families detected):
   Brand family 'entergy-nuclear': 1 logos
   Brand family 'benu': 2 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 14 logos (70.0%)
   automotive: 4 logos (20.0%)
   industrial: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Albatroslogistic (albatroslogistic)
@@ -9542,13 +9542,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'mtn': 2 logos
   Brand family 'intersport': 2 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 14 logos (70.0%)
   automotive: 4 logos (20.0%)
   industrial: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Goliathgames 2 (goliathgames_2)
@@ -9612,13 +9612,13 @@ MIXED BRAND CLUSTER (12 different brand families detected):
   Brand family 'amnesty': 2 logos
   Brand family 'internationalsos': 2 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 16 logos (80.0%)
   food: 2 logos (10.0%)
   financial: 2 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Berlitz Augsburg (berlitz-augsburg)
@@ -9689,12 +9689,12 @@ MIXED BRAND CLUSTER (19 different brand families detected):
   Brand family 'boxful': 1 logos
   Brand family 'newson-gale': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 19 logos (95.0%)
   food: 1 logos (5.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Infiniti (infiniti)
@@ -9756,7 +9756,7 @@ MIXED BRAND CLUSTER (6 different brand families detected):
 INDUSTRY DISTRIBUTION:
   automotive: 10 logos (50.0%)
   general: 10 logos (50.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Toyota Marseille 1 (toyota-marseille_1)
@@ -9818,13 +9818,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'toyota': 1 logos
   Brand family 'renaultdelsol': 2 logos
   Brand coherence score: 0.182
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (81.8%)
   healthcare: 1 logos (9.1%)
   automotive: 1 logos (9.1%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Apolloclinicguwahati (apolloclinicguwahati)
@@ -9868,14 +9868,14 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'lghealthjobs': 1 logos
   Brand family 'canon': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   automotive: 1 logos (10.0%)
   technology: 1 logos (10.0%)
   healthcare: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Cdvi (cdvi)
@@ -9948,7 +9948,7 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'pamarco': 1 logos
   Brand family 'plastoplan': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 6 logos (60.0%)
@@ -9956,7 +9956,7 @@ INDUSTRY DISTRIBUTION:
   technology: 1 logos (10.0%)
   industrial: 1 logos (10.0%)
   healthcare: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 5 different industries
+   MIXED INDUSTRIES: 5 different industries
 
 DOMAINS IN CLUSTER:
     1. Macma (macma)
@@ -10029,13 +10029,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'kiacowansville': 1 logos
   Brand family 'eccreditcontrol': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 1 logos (10.0%)
   financial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Faesfarma (faesfarma)
@@ -10108,13 +10108,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'sprachcaffe-muenchen': 1 logos
   Brand family 'pearsonschoolsandfecolleges': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   industrial: 2 logos (20.0%)
   food: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Aamconorwalk (aamconorwalk)
@@ -10187,13 +10187,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'toyota': 1 logos
   Brand family 'astreitalia': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   financial: 1 logos (10.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Pirtek 1 (pirtek_1)
@@ -10266,12 +10266,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'honda': 1 logos
   Brand family 'aleris': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   automotive: 3 logos (30.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Skodanews (skodanews)
@@ -10344,13 +10344,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'petercem-sensors': 1 logos
   Brand family 'williamblairfunds': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 1 logos (10.0%)
   financial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Kiatorun (kiatorun)
@@ -10422,13 +10422,13 @@ MIXED BRAND CLUSTER (9 different brand families detected):
   Brand family 'hyundai': 1 logos
   Brand family 'duracleanservicebybob': 1 logos
   Brand coherence score: 0.200
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   industrial: 1 logos (10.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Domcortraffic (domcortraffic)
@@ -10501,13 +10501,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'ccusa': 1 logos
   Brand family 'childrenandteendentalfl': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   automotive: 2 logos (20.0%)
   industrial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Aamcoredlandsca (aamcoredlandsca)
@@ -10580,13 +10580,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'meyersound': 1 logos
   Brand family 'dairyqueenobx': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 1 logos (10.0%)
   food: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Experian 4 (experian_4)
@@ -10659,12 +10659,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'komoder': 1 logos
   Brand family 'scoutaerialafrica': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Duracleanservices (duracleanservices)
@@ -10737,13 +10737,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'mesacountryclub': 1 logos
   Brand family 'dopplerumbrellas': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   retail: 2 logos (20.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Wingarc (wingarc)
@@ -10816,13 +10816,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'subarumidlandodessa': 1 logos
   Brand family 'algeco': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   automotive: 2 logos (20.0%)
   industrial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Ccusa (ccusa)
@@ -10895,13 +10895,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'julis': 1 logos
   Brand family '263': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   industrial: 1 logos (10.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Daikin 27 (daikin_27)
@@ -10974,13 +10974,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'schaumann': 1 logos
   Brand family 'fosterfarmsfoodservice': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   industrial: 1 logos (10.0%)
   food: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Eurochem Na (eurochem-na)
@@ -11053,13 +11053,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'europa-union-thueringen': 1 logos
   Brand family 'stanleyelectricus': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   industrial: 2 logos (20.0%)
   food: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. K Startupcenter (k-startupcenter)
@@ -11132,13 +11132,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'nikonlenswear': 1 logos
   Brand family 'habitatvietnam': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   industrial: 1 logos (10.0%)
   financial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Greatplacetowork 23 (greatplacetowork_23)
@@ -11211,13 +11211,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'sonepar': 1 logos
   Brand family 'mariagefreres': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 1 logos (10.0%)
   industrial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Spitextg (spitextg)
@@ -11290,13 +11290,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'wurth': 1 logos
   Brand family 'esseskincare': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   cosmetics: 1 logos (10.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Amtrakvacations (amtrakvacations)
@@ -11369,14 +11369,14 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'toyota': 1 logos
   Brand family 'telehouse': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 5 logos (50.0%)
   automotive: 3 logos (30.0%)
   retail: 1 logos (10.0%)
   industrial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Mffshopen (mffshopen)
@@ -11449,14 +11449,14 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'despec': 1 logos
   Brand family 'anadolumedicalcenter': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 6 logos (60.0%)
   automotive: 2 logos (20.0%)
   retail: 1 logos (10.0%)
   healthcare: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Cdljatai (cdljatai)
@@ -11529,12 +11529,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'toyota': 1 logos
   Brand family 'starkey': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 2 logos (20.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Wurth 2 (wurth_2)
@@ -11607,13 +11607,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'tanameracoffee': 1 logos
   Brand family 'kia-mouscron': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 5 logos (50.0%)
   automotive: 3 logos (30.0%)
   industrial: 2 logos (20.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Kalorimeta Singen (kalorimeta-singen)
@@ -11686,12 +11686,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'avis': 1 logos
   Brand family 'spitex-rothenburg': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Panpuri (panpuri)
@@ -11764,12 +11764,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'desjoyauxgh': 1 logos
   Brand family 'rotary7610': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Kapanfastigheter (kapanfastigheter)
@@ -11842,12 +11842,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'hyundaigatineau': 1 logos
   Brand family 'desjoyaux': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   automotive: 3 logos (30.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Furuno 2 (furuno_2)
@@ -11920,12 +11920,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'ford': 1 logos
   Brand family 'habitatmichigan': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 2 logos (20.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Moorestoke (moorestoke)
@@ -11998,14 +11998,14 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'zkteco': 1 logos
   Brand family 'jll': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 6 logos (60.0%)
   automotive: 2 logos (20.0%)
   industrial: 1 logos (10.0%)
   retail: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Zenithplasticsurgery (zenithplasticsurgery)
@@ -12078,11 +12078,11 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'fmc-mexico': 1 logos
   Brand family 'giacomini': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 10 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Pirtek 2 (pirtek_2)
@@ -12155,13 +12155,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'rcchurch': 1 logos
   Brand family 'synergie': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   food: 2 logos (20.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Repsolresourcesuk (repsolresourcesuk)
@@ -12234,13 +12234,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'tchibo': 1 logos
   Brand family 'aeccglobal': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 1 logos (10.0%)
   technology: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Ymca Ywca (ymca-ywca)
@@ -12313,12 +12313,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'adecco': 1 logos
   Brand family 'kumon': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 2 logos (20.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Terradat (terradat)
@@ -12391,12 +12391,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'cinnabon': 1 logos
   Brand family 'customneon': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Svnvanguardla (svnvanguardla)
@@ -12469,13 +12469,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'rotary6450': 1 logos
   Brand family 'peach': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   automotive: 2 logos (20.0%)
   retail: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Kuraray (kuraray)
@@ -12548,7 +12548,7 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'extremeadventureraces': 1 logos
   Brand family 'fleishmanhillard': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 5 logos (50.0%)
@@ -12557,7 +12557,7 @@ INDUSTRY DISTRIBUTION:
   automotive: 1 logos (10.0%)
   food: 1 logos (10.0%)
   industrial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 6 different industries
+   MIXED INDUSTRIES: 6 different industries
 
 DOMAINS IN CLUSTER:
     1. Cazenovecapital (cazenovecapital)
@@ -12630,11 +12630,11 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'mooresingapore': 1 logos
   Brand family 'dolcevita': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 10 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Vedanta Zincinternational (vedanta-zincinternational)
@@ -12707,12 +12707,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'altenusa': 1 logos
   Brand family 'wuerth': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Pkf 9 (pkf_9)
@@ -12785,13 +12785,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'tupperware': 1 logos
   Brand family 'metagenics': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 1 logos (10.0%)
   industrial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Dmcihomes (dmcihomes)
@@ -12864,13 +12864,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'esseskincare': 1 logos
   Brand family 'sprachschule-aktiv-kaiserslautern': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   automotive: 2 logos (20.0%)
   retail: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Vendhq (vendhq)
@@ -12943,12 +12943,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'wuerth': 1 logos
   Brand family 'spiegse': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Julis Nuernberg (julis-nuernberg)
@@ -13021,13 +13021,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'rubiomonocoatusa': 1 logos
   Brand family 'avonworldwide': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 1 logos (10.0%)
   retail: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Nordicpharma 7 (nordicpharma_7)
@@ -13100,12 +13100,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'medefloire': 1 logos
   Brand family 'allbranded': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   industrial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Fainvestors (fainvestors)
@@ -13178,11 +13178,11 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'thegoodlobby': 1 logos
   Brand family 'immunospot': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 10 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Pkflesotho (pkflesotho)
@@ -13255,13 +13255,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'naturesrewardcoloredcauliflower': 1 logos
   Brand family 'kiaofwestchester': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 6 logos (60.0%)
   automotive: 3 logos (30.0%)
   retail: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Honda 2 (honda_2)
@@ -13333,12 +13333,12 @@ MIXED BRAND CLUSTER (9 different brand families detected):
   Brand family 'plameco-bonn': 1 logos
   Brand family 'mcdonalds': 1 logos
   Brand coherence score: 0.200
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   food: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Stampinup 1 (stampinup_1)
@@ -13411,12 +13411,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'eurofins': 1 logos
   Brand family 'dfsk': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Nikonschool (nikonschool)
@@ -13489,13 +13489,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'ercagroup': 1 logos
   Brand family 'shahshalalfood': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   industrial: 1 logos (10.0%)
   food: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Buffalotours (buffalotours)
@@ -13568,14 +13568,14 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'kiaprimavera': 1 logos
   Brand family 'linde': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 6 logos (60.0%)
   automotive: 2 logos (20.0%)
   industrial: 1 logos (10.0%)
   food: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Wurth 29 (wurth_29)
@@ -13648,12 +13648,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'tasuki-holdings': 1 logos
   Brand family 'wurth': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   industrial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Sonepar 1 (sonepar_1)
@@ -13726,12 +13726,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'steinbacher': 1 logos
   Brand family 'cvjm-nuembrecht': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   automotive: 3 logos (30.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Propertyfinder (propertyfinder)
@@ -13804,13 +13804,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'fimacf': 1 logos
   Brand family 'bellaplanta': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   technology: 1 logos (10.0%)
   cosmetics: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Sanlorenzo (sanlorenzo)
@@ -13883,12 +13883,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'aonassurances': 1 logos
   Brand family 'medef-bearnetsoule': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   financial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Isuzu Vietnam (isuzu-vietnam)
@@ -13961,12 +13961,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'remax': 1 logos
   Brand family 'nextbikeczech': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   food: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Kamic (kamic)
@@ -14039,13 +14039,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'bowlero': 1 logos
   Brand family 'renault-tortosa': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 1 logos (10.0%)
   food: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Sealy (sealy)
@@ -14118,11 +14118,11 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'howdengroupholdings': 1 logos
   Brand family 'mediqdirekt': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 10 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Topdoctors (topdoctors)
@@ -14195,12 +14195,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'hyundaitgv': 1 logos
   Brand family 'eresrelocation': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 2 logos (20.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Avon (avon)
@@ -14273,13 +14273,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'subarusouthblvd': 1 logos
   Brand family 'kiaoflumberton': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   automotive: 2 logos (20.0%)
   food: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Aquatherm Belux (aquatherm-belux)
@@ -14352,11 +14352,11 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'rotarypublicschool': 1 logos
   Brand family 'seiban': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 10 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Zkteco 3 (zkteco_3)
@@ -14429,12 +14429,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'dennert': 1 logos
   Brand family 'tectake': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Remax Emblema (remax-emblema)
@@ -14507,12 +14507,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'cinnabon-egypt': 1 logos
   Brand family 'lamborghini-frankfurt': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Moore 1 (moore_1)
@@ -14585,14 +14585,14 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'pixibeauty': 1 logos
   Brand family 'strabag-pfs': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   technology: 1 logos (10.0%)
   automotive: 1 logos (10.0%)
   cosmetics: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Webster (webster)
@@ -14665,13 +14665,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'berlitznouvelleaquitaine': 1 logos
   Brand family 'citychain': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   financial: 1 logos (10.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Hometowninsurance (hometowninsurance)
@@ -14744,11 +14744,11 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'subarusouthpoint': 1 logos
   Brand family 'rexel': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 10 logos (100.0%)
-  ✅ INDUSTRY COHERENT: Single industry cluster
+   INDUSTRY COHERENT: Single industry cluster
 
 DOMAINS IN CLUSTER:
     1. Islprgac (islprgac)
@@ -14821,12 +14821,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'culliganh2o': 1 logos
   Brand family 'tupperwarefiesta': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Cdljovem (cdljovem)
@@ -14899,12 +14899,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'solatubescotland': 1 logos
   Brand family 'enefitvolt': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   financial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Solatube 2 (solatube_2)
@@ -14977,13 +14977,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'century21viaplus': 1 logos
   Brand family 'blackroll': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   automotive: 2 logos (20.0%)
   food: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Mcdonalds Hh (mcdonalds-hh)
@@ -15056,13 +15056,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'ardex': 1 logos
   Brand family 'hansa-flex': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 1 logos (10.0%)
   technology: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Printsasia (printsasia)
@@ -15135,13 +15135,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'ford': 1 logos
   Brand family 'crif': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 6 logos (60.0%)
   automotive: 3 logos (30.0%)
   technology: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Honda (honda)
@@ -15214,12 +15214,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'siiora': 1 logos
   Brand family 'specialolympics': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Toyota Corbeil (toyota-corbeil)
@@ -15292,13 +15292,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'allianzim': 1 logos
   Brand family 'ford': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 6 logos (60.0%)
   automotive: 3 logos (30.0%)
   retail: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Luminishealthcareers (luminishealthcareers)
@@ -15371,12 +15371,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'cfmotoindia': 1 logos
   Brand family 'kentmaster': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   financial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Aonsolutions (aonsolutions)
@@ -15449,12 +15449,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'whisky': 1 logos
   Brand family 'teztour': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Wwf 8 (wwf_8)
@@ -15527,13 +15527,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'cinnabon': 1 logos
   Brand family 'new-beauty': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   technology: 1 logos (10.0%)
   cosmetics: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Eftech International (eftech-international)
@@ -15606,12 +15606,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'pauldaviswi': 1 logos
   Brand family 'cpi-print': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   financial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Adlatus Nordwestschweiz (adlatus-nordwestschweiz)
@@ -15684,14 +15684,14 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'intertongn': 1 logos
   Brand family 'dfcapital-investors': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 6 logos (60.0%)
   automotive: 2 logos (20.0%)
   food: 1 logos (10.0%)
   financial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Johnsmedley (johnsmedley)
@@ -15764,12 +15764,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'chicco': 1 logos
   Brand family 'stora-drain': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Isic 1 (isic_1)
@@ -15842,12 +15842,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'stadtwerke-heidenheim-regio': 1 logos
   Brand family 'neposystem': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 2 logos (20.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Jungheinrich 5 (jungheinrich_5)
@@ -15920,13 +15920,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'yonyou': 1 logos
   Brand family 'goliathgames': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   industrial: 1 logos (10.0%)
   food: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Nikonmetro1Stg (nikonmetro1stg)
@@ -15998,12 +15998,12 @@ MIXED BRAND CLUSTER (9 different brand families detected):
   Brand family 'mantruckmerchandise': 1 logos
   Brand family 'sofrecogroup': 1 logos
   Brand coherence score: 0.200
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 2 logos (20.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Ecotec Usa (ecotec-usa)
@@ -16076,13 +16076,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'starbucks': 1 logos
   Brand family 'amnesty': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   food: 2 logos (20.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Caspak (caspak)
@@ -16155,12 +16155,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'nissan': 1 logos
   Brand family 'isuzu': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Jungheinrich 7 (jungheinrich_7)
@@ -16233,12 +16233,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'sherwin-williams': 1 logos
   Brand family 'rexel': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 2 logos (20.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Atalian 8 (atalian_8)
@@ -16311,12 +16311,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'despat': 1 logos
   Brand family 'tevamexico': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   financial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Hennessyfunds (hennessyfunds)
@@ -16389,12 +16389,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'repsol': 1 logos
   Brand family 'mateco-hungary': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 9 logos (90.0%)
   retail: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Bauder 4 (bauder_4)
@@ -16467,13 +16467,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'unitecnica': 1 logos
   Brand family 'acetoolonline': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   industrial: 1 logos (10.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Cvjm Dettingen (cvjm-dettingen)
@@ -16546,13 +16546,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'stampinup': 1 logos
   Brand family 'toyota': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 6 logos (60.0%)
   automotive: 3 logos (30.0%)
   technology: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Implantcenter Dentistry (implantcenter-dentistry)
@@ -16625,13 +16625,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'cinnabon': 1 logos
   Brand family 'monster': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   industrial: 2 logos (20.0%)
   automotive: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Synlab Notes (synlab-notes)
@@ -16704,14 +16704,14 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'kiaofcoatesville': 1 logos
   Brand family 'martinavenueshops': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 6 logos (60.0%)
   automotive: 2 logos (20.0%)
   industrial: 1 logos (10.0%)
   retail: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 4 different industries
+   MIXED INDUSTRIES: 4 different industries
 
 DOMAINS IN CLUSTER:
     1. Duraclean 1 (duraclean_1)
@@ -16784,13 +16784,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'saint-gobain': 1 logos
   Brand family 'chauffeurstelefoon': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   industrial: 2 logos (20.0%)
   cosmetics: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Budgetoman (budgetoman)
@@ -16863,13 +16863,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'mazda': 1 logos
   Brand family 'bbraun': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   automotive: 2 logos (20.0%)
   industrial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Prioritymanagementscotland (prioritymanagementscotland)
@@ -16942,13 +16942,13 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'landish': 1 logos
   Brand family 'monster': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 8 logos (80.0%)
   automotive: 1 logos (10.0%)
   financial: 1 logos (10.0%)
-  ⚠️ MIXED INDUSTRIES: 3 different industries
+   MIXED INDUSTRIES: 3 different industries
 
 DOMAINS IN CLUSTER:
     1. Landermitsubishi (landermitsubishi)
@@ -17021,12 +17021,12 @@ MIXED BRAND CLUSTER (10 different brand families detected):
   Brand family 'alcirclebiz': 1 logos
   Brand family 'nestle': 1 logos
   Brand coherence score: 0.100
-  ⚠️ LOW COHERENCE: Multiple unrelated brands detected!
+   LOW COHERENCE: Multiple unrelated brands detected!
 
 INDUSTRY DISTRIBUTION:
   general: 7 logos (70.0%)
   automotive: 3 logos (30.0%)
-  ⚠️ MIXED INDUSTRIES: 2 different industries
+   MIXED INDUSTRIES: 2 different industries
 
 DOMAINS IN CLUSTER:
     1. Bbraun 5 (bbraun_5)

@@ -276,7 +276,7 @@ def main():
         print(f"Silhouette score: {best_results['silhouette_score']:.4f}")
         print(f"Interesting brand groups found: {len(best_results['interesting_clusters'])}")
     
-    print(f"\n✓ Advanced clustering analysis complete!")
+    print(f"\n Advanced clustering analysis complete!")
 
 if __name__ == "__main__":
     main()

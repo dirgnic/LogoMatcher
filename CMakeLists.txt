@@ -11,16 +11,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Detect system and set optimizations
 if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
     if(CMAKE_SYSTEM_PROCESSOR STREQUAL "arm64")
-        message(STATUS "🚀 Detected Apple Silicon M3 - enabling advanced optimizations")
+        message(STATUS " Detected Apple Silicon M3 - enabling advanced optimizations")
         set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG -mcpu=apple-m3 -mtune=apple-m3 -ffast-math -funroll-loops -fvectorize -fslp-vectorize")
         set(CMAKE_EXE_LINKER_FLAGS "-framework Accelerate")
     else()
-        message(STATUS "⚡ Detected Intel Mac - enabling AVX2/FMA optimizations")
+        message(STATUS " Detected Intel Mac - enabling AVX2/FMA optimizations")
         set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG -march=native -mtune=native -mavx2 -mfma -ffast-math -funroll-loops")
         set(CMAKE_EXE_LINKER_FLAGS "-framework Accelerate")
     endif()
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-    message(STATUS "🐧 Detected Linux - enabling native optimizations")
+    message(STATUS " Detected Linux - enabling native optimizations")
     set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG -march=native -mtune=native -ffast-math -funroll-loops")
 endif()
 
@@ -46,9 +46,9 @@ if(NOT pybind11_FOUND)
     
     if(pybind11_DIR)
         find_package(pybind11 REQUIRED PATHS ${pybind11_DIR})
-        message(STATUS "✅ Found pybind11 via pip installation")
+        message(STATUS " Found pybind11 via pip installation")
     else()
-        message(FATAL_ERROR "❌ pybind11 not found. Install with: pip install pybind11")
+        message(FATAL_ERROR " pybind11 not found. Install with: pip install pybind11")
     endif()
 endif()
 
@@ -83,14 +83,14 @@ target_link_libraries(fourier_math_cpp PRIVATE Threads::Threads)
 find_package(OpenMP)
 if(OpenMP_CXX_FOUND)
     target_link_libraries(fourier_math_cpp PRIVATE OpenMP::OpenMP_CXX)
-    message(STATUS "✅ OpenMP found - enabling parallel algorithms")
+    message(STATUS " OpenMP found - enabling parallel algorithms")
 else()
-    message(STATUS "⚠️ OpenMP not found - some optimizations disabled")
+    message(STATUS " OpenMP not found - some optimizations disabled")
 endif()
 
 # Print build configuration
 message(STATUS "")
-message(STATUS "🔧 BUILD CONFIGURATION:")
+message(STATUS " BUILD CONFIGURATION:")
 message(STATUS "   System: ${CMAKE_SYSTEM_NAME} ${CMAKE_SYSTEM_PROCESSOR}")
 message(STATUS "   Compiler: ${CMAKE_CXX_COMPILER_ID}")
 message(STATUS "   Build Type: ${CMAKE_BUILD_TYPE}")
@@ -102,7 +102,7 @@ message(STATUS "")
 # Custom target for installation instructions
 add_custom_target(install_instructions
     COMMAND ${CMAKE_COMMAND} -E echo ""
-    COMMAND ${CMAKE_COMMAND} -E echo "📦 BUILD COMPLETE!"
+    COMMAND ${CMAKE_COMMAND} -E echo " BUILD COMPLETE!"
     COMMAND ${CMAKE_COMMAND} -E echo "To install the module:"
     COMMAND ${CMAKE_COMMAND} -E echo "  cp fourier_math_cpp*.so /path/to/your/python/site-packages/"
     COMMAND ${CMAKE_COMMAND} -E echo ""
@@ -119,14 +119,14 @@ import numpy as np
 sys.path.insert(0, '${CMAKE_CURRENT_BINARY_DIR}')
 try:
     import fourier_math_cpp
-    print('✅ Module imported successfully')
+    print(' Module imported successfully')
     
     # Quick performance test
     test_images = [np.random.rand(128, 128) for _ in range(10)]
     result = fourier_math_cpp.benchmark_analysis(test_images, 5)
-    print(f'⚡ Performance: {result[\"images_per_second\"]:.1f} images/second')
+    print(f' Performance: {result[\"images_per_second\"]:.1f} images/second')
 except Exception as e:
-    print(f'❌ Test failed: {e}')
+    print(f' Test failed: {e}')
 "
     DEPENDS fourier_math_cpp
 )

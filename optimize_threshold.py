@@ -60,7 +60,7 @@ async def find_optimal_threshold_for_target_clusters(target_clusters=37):
     print(f"\nAll trials:")
     for threshold, clusters, pairs in trials:
         diff = abs(clusters - target_clusters)
-        status = " ✅ BEST" if threshold == best_threshold else f" (±{diff})"
+        status = "  BEST" if threshold == best_threshold else f" (±{diff})"
         print(f"  {threshold:.3f}: {clusters:3d} clusters, {pairs:5d} pairs{status}")
     
     # Run final analysis with best threshold

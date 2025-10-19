@@ -9,31 +9,31 @@ from python_scraping_class import LogoAnalysisPipeline
 def run_enhanced_ultra_restrictive_clustering():
     """Run clustering with enhanced C++ comprehensive metrics to find truly similar logos"""
     
-    print("🎯 ENHANCED ULTRA-RESTRICTIVE CLUSTERING ANALYSIS")
+    print(" ENHANCED ULTRA-RESTRICTIVE CLUSTERING ANALYSIS")
     print("=" * 60)
     
     # Try to import enhanced C++ module
     try:
         import enhanced_fourier_math_cpp as enhanced_cpp
         cpp_available = True
-        print("🔥 Enhanced C++ comprehensive metrics module loaded")
+        print(" Enhanced C++ comprehensive metrics module loaded")
         analyzer = enhanced_cpp.EnhancedFourierAnalyzer(128)
         similarity_computer = enhanced_cpp.EnhancedSimilarityComputer()
     except ImportError:
-        print("⚠️  Enhanced C++ module not available - falling back to basic analysis")
-        print("💡 To enable enhanced metrics, build the module:")
+        print("  Enhanced C++ module not available - falling back to basic analysis")
+        print(" To enable enhanced metrics, build the module:")
         print("   cmake -B build_enhanced -S . -f CMakeLists_enhanced.txt")
         print("   cd build_enhanced && make")
         cpp_available = False
         pipeline = LogoAnalysisPipeline()
     
     # Load enhanced logo data
-    print("📋 Loading enhanced logo data...")
+    print(" Loading enhanced logo data...")
     with open('comprehensive_logo_extraction_fast_results.pkl', 'rb') as f:
         enhanced_data = pickle.load(f)
     
     successful_logos = enhanced_data.get('successful_logos', [])[:1000]  # Test with subset for speed
-    print(f"✅ Testing with {len(successful_logos)} logos (subset for speed)")
+    print(f" Testing with {len(successful_logos)} logos (subset for speed)")
     
     # Remove duplicates by domain
     seen_domains = set()
@@ -43,7 +43,7 @@ def run_enhanced_ultra_restrictive_clustering():
             seen_domains.add(logo['domain'])
             unique_logos.append(logo)
     
-    print(f"🔄 Unique domains: {len(unique_logos)}")
+    print(f" Unique domains: {len(unique_logos)}")
     
     if cpp_available:
         # Use enhanced C++ comprehensive metrics
@@ -55,14 +55,14 @@ def run_enhanced_ultra_restrictive_clustering():
 def run_enhanced_cpp_analysis(unique_logos, analyzer, similarity_computer):
     """Run analysis using enhanced C++ comprehensive metrics"""
     
-    print("🔥 Using Enhanced C++ Comprehensive Metrics Analysis")
+    print(" Using Enhanced C++ Comprehensive Metrics Analysis")
     print("-" * 50)
     
     # Extract enhanced features for all logos
     all_features = []
     valid_logos = []
     
-    print("📊 Extracting comprehensive features...")
+    print(" Extracting comprehensive features...")
     for i, logo in enumerate(unique_logos):
         if i % 100 == 0:
             print(f"   Processing logo {i+1}/{len(unique_logos)}")
@@ -84,15 +84,15 @@ def run_enhanced_cpp_analysis(unique_logos, analyzer, similarity_computer):
                     valid_logos.append(logo)
                     
         except Exception as e:
-            print(f"⚠️  Failed to process {logo['domain']}: {e}")
+            print(f"  Failed to process {logo['domain']}: {e}")
     
-    print(f"✅ Extracted features for {len(valid_logos)} valid logos")
+    print(f" Extracted features for {len(valid_logos)} valid logos")
     
     # Try different calibrated similarity thresholds for ultra-restrictive clustering
     thresholds = [0.95, 0.90, 0.85, 0.80]
     
     for threshold in thresholds:
-        print(f"\n🔍 Testing enhanced calibrated threshold: {threshold}")
+        print(f"\n Testing enhanced calibrated threshold: {threshold}")
         start_time = time.time()
         
         # Compute pairwise comprehensive similarities
@@ -123,18 +123,18 @@ def run_enhanced_cpp_analysis(unique_logos, analyzer, similarity_computer):
                     })
         
         analysis_time = time.time() - start_time
-        print(f"   📊 Found {len(similar_pairs)} similar pairs in {analysis_time:.1f}s")
+        print(f"    Found {len(similar_pairs)} similar pairs in {analysis_time:.1f}s")
         
         # Show similarity distribution
         if similar_pairs:
             similarities = [pair['similarity'] for pair in similar_pairs]
             confidences = [pair['confidence'] for pair in similar_pairs]
-            print(f"   📈 Similarity range: {min(similarities):.3f} - {max(similarities):.3f}")
-            print(f"   🎯 Average similarity: {np.mean(similarities):.3f}")
-            print(f"   🔮 Average confidence: {np.mean(confidences):.3f}")
+            print(f"    Similarity range: {min(similarities):.3f} - {max(similarities):.3f}")
+            print(f"    Average similarity: {np.mean(similarities):.3f}")
+            print(f"    Average confidence: {np.mean(confidences):.3f}")
             
             # Show some examples with comprehensive metrics
-            print(f"   💫 Example enhanced similar pairs:")
+            print(f"    Example enhanced similar pairs:")
             for i, pair in enumerate(similar_pairs[:5]):
                 metrics = pair['comprehensive_metrics']
                 active_metrics = [k for k, v in metrics.items() if v and k != 'overall_similar']
@@ -144,33 +144,33 @@ def run_enhanced_cpp_analysis(unique_logos, analyzer, similarity_computer):
         
         # If we get a reasonable number, proceed with clustering
         if 0 < len(similar_pairs) <= 5000:
-            print(f"✅ Threshold {threshold} gives {len(similar_pairs)} pairs - creating enhanced clusters...")
+            print(f" Threshold {threshold} gives {len(similar_pairs)} pairs - creating enhanced clusters...")
             
             clusters = create_enhanced_clusters(similar_pairs, max_cluster_size=20)
             
             cluster_sizes = [len(cluster) for cluster in clusters]
             cluster_sizes.sort(reverse=True)
             
-            print(f"\n🎊 ENHANCED CLUSTERING RESULTS (Threshold: {threshold})")
+            print(f"\n ENHANCED CLUSTERING RESULTS (Threshold: {threshold})")
             print(f"=" * 50)
-            print(f"📊 Total clusters: {len(clusters)}")
-            print(f"📈 Cluster sizes: {cluster_sizes}")
+            print(f" Total clusters: {len(clusters)}")
+            print(f" Cluster sizes: {cluster_sizes}")
             
             # Show meaningful clusters (size > 2)
             meaningful_clusters = [c for c in clusters if len(c) > 2]
-            print(f"\n🎯 ENHANCED BRAND CLUSTERS (3+ domains):")
+            print(f"\n ENHANCED BRAND CLUSTERS (3+ domains):")
             for i, cluster in enumerate(meaningful_clusters):
                 print(f"Enhanced Brand Cluster {i+1} ({len(cluster)} domains): {cluster}")
             
             return len(clusters), cluster_sizes, threshold
     
-    print(f"\n❌ No suitable threshold found even with enhanced comprehensive metrics")
+    print(f"\n No suitable threshold found even with enhanced comprehensive metrics")
     return 0, [], None
 
 def run_basic_analysis(unique_logos, pipeline):
     """Fallback to basic analysis when enhanced C++ not available"""
     
-    print("🐍 Using Basic Python Analysis (Fallback)")
+    print(" Using Basic Python Analysis (Fallback)")
     print("-" * 50)
     
     # Prepare logos for basic analysis
@@ -187,7 +187,7 @@ def run_basic_analysis(unique_logos, pipeline):
     thresholds = [0.99, 0.98, 0.97, 0.96]
     
     for threshold in thresholds:
-        print(f"\n🔍 Testing basic threshold: {threshold}")
+        print(f"\n Testing basic threshold: {threshold}")
         start_time = time.time()
         
         # Run basic similarity analysis
@@ -214,41 +214,41 @@ def run_basic_analysis(unique_logos, pipeline):
                         })
         
         analysis_time = time.time() - start_time
-        print(f"   📊 Found {len(similar_pairs)} similar pairs in {analysis_time:.1f}s")
+        print(f"    Found {len(similar_pairs)} similar pairs in {analysis_time:.1f}s")
         
         # Show basic examples
         if similar_pairs:
             similarities = [pair['similarity'] for pair in similar_pairs]
-            print(f"   📈 Similarity range: {min(similarities):.3f} - {max(similarities):.3f}")
-            print(f"   🎯 Average similarity: {np.mean(similarities):.3f}")
+            print(f"    Similarity range: {min(similarities):.3f} - {max(similarities):.3f}")
+            print(f"    Average similarity: {np.mean(similarities):.3f}")
             
-            print(f"   💫 Example basic similar pairs:")
+            print(f"    Example basic similar pairs:")
             for i, pair in enumerate(similar_pairs[:5]):
                 print(f"      {pair['domain1']} ↔ {pair['domain2']} (sim: {pair['similarity']:.3f})")
         
         # If we get a reasonable number, proceed with clustering
         if 0 < len(similar_pairs) <= 5000:
-            print(f"✅ Threshold {threshold} gives {len(similar_pairs)} pairs - clustering...")
+            print(f" Threshold {threshold} gives {len(similar_pairs)} pairs - clustering...")
             
             clusters = pipeline._create_natural_similarity_clusters(similar_pairs, max_cluster_size=20)
             
             cluster_sizes = [len(cluster) for cluster in clusters]
             cluster_sizes.sort(reverse=True)
             
-            print(f"\n🎊 BASIC CLUSTERING RESULTS (Threshold: {threshold})")
+            print(f"\n BASIC CLUSTERING RESULTS (Threshold: {threshold})")
             print(f"=" * 50)
-            print(f"📊 Total clusters: {len(clusters)}")
-            print(f"📈 Cluster sizes: {cluster_sizes}")
+            print(f" Total clusters: {len(clusters)}")
+            print(f" Cluster sizes: {cluster_sizes}")
             
             # Show meaningful clusters
             meaningful_clusters = [c for c in clusters if len(c) > 2]
-            print(f"\n🎯 BASIC BRAND CLUSTERS (3+ domains):")
+            print(f"\n BASIC BRAND CLUSTERS (3+ domains):")
             for i, cluster in enumerate(meaningful_clusters):
                 print(f"Basic Brand Cluster {i+1} ({len(cluster)} domains): {cluster}")
             
             return len(clusters), cluster_sizes, threshold
     
-    print(f"\n❌ No suitable threshold found with basic analysis")
+    print(f"\n No suitable threshold found with basic analysis")
     return 0, [], None
 
 def create_enhanced_clusters(similar_pairs, max_cluster_size=20):
@@ -320,6 +320,6 @@ if __name__ == "__main__":
     cluster_count, sizes, best_threshold = run_enhanced_ultra_restrictive_clustering()
     
     if best_threshold:
-        print(f"\n🎉 ENHANCED SUCCESS: Found {cluster_count} enhanced clusters using threshold {best_threshold}")
+        print(f"\n ENHANCED SUCCESS: Found {cluster_count} enhanced clusters using threshold {best_threshold}")
     else:
-        print(f"\n💔 No suitable clustering threshold found with enhanced analysis")
+        print(f"\n No suitable clustering threshold found with enhanced analysis")

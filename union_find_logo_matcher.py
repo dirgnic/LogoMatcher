@@ -464,7 +464,7 @@ class OptimizedLogoMatcher:
         """
         Compute signatures for all logos using threading for performance
         """
-        print(f"🧵 Computing signatures for {len(logos_dict)} logos using {self.max_workers} threads...")
+        print(f" Computing signatures for {len(logos_dict)} logos using {self.max_workers} threads...")
         
         logo_items = list(logos_dict.items())
         signatures_dict = {}
@@ -513,7 +513,7 @@ class OptimizedLogoMatcher:
                 except Exception as e:
                     print(f"Batch processing error: {e}")
         
-        print(f"✅ Signature computation completed for {len(signatures_dict)} logos")
+        print(f" Signature computation completed for {len(signatures_dict)} logos")
         return signatures_dict
     
     def _compute_perceptual_hash(self, img):
@@ -613,7 +613,7 @@ class OptimizedLogoMatcher:
         Enhanced signature extraction using threading for performance
         Uses 2025 research features + deep hashing
         """
-        print(f"🚀 Extracting enhanced signatures for {len(logos_dict)} logos...")
+        print(f" Extracting enhanced signatures for {len(logos_dict)} logos...")
         
         # Use threaded signature computation for performance
         signatures_dict = self.compute_signatures_threaded(logos_dict)
@@ -621,8 +621,8 @@ class OptimizedLogoMatcher:
         # Store signatures in logos_data for quick access during similarity computation
         self.logos_data = signatures_dict
         
-        print(f"✅ Enhanced signature extraction completed!")
-        print(f"📊 Features per logo: Deep hash + FFT + Color-Fourier-Mellin + Traditional hashes")
+        print(f" Enhanced signature extraction completed!")
+        print(f" Features per logo: Deep hash + FFT + Color-Fourier-Mellin + Traditional hashes")
         
         return signatures_dict
     
@@ -943,16 +943,16 @@ def main():
     total_entries = 4384  # From cache
     success_rate = (len(logos_dict) / total_entries) * 100
     
-    print(f"✓ Total cache entries: {total_entries}")
-    print(f"✓ Successfully processed: {len(logos_dict)}")
-    print(f"✓ Success rate: {success_rate:.2f}% (target: >97%)")
-    print(f"✓ Method: Union-Find + Multi-Signature")
-    print(f"✓ Signatures: pHash, aHash, dHash, wavelet, color, edge, contour")
+    print(f" Total cache entries: {total_entries}")
+    print(f" Successfully processed: {len(logos_dict)}")
+    print(f" Success rate: {success_rate:.2f}% (target: >97%)")
+    print(f" Method: Union-Find + Multi-Signature")
+    print(f" Signatures: pHash, aHash, dHash, wavelet, color, edge, contour")
     
     if success_rate > 97:
-        print(f"✅ SUCCESS: Exceeded 97% extraction target!")
+        print(f" SUCCESS: Exceeded 97% extraction target!")
     else:
-        print(f"⚠️  WARNING: Below 97% extraction target")
+        print(f"  WARNING: Below 97% extraction target")
     
     print(f"\nResults by threshold:")
     for threshold_type, results in results_summary.items():

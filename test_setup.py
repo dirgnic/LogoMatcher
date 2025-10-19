@@ -22,9 +22,9 @@ def test_imports():
     for package in required_packages:
         try:
             importlib.import_module(package)
-            print(f"✓ {package}")
+            print(f" {package}")
         except ImportError:
-            print(f"✗ {package} - MISSING")
+            print(f" {package} - MISSING")
             missing_packages.append(package)
     
     return missing_packages
@@ -34,10 +34,10 @@ def test_logo_matcher():
     try:
         from logo_matcher import LogoMatcher
         matcher = LogoMatcher()
-        print("✓ LogoMatcher class imported successfully")
+        print(" LogoMatcher class imported successfully")
         return True
     except Exception as e:
-        print(f"✗ Failed to import LogoMatcher: {e}")
+        print(f" Failed to import LogoMatcher: {e}")
         return False
 
 def run_mini_test():
@@ -51,15 +51,15 @@ def run_mini_test():
         result = matcher.process_website("google.com")
         
         if result['logo_found']:
-            print(f"✓ Successfully extracted logo from {result['website']}")
+            print(f" Successfully extracted logo from {result['website']}")
             print(f"  Logo URL: {result['logo_url']}")
         else:
-            print(f"✗ Failed to extract logo: {result.get('error', 'Unknown error')}")
+            print(f" Failed to extract logo: {result.get('error', 'Unknown error')}")
             
         return result['logo_found']
         
     except Exception as e:
-        print(f"✗ Mini test failed: {e}")
+        print(f" Mini test failed: {e}")
         return False
 
 if __name__ == "__main__":
@@ -70,7 +70,7 @@ if __name__ == "__main__":
     missing = test_imports()
     
     if missing:
-        print(f"\n❌ Missing packages: {', '.join(missing)}")
+        print(f"\n Missing packages: {', '.join(missing)}")
         print("Please run: pip install -r requirements.txt")
         sys.exit(1)
     
@@ -80,9 +80,9 @@ if __name__ == "__main__":
     
     print("\n3. Running connectivity test...")
     if run_mini_test():
-        print("\n✅ All tests passed! Your setup is ready.")
+        print("\n All tests passed! Your setup is ready.")
     else:
-        print("\n⚠️  Setup is functional but connectivity test failed.")
+        print("\n  Setup is functional but connectivity test failed.")
         print("This might be due to network issues or website blocking.")
         
     print("\nYou can now run: python main.py")

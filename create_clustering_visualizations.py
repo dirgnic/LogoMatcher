@@ -16,11 +16,11 @@ def load_clustering_data():
     # Find the most recent results
     pkl_files = list(Path('.').glob('advanced_logo_clustering_results_*.pkl'))
     if not pkl_files:
-        print("❌ No clustering results found!")
+        print(" No clustering results found!")
         return None
     
     latest_pkl = sorted(pkl_files)[-1]
-    print(f"📂 Loading results from: {latest_pkl}")
+    print(f" Loading results from: {latest_pkl}")
     
     with open(latest_pkl, 'rb') as f:
         data = pickle.load(f)
@@ -61,7 +61,7 @@ def create_cluster_size_distribution(clusters, save_path="cluster_size_distribut
     
     plt.tight_layout()
     plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    print(f"📊 Saved cluster size distribution: {save_path}")
+    print(f" Saved cluster size distribution: {save_path}")
     return fig
 
 def create_brand_coherence_analysis(clusters, features_dict, save_path="brand_coherence_analysis.png"):
@@ -143,7 +143,7 @@ def create_brand_coherence_analysis(clusters, features_dict, save_path="brand_co
     
     plt.tight_layout()
     plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    print(f"🧠 Saved brand coherence analysis: {save_path}")
+    print(f" Saved brand coherence analysis: {save_path}")
     return fig, df
 
 def create_performance_comparison(save_path="performance_comparison.png"):
@@ -219,7 +219,7 @@ def create_performance_comparison(save_path="performance_comparison.png"):
     
     plt.tight_layout()
     plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    print(f"📈 Saved performance comparison: {save_path}")
+    print(f" Saved performance comparison: {save_path}")
     return fig
 
 def create_feature_analysis(features_dict, save_path="feature_analysis.png"):
@@ -287,7 +287,7 @@ def create_feature_analysis(features_dict, save_path="feature_analysis.png"):
     
     plt.tight_layout()
     plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    print(f"🔍 Saved feature analysis: {save_path}")
+    print(f" Saved feature analysis: {save_path}")
     return fig
 
 def create_cluster_examples_visualization(clusters, features_dict, save_path="cluster_examples.png"):
@@ -341,9 +341,9 @@ def create_cluster_examples_visualization(clusters, features_dict, save_path="cl
     # 2. Create detailed text summary
     ax2.axis('off')
     
-    summary_text = "🏆 TOP PERFORMING CLUSTERS\n\n"
+    summary_text = " TOP PERFORMING CLUSTERS\n\n"
     for i, data in enumerate(cluster_analysis[:5]):
-        coherence_status = "✅ Brand Coherent" if data['is_coherent'] else "❌ Mixed Brands"
+        coherence_status = " Brand Coherent" if data['is_coherent'] else " Mixed Brands"
         brand_text = ", ".join(data['brands']) if data['brands'] != ['unknown'] else "Brand detection failed"
         industry_text = ", ".join(data['industries']) if data['industries'] != ['unknown'] else "Industry unknown"
         
@@ -353,7 +353,7 @@ def create_cluster_examples_visualization(clusters, features_dict, save_path="cl
     
     # Add overall statistics
     coherent_count = sum(1 for d in cluster_analysis if d['is_coherent'])
-    summary_text += f"\n📊 CLUSTER QUALITY METRICS:\n"
+    summary_text += f"\n CLUSTER QUALITY METRICS:\n"
     summary_text += f"• Brand Coherent: {coherent_count}/10 top clusters\n"
     summary_text += f"• Average Size: {np.mean(sizes):.1f} logos\n"
     summary_text += f"• Largest Cluster: {max(sizes)} logos\n"
@@ -365,12 +365,12 @@ def create_cluster_examples_visualization(clusters, features_dict, save_path="cl
     
     plt.tight_layout()
     plt.savefig(save_path, dpi=300, bbox_inches='tight')
-    print(f"🎯 Saved cluster examples: {save_path}")
+    print(f" Saved cluster examples: {save_path}")
     return fig
 
 def create_comprehensive_dashboard():
     """Create a comprehensive visualization dashboard"""
-    print("🎨 Creating Advanced Semantic Clustering Visualization Dashboard")
+    print(" Creating Advanced Semantic Clustering Visualization Dashboard")
     print("=" * 70)
     
     # Load data
@@ -381,14 +381,14 @@ def create_comprehensive_dashboard():
     clusters = data['clusters']
     features_dict = data['features']
     
-    print(f"📊 Loaded {len(clusters)} clusters with {len(features_dict)} logo features")
+    print(f" Loaded {len(clusters)} clusters with {len(features_dict)} logo features")
     
     # Set style
     plt.style.use('default')
     sns.set_palette("husl")
     
     # Create visualizations
-    print("\n🎨 Generating visualizations...")
+    print("\n Generating visualizations...")
     
     # 1. Cluster size distribution
     create_cluster_size_distribution(clusters)
@@ -405,8 +405,8 @@ def create_comprehensive_dashboard():
     # 5. Cluster examples
     create_cluster_examples_visualization(clusters, features_dict)
     
-    print(f"\n🎉 Visualization dashboard complete!")
-    print(f"📂 Generated files:")
+    print(f"\n Visualization dashboard complete!")
+    print(f" Generated files:")
     print(f"   • cluster_size_distribution.png")
     print(f"   • brand_coherence_analysis.png") 
     print(f"   • performance_comparison.png")
@@ -417,12 +417,12 @@ def create_comprehensive_dashboard():
     multi_clusters = [c for c in clusters if len(c) > 1]
     singletons = len(clusters) - len(multi_clusters)
     
-    print(f"\n📈 DASHBOARD SUMMARY:")
-    print(f"   🎯 Total Clusters: {len(clusters):,}")
-    print(f"   🔗 Multi-logo Clusters: {len(multi_clusters):,}")
-    print(f"   🔸 Singletons: {singletons:,} ({singletons/len(clusters)*100:.1f}%)")
-    print(f"   📊 Average Cluster Size: {sum(len(c) for c in clusters)/len(clusters):.2f}")
-    print(f"   🏆 Largest Cluster: {max(len(c) for c in clusters)} logos")
+    print(f"\n DASHBOARD SUMMARY:")
+    print(f"    Total Clusters: {len(clusters):,}")
+    print(f"    Multi-logo Clusters: {len(multi_clusters):,}")
+    print(f"    Singletons: {singletons:,} ({singletons/len(clusters)*100:.1f}%)")
+    print(f"    Average Cluster Size: {sum(len(c) for c in clusters)/len(clusters):.2f}")
+    print(f"    Largest Cluster: {max(len(c) for c in clusters)} logos")
 
 if __name__ == "__main__":
     create_comprehensive_dashboard()

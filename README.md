@@ -4,49 +4,49 @@
 
 Group websites by visually identical/near-identical logos using Fourier methods + Union-Find clustering. No k-means or DBSCAN — designed for billion-record scale with free compute.
 
-## 📊 **Logo Extraction Pipeline Architecture**
+##  **Logo Extraction Pipeline Architecture**
 
 ```mermaid
 graph TD
-    A[📄 Domain List<br/>4,384 websites] --> B[🚀 Enhanced Logo Extractor]
+    A[ Domain List<br/>4,384 websites] --> B[ Enhanced Logo Extractor]
     
-    B --> C{💾 Cache Check}
-    C -->|Hit| D[⚡ Instant Load<br/>2,334+ sites/sec]
-    C -->|Miss| E[🔄 Multi-Tier API Extraction]
+    B --> C{ Cache Check}
+    C -->|Hit| D[ Instant Load<br/>2,334+ sites/sec]
+    C -->|Miss| E[ Multi-Tier API Extraction]
     
-    E --> F[🥇 Tier 1: Premium APIs]
+    E --> F[ Tier 1: Premium APIs]
     F --> G[Clearbit Logo API]
     F --> H[Logo.dev API]
     
-    F --> I{✅ Success?}
-    I -->|Yes| J[💾 Cache & Return]
-    I -->|No| K[🥈 Tier 2: Backup APIs]
+    F --> I{ Success?}
+    I -->|Yes| J[ Cache & Return]
+    I -->|No| K[ Tier 2: Backup APIs]
     
     K --> L[Google Favicon]
     K --> M[DuckDuckGo Icons]
     K --> N[IconHorse API]
     
-    K --> O{✅ Success?}
+    K --> O{ Success?}
     O -->|Yes| J
-    O -->|No| P[🥉 Tier 3: Enhanced Recovery]
+    O -->|No| P[ Tier 3: Enhanced Recovery]
     
-    P --> Q[🧵 Parallel Recovery<br/>6 workers]
-    Q --> R[📡 DNS Favicon Extraction]
-    Q --> S[🌐 Direct Website Scraping]
-    Q --> T[🔍 Additional 46 APIs]
+    P --> Q[ Parallel Recovery<br/>6 workers]
+    Q --> R[ DNS Favicon Extraction]
+    Q --> S[ Direct Website Scraping]
+    Q --> T[ Additional 46 APIs]
     
     R --> U[favicon.ico]
     R --> V[apple-touch-icon.png]
     R --> W[favicon-32x32.png]
     
-    P --> X{✅ Recovery Success?}
+    P --> X{ Recovery Success?}
     X -->|Yes| J
-    X -->|No| Y[❌ Mark as Failed]
+    X -->|No| Y[ Mark as Failed]
     
-    J --> Z[📈 97.99% Success Rate<br/>4,296/4,384 logos]
+    J --> Z[ 97.99% Success Rate<br/>4,296/4,384 logos]
     Y --> Z
     
-    Z --> AA[🔥 Fourier Analysis Pipeline]
+    Z --> AA[ Fourier Analysis Pipeline]
     
     style A fill:#e1f5fe
     style B fill:#f3e5f5
@@ -60,7 +60,7 @@ graph TD
     style AA fill:#e0f2f1
 ```
 
-### **🚀 Performance Metrics**
+### ** Performance Metrics**
 
 | Stage | Speed | Success Rate | Details |
 |-------|--------|--------------|---------|
@@ -70,35 +70,35 @@ graph TD
 | **Enhanced Recovery** | 8+ sites/sec | ~3% | DNS + 46 additional APIs |
 | **Overall Pipeline** | 10.7 sites/sec | **97.99%** | **4,296/4,384 successful** |
 
-### **🔧 Smart Features**
+### ** Smart Features**
 
-- **💾 Intelligent Caching**: Persistent disk cache with hash-based filenames
-- **🧵 Parallel Processing**: 4-6 concurrent workers for optimal throughput  
-- **🔄 Progressive Fallback**: 53 total APIs with smart tier prioritization
-- **📡 DNS Recovery**: Direct favicon extraction when APIs fail
-- **⚡ Cache Acceleration**: 85x speed improvement on subsequent runs
+- ** Intelligent Caching**: Persistent disk cache with hash-based filenames
+- ** Parallel Processing**: 4-6 concurrent workers for optimal throughput  
+- ** Progressive Fallback**: 53 total APIs with smart tier prioritization
+- ** DNS Recovery**: Direct favicon extraction when APIs fail
+- ** Cache Acceleration**: 85x speed improvement on subsequent runs
 
-## 🔄 **Complete Analysis Pipeline**
+##  **Complete Analysis Pipeline**
 
 ```mermaid
 graph LR
-    A[📄 Domain List] --> B[🚀 Logo Extraction<br/>97.99% success]
-    B --> C[🖼️ Logo Cache<br/>4,296 images]
-    C --> D[🔥 Fourier Analysis<br/>C++ optimized]
+    A[ Domain List] --> B[ Logo Extraction<br/>97.99% success]
+    B --> C[ Logo Cache<br/>4,296 images]
+    C --> D[ Fourier Analysis<br/>C++ optimized]
     
-    D --> E[📊 Similarity Matrix<br/>3,906 × 3,906]
-    E --> F[🧮 Three Methods]
+    D --> E[ Similarity Matrix<br/>3,906 × 3,906]
+    E --> F[ Three Methods]
     
-    F --> G[📱 pHash DCT<br/>Hamming ≤ 6]
-    F --> H[🌊 FFT Low-Freq<br/>Cosine ≥ 0.985]  
-    F --> I[🔄 Fourier-Mellin<br/>Cosine ≥ 0.995]
+    F --> G[ pHash DCT<br/>Hamming ≤ 6]
+    F --> H[ FFT Low-Freq<br/>Cosine ≥ 0.985]  
+    F --> I[ Fourier-Mellin<br/>Cosine ≥ 0.995]
     
-    G --> J[🔗 Union-Find Clustering]
+    G --> J[ Union-Find Clustering]
     H --> J
     I --> J
     
-    J --> K[📈 37 Brand Clusters<br/>64-89 domains each]
-    K --> L[📊 Visualization Dashboard]
+    J --> K[ 37 Brand Clusters<br/>64-89 domains each]
+    K --> L[ Visualization Dashboard]
     
     style A fill:#e1f5fe
     style B fill:#f3e5f5
@@ -110,7 +110,7 @@ graph LR
     style L fill:#fce4ec
 ```
 
-### **⚡ Performance Highlights**
+### ** Performance Highlights**
 
 - **Logo Extraction**: 4,296/4,384 logos (97.99% success rate)
 - **C++ Fourier Engine**: 376-382 logos/second processing
@@ -118,14 +118,14 @@ graph LR
 - **Smart Clustering**: Exactly 37 balanced clusters (no manual tuning)
 - **Total Pipeline**: < 5 minutes for complete analysis
 
-## 🎯 **Challenge Requirements**
+##  **Challenge Requirements**
 
 - **>97% logo extraction rate** from websites
 - **Group websites** with similar/identical logos  
 - **No ML clustering** (k-means, DBSCAN) — favor explainable methods
 - **Scalable to billions** of records
 
-## 🚀 **Our Solution**
+##  **Our Solution**
 
 ### **Three Fourier-Based Similarity Methods**
 bash<img width="1320" height="734" alt="Screenshot 2025-10-14 at 19 30 05" src="https://github.com/user-attachments/assets/2589c179-13af-4fc4-9294-7d635b460da4" /> 
@@ -144,7 +144,7 @@ bash<img width="1320" height="734" alt="Screenshot 2025-10-14 at 19 30 05" src="
 - **89.4% Success Rate**: Higher than traditional scraping
 - **Smart Fallback**: Concurrent scraping for API failures
 
-## 🎨 **Comprehensive Visualizations**
+##  **Comprehensive Visualizations**
 
 ### **Generated Charts & Analysis**
 ```bash
@@ -158,7 +158,7 @@ python real_logo_visualizer.py
 python complete_pipeline.py
 ```
 
-### **📊 Visualization Gallery**
+### ** Visualization Gallery**
 - **`extraction_performance_analysis.png`** - API performance metrics & speed comparison
 - **`similarity_analysis_visualization.png`** - Similarity distributions & threshold optimization  
 - **`cluster_analysis_dashboard.png`** - Brand family discovery & geographic distribution
@@ -166,15 +166,15 @@ python complete_pipeline.py
 - **`real_logo_fourier_features.png`** - Actual extracted logo Fourier features
 - **`logo_similarity_comparison.png`** - Side-by-side similarity analysis
 
-### **🔍 Key Visual Insights**
+### ** Key Visual Insights**
 - **Brand Family Discovery**: Automatic detection of AAMCO, Mazda, Toyota networks
 - **Feature Quality Analysis**: Multi-method Fourier comparison (pHash + FFT + F-M)
 - **Threshold Optimization**: Data-driven similarity threshold selection
 - **Geographic Distribution**: Global brand presence analysis by TLD
 
-## 🔧 **Quick Start**
+##  **Quick Start**
 
-### **🚀 Enhanced Pipeline (Recommended)**
+### ** Enhanced Pipeline (Recommended)**
 
 ```bash
 # Install dependencies
@@ -190,7 +190,7 @@ python logo_analysis.py
 python visualization_pipeline.py
 ```
 
-### **📊 Processing Options**
+### ** Processing Options**
 
 ```bash
 # Fast parallel extraction (2,334+ sites/sec with cache)
@@ -206,7 +206,7 @@ python comprehensive_scraper.py --advanced
 python comprehensive_scraper.py --parallel
 ```
 
-### **🎨 Visualization & Analysis**
+### ** Visualization & Analysis**
 
 ```bash
 # Create all visualizations
@@ -263,7 +263,7 @@ walmart.com
 }
 ```
 
-## 📊 **Scale Pipeline**
+##  **Scale Pipeline**
 
 ### **GitHub Actions (Free Parallel Processing)**
 ```bash
@@ -281,7 +281,7 @@ cd cloudflare-worker
 wrangler deploy
 ```
 
-## 📈 **Performance**
+##  **Performance**
 - **Single runner**: 500-1000 sites/minute
 - **20 parallel batches**: 10,000-20,000 sites/minute  
 - **Monthly capacity**: 420-840 million sites

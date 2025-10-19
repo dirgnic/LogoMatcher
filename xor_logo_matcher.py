@@ -485,18 +485,18 @@ def main():
     print(f"\n" + "="*60)
     print("XOR-BASED RESULTS SUMMARY")
     print("="*60)
-    print(f"✓ Logos processed: {len(logos_dict)}")
-    print(f"✓ Success rate: {(len(logos_dict)/4384)*100:.2f}% (target: >97%)")
-    print(f"✓ Total groups found: {analysis['total_groups']}")
-    print(f"✓ Groups with similar logos: {analysis['multi_logo_groups']}")
-    print(f"✓ Unique logos: {analysis['single_logo_groups']}")
-    print(f"✓ Method: XOR operations on Fourier areas")
-    print(f"✓ Features: Low/high freq, phase, radial, quadrant XOR signatures")
+    print(f" Logos processed: {len(logos_dict)}")
+    print(f" Success rate: {(len(logos_dict)/4384)*100:.2f}% (target: >97%)")
+    print(f" Total groups found: {analysis['total_groups']}")
+    print(f" Groups with similar logos: {analysis['multi_logo_groups']}")
+    print(f" Unique logos: {analysis['single_logo_groups']}")
+    print(f" Method: XOR operations on Fourier areas")
+    print(f" Features: Low/high freq, phase, radial, quadrant XOR signatures")
     
     if (len(logos_dict)/4384)*100 > 97:
-        print(f"✅ SUCCESS: Exceeded 97% logo extraction target!")
+        print(f" SUCCESS: Exceeded 97% logo extraction target!")
     else:
-        print(f"⚠️  WARNING: Below 97% extraction target")
+        print(f"  WARNING: Below 97% extraction target")
     
     print(f"\nXOR-based approach benefits:")
     print(f"  • Pure mathematical operations (no ML)")

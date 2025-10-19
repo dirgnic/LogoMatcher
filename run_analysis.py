@@ -13,7 +13,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # Import and run the main functions
 async def main():
-    print("🚀 LOGO ANALYSIS PIPELINE - COMMAND LINE EXECUTION")
+    print(" LOGO ANALYSIS PIPELINE - COMMAND LINE EXECUTION")
     print("=" * 60)
     
     try:
@@ -42,26 +42,26 @@ async def main():
         from skimage import filters, transform
         from sklearn.metrics.pairwise import cosine_similarity
 
-        print("✅ All imports successful")
+        print(" All imports successful")
         
         # Check if parquet file exists
         if os.path.exists('logos.snappy.parquet'):
-            print("✅ Found logos.snappy.parquet file")
+            print(" Found logos.snappy.parquet file")
         else:
-            print("❌ logos.snappy.parquet file not found")
+            print(" logos.snappy.parquet file not found")
             print("   Please ensure the file is in the current directory")
             return
             
-        print("\n📊 Starting logo analysis...")
+        print("\n Starting logo analysis...")
         print("   This may take several minutes to complete...")
         
         # You can add specific function calls here based on what you want to run
         # For now, let's just confirm the setup is working
         
-        print("✅ Setup complete - ready for analysis!")
+        print(" Setup complete - ready for analysis!")
         
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         import traceback
         traceback.print_exc()
 

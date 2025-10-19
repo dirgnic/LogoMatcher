@@ -54,7 +54,7 @@ async def try_recovery():
                         if response.status == 200:
                             data = await response.read()
                             if len(data) > 500:  # Valid logo
-                                print(f"✅ Recovered logo for {domain} using {api['name']}")
+                                print(f" Recovered logo for {domain} using {api['name']}")
                                 recovered += 1
                                 break
                 except:
@@ -67,7 +67,7 @@ if __name__ == "__main__":
     recovered = asyncio.run(try_recovery())
     
     if recovered >= 3:
-        print("🎉 SUCCESS! Found enough additional logos to reach 98%!")
+        print(" SUCCESS! Found enough additional logos to reach 98%!")
         new_success_rate = (data['metadata']['success_count'] + recovered) / data['metadata']['total_websites'] * 100
         print(f"New success rate would be: {new_success_rate:.2f}%")
     else:

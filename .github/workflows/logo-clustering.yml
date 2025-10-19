@@ -228,7 +228,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               commit_sha: context.sha,
-              body: `## 🎯 Logo Clustering Results\n\n${summary}`
+              body: `##  Logo Clustering Results\n\n${summary}`
             });
 
   # Optional: Playwright fallback for failed extractions

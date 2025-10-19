@@ -140,7 +140,7 @@ class ClusterProfiler:
         
         # Extract features for each logo (this would need logo image data)
         # For now, we'll simulate with the cluster structure
-        print("📊 Note: Using cluster structure for demonstration")
+        print(" Note: Using cluster structure for demonstration")
         print("    In production, would extract features from actual logo images")
         
         # Simulate feature matrix (would be real features in production)
@@ -189,7 +189,7 @@ class ClusterProfiler:
         """Train Decision Tree to reveal cluster characteristics"""
         # Only train if we have multiple clusters
         if len(np.unique(cluster_labels)) < 2:
-            print("⚠️ Need multiple clusters for Decision Tree analysis")
+            print(" Need multiple clusters for Decision Tree analysis")
             return None
         
         # Train shallow tree for interpretability
@@ -264,7 +264,7 @@ class ClusterProfiler:
         
         # Text rules
         tree_rules = export_text(tree, feature_names=feature_names, max_depth=4)
-        print("🌳 DECISION TREE RULES:")
+        print(" DECISION TREE RULES:")
         print(tree_rules)
         
         # Feature importances
@@ -272,7 +272,7 @@ class ClusterProfiler:
         feature_importance_pairs = list(zip(feature_names, importances))
         feature_importance_pairs.sort(key=lambda x: x[1], reverse=True)
         
-        print("\n📊 FEATURE IMPORTANCES:")
+        print("\n FEATURE IMPORTANCES:")
         for feature, importance in feature_importance_pairs[:10]:
             print(f"   {feature}: {importance:.3f}")
         
@@ -283,7 +283,7 @@ class ClusterProfiler:
             plt.title("Logo Cluster Decision Tree")
             plt.tight_layout()
             plt.savefig(output_file, dpi=300, bbox_inches='tight')
-            print(f"🖼️ Tree visualization saved to {output_file}")
+            print(f" Tree visualization saved to {output_file}")
             plt.close()
 
 
@@ -296,7 +296,7 @@ async def main():
     
     args = parser.parse_args()
     
-    print("🔍 k-NN Probe: Logo Cluster Explainability")
+    print(" k-NN Probe: Logo Cluster Explainability")
     print("=" * 50)
     
     # Initialize components
@@ -304,7 +304,7 @@ async def main():
     profiler = ClusterProfiler(feature_extractor)
     
     # Load data
-    print("📂 Loading cluster data...")
+    print(" Loading cluster data...")
     clusters, feature_matrix, feature_names = profiler.load_cluster_data(args.clusters_file)
     
     print(f"   Clusters: {len(clusters)}")
@@ -312,7 +312,7 @@ async def main():
     print(f"   Features: {feature_matrix.shape[1]}")
     
     # Build k-NN graph
-    print(f"\n🔗 Building {args.k}-NN graph...")
+    print(f"\n Building {args.k}-NN graph...")
     knn_indices, knn_distances = profiler.build_knn_graph(feature_matrix, args.k)
     
     # Create cluster labels
@@ -322,18 +322,18 @@ async def main():
     cluster_labels = np.array(cluster_labels)
     
     # Train Decision Tree for explainability
-    print("\n🌳 Training Decision Tree for cluster rules...")
+    print("\n Training Decision Tree for cluster rules...")
     tree = profiler.train_decision_tree(feature_matrix, cluster_labels, feature_names)
     
     # Export tree rules and visualization
     profiler.export_decision_tree(tree, feature_names, args.tree_output)
     
     # Analyze cluster profiles
-    print("\n📊 Analyzing cluster profiles...")
+    print("\n Analyzing cluster profiles...")
     profiles = profiler.analyze_cluster_profiles(clusters, feature_matrix, feature_names)
     
     # Display cluster profiles
-    print("\n🎯 CLUSTER PROFILES:")
+    print("\n CLUSTER PROFILES:")
     for cluster_id, profile in profiles.items():
         cluster_info = profile['cluster_info']
         print(f"\n   Cluster {cluster_id} ({cluster_info['size']} websites):")
@@ -349,10 +349,10 @@ async def main():
     with open(args.profiles_output, 'w') as f:
         json.dump(profiles, f, indent=2)
     
-    print(f"\n💾 Cluster profiles saved to {args.profiles_output}")
+    print(f"\n Cluster profiles saved to {args.profiles_output}")
     
     # k-NN analysis summary
-    print(f"\n🔍 k-NN GRAPH ANALYSIS:")
+    print(f"\n k-NN GRAPH ANALYSIS:")
     avg_distance = np.mean(knn_distances)
     print(f"   Average {args.k}-NN distance: {avg_distance:.3f}")
     

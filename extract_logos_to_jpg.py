@@ -193,19 +193,19 @@ def extract_all_logos():
     total_logos = len(logo_results)
     success_rate = (successful_saves / total_logos) * 100 if total_logos > 0 else 0
     
-    print(f"✓ Total logos processed: {total_logos}")
-    print(f"✓ Successfully saved: {successful_saves}")
-    print(f"✗ Failed to save: {failed_saves}")
-    print(f"✓ Success rate: {success_rate:.2f}%")
-    print(f"✓ Output directory: {output_dir}")
+    print(f" Total logos processed: {total_logos}")
+    print(f" Successfully saved: {successful_saves}")
+    print(f" Failed to save: {failed_saves}")
+    print(f" Success rate: {success_rate:.2f}%")
+    print(f" Output directory: {output_dir}")
     
     # Show directory info
     if os.path.exists(output_dir):
         jpg_files = [f for f in os.listdir(output_dir) if f.endswith('.jpg')]
         total_size_mb = sum(os.path.getsize(os.path.join(output_dir, f)) for f in jpg_files) / (1024 * 1024)
         
-        print(f"✓ JPG files created: {len(jpg_files)}")
-        print(f"✓ Total folder size: {total_size_mb:.1f} MB")
+        print(f" JPG files created: {len(jpg_files)}")
+        print(f" Total folder size: {total_size_mb:.1f} MB")
     
     # List sample files
     if successful_saves > 0:
@@ -216,7 +216,7 @@ def extract_all_logos():
         if len(os.listdir(output_dir)) > 10:
             print(f"  ... and {len(os.listdir(output_dir)) - 10} more")
     
-    print(f"\n🎉 Logo extraction completed! Check the '{output_dir}' folder.")
+    print(f"\n Logo extraction completed! Check the '{output_dir}' folder.")
 
 if __name__ == "__main__":
     extract_all_logos()

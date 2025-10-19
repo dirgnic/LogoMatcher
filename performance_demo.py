@@ -20,7 +20,7 @@ try:
     import fourier_math_cpp
     CPP_AVAILABLE = True
 except ImportError as e:
-    print(f"❌ C++ module not available: {e}")
+    print(f" C++ module not available: {e}")
     CPP_AVAILABLE = False
 
 from python_scraping_class import LogoAnalysisPipeline
@@ -59,17 +59,17 @@ def create_synthetic_logo_images(count=100, size=128):
 def benchmark_cpp_performance():
     """Benchmark C++ performance with enhanced threading"""
     if not CPP_AVAILABLE:
-        print("⚠️ C++ module not available for benchmarking")
+        print(" C++ module not available for benchmarking")
         return
     
-    print("🚀 C++ PERFORMANCE BENCHMARK WITH ENHANCED THREADING")
+    print(" C++ PERFORMANCE BENCHMARK WITH ENHANCED THREADING")
     print("=" * 60)
     
     # Test different image batch sizes
     test_sizes = [10, 50, 100, 200]
     
     for batch_size in test_sizes:
-        print(f"\n📊 Testing batch size: {batch_size} images")
+        print(f"\n Testing batch size: {batch_size} images")
         
         # Create test images
         images = create_synthetic_logo_images(batch_size)
@@ -100,14 +100,14 @@ def benchmark_cpp_performance():
         
         print(f"   Sequential processing: {sequential_rate:.1f} images/sec")
         print(f"   Multi-threaded batch:  {batch_rate:.1f} images/sec")
-        print(f"   🚀 Speedup: {speedup:.2f}x")
+        print(f"    Speedup: {speedup:.2f}x")
         print(f"   Comprehensive analysis: {len(images)/comprehensive_time:.1f} images/sec")
         print(f"   Similarity matrix: {comprehensive_results['similarity_matrix'].shape}")
         print(f"   Processing time: {comprehensive_results['processing_time_ms']:.1f}ms")
 
 async def benchmark_full_pipeline():
     """Benchmark the complete Python + C++ integrated pipeline"""
-    print("\n🎯 FULL PIPELINE BENCHMARK")
+    print("\n FULL PIPELINE BENCHMARK")
     print("=" * 60)
     
     # Test websites (using cache for speed)
@@ -119,7 +119,7 @@ async def benchmark_full_pipeline():
     pipeline = LogoAnalysisPipeline()
     
     print(f"Testing with {len(test_websites)} websites...")
-    print(f"C++ Backend: {'✅ Enabled' if pipeline.cpp_available else '⚠️ Python fallback'}")
+    print(f"C++ Backend: {' Enabled' if pipeline.cpp_available else ' Python fallback'}")
     
     # Run complete analysis
     start_time = time.time()
@@ -132,7 +132,7 @@ async def benchmark_full_pipeline():
     
     if results['status'] == 'success':
         metrics = results['performance_metrics']
-        print(f"\n📈 PIPELINE PERFORMANCE:")
+        print(f"\n PIPELINE PERFORMANCE:")
         print(f"   Total time: {total_time:.2f}s")
         print(f"   Success rate: {metrics['success_rate']:.1%}")
         print(f"   Extraction rate: {metrics['total_websites']/total_time:.1f} websites/sec")
@@ -140,17 +140,17 @@ async def benchmark_full_pipeline():
         
         # Estimate scaling to 5K websites
         estimated_5k_time = (5000 / metrics['total_websites']) * total_time
-        print(f"\n🎯 PROJECTED 5K WEBSITE PERFORMANCE:")
+        print(f"\n PROJECTED 5K WEBSITE PERFORMANCE:")
         print(f"   Estimated time: {estimated_5k_time/60:.1f} minutes")
-        print(f"   Target: 35-45 minutes ({'✅ ACHIEVABLE' if estimated_5k_time < 45*60 else '⚠️ NEEDS OPTIMIZATION'})")
+        print(f"   Target: 35-45 minutes ({' ACHIEVABLE' if estimated_5k_time < 45*60 else ' NEEDS OPTIMIZATION'})")
 
 def benchmark_threading_scalability():
     """Test how performance scales with thread count"""
     if not CPP_AVAILABLE:
-        print("⚠️ Threading benchmark requires C++ module")
+        print(" Threading benchmark requires C++ module")
         return
     
-    print("\n🧵 THREADING SCALABILITY TEST")
+    print("\n THREADING SCALABILITY TEST")
     print("=" * 60)
     
     # Create test images
@@ -200,14 +200,14 @@ def benchmark_threading_scalability():
 
 async def main():
     """Run all performance benchmarks"""
-    print("🚀 LOGO ANALYSIS PERFORMANCE SUITE")
-    print("🎯 MacBook Pro 2024 - Enhanced Threading & Concurrency")
+    print(" LOGO ANALYSIS PERFORMANCE SUITE")
+    print(" MacBook Pro 2024 - Enhanced Threading & Concurrency")
     print("=" * 70)
     
     print(f"System Info:")
     print(f"   Python: {sys.version.split()[0]}")
     print(f"   CPU Cores: {multiprocessing.cpu_count()}")
-    print(f"   C++ Module: {'✅ Available' if CPP_AVAILABLE else '❌ Not Available'}")
+    print(f"   C++ Module: {' Available' if CPP_AVAILABLE else ' Not Available'}")
     
     # Run benchmarks
     if CPP_AVAILABLE:
@@ -217,14 +217,14 @@ async def main():
     await benchmark_full_pipeline()
     
     print("\n" + "=" * 70)
-    print("🎉 PERFORMANCE BENCHMARKING COMPLETE!")
+    print(" PERFORMANCE BENCHMARKING COMPLETE!")
     print("\nKey Improvements in New Architecture:")
-    print("✅ Separation of concerns (Python I/O + C++ Math)")
-    print("✅ Enhanced threading with ThreadPool")
-    print("✅ Apple Silicon optimizations (-mcpu=apple-m3)")
-    print("✅ Concurrent similarity matrix computation")
-    print("✅ Work-stealing batch processing")
-    print("✅ Thread-safe memory pools")
+    print(" Separation of concerns (Python I/O + C++ Math)")
+    print(" Enhanced threading with ThreadPool")
+    print(" Apple Silicon optimizations (-mcpu=apple-m3)")
+    print(" Concurrent similarity matrix computation")
+    print(" Work-stealing batch processing")
+    print(" Thread-safe memory pools")
 
 if __name__ == "__main__":
     import multiprocessing

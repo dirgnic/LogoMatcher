@@ -10,19 +10,19 @@ import time
 from python_scraping_class import LogoAnalysisPipeline
 
 async def run_natural_clustering():
-    print("🎯 NATURAL CLUSTERING ANALYSIS")
+    print(" NATURAL CLUSTERING ANALYSIS")
     print("=" * 60)
     
     # Load our enhanced logo data
-    print("📋 Loading enhanced logo data...")
+    print(" Loading enhanced logo data...")
     with open('comprehensive_logo_extraction_fast_results.pkl', 'rb') as f:
         data = pickle.load(f)
     
     successful_logos = data['successful_logos']
-    print(f"✅ Loaded {len(successful_logos)} successful logos (98.54% success rate)")
+    print(f" Loaded {len(successful_logos)} successful logos (98.54% success rate)")
     
     # Convert to the format expected by the pipeline
-    print("🔄 Converting data format...")
+    print(" Converting data format...")
     logo_results_converted = []
     for logo in successful_logos:
         converted = {
@@ -35,13 +35,13 @@ async def run_natural_clustering():
         }
         logo_results_converted.append(converted)
     
-    print(f"✅ Converted {len(logo_results_converted)} logos to pipeline format")
+    print(f" Converted {len(logo_results_converted)} logos to pipeline format")
     
     # Initialize pipeline
     pipeline = LogoAnalysisPipeline()
     
     # Run similarity analysis directly using internal methods
-    print("🚀 Running similarity analysis with natural clustering...")
+    print(" Running similarity analysis with natural clustering...")
     start_time = time.time()
     
     # Create a logos dictionary for analysis and preserve domain info
@@ -59,17 +59,17 @@ async def run_natural_clustering():
         logos_dict[domain] = logo_data
         pipeline_logos.append(logo_data)
     
-    print(f"✅ Prepared {len(pipeline_logos)} logos for similarity analysis")
+    print(f" Prepared {len(pipeline_logos)} logos for similarity analysis")
     
     # Run the analysis using the C++ module if available, otherwise Python
     # Use a higher threshold to avoid mega-clusters
     threshold = 0.89  # Higher threshold for more meaningful similarity
     
     if hasattr(pipeline, 'cpp_available') and pipeline.cpp_available:
-        print(f"🔥 Using C++ accelerated similarity analysis (threshold: {threshold})...")
+        print(f" Using C++ accelerated similarity analysis (threshold: {threshold})...")
         similarity_results = pipeline._cpp_similarity_analysis(pipeline_logos, threshold)
     else:
-        print(f"🐍 Using Python similarity analysis (threshold: {threshold})...")
+        print(f" Using Python similarity analysis (threshold: {threshold})...")
         similarity_results = pipeline._python_similarity_analysis(pipeline_logos, threshold)
     
     analysis_time = time.time() - start_time
@@ -78,7 +78,7 @@ async def run_natural_clustering():
     valid_logos = similarity_results.get('valid_logos', [])
     similarity_matrix = similarity_results.get('similarity_matrix', [])
     
-    print(f"✅ Similarity analysis returned {len(valid_logos)} valid logos")
+    print(f" Similarity analysis returned {len(valid_logos)} valid logos")
     if valid_logos:
         print(f"First valid logo keys: {list(valid_logos[0].keys())}")
     
@@ -99,8 +99,8 @@ async def run_natural_clustering():
     
     # Add safety check to prevent mega-clusters
     if len(similar_pairs) > 50000:  # Too many pairs - increase threshold
-        print("⚠️  Too many similar pairs detected - this would create mega-clusters")
-        print("💡 Consider increasing the similarity threshold for more meaningful clusters")
+        print("  Too many similar pairs detected - this would create mega-clusters")
+        print(" Consider increasing the similarity threshold for more meaningful clusters")
         return 0, []
     
     # Create natural clusters
@@ -109,17 +109,17 @@ async def run_natural_clustering():
     else:
         clusters = []
     
-    print(f"\n🎊 NATURAL CLUSTERING RESULTS")
+    print(f"\n NATURAL CLUSTERING RESULTS")
     print(f"=" * 60)
-    print(f"📊 Analysis completed in {analysis_time:.1f} seconds")
-    print(f"🔗 Similar pairs found: {len(similar_pairs)}")
-    print(f"🎪 Natural clusters discovered: {len(clusters)}")
+    print(f" Analysis completed in {analysis_time:.1f} seconds")
+    print(f" Similar pairs found: {len(similar_pairs)}")
+    print(f" Natural clusters discovered: {len(clusters)}")
     
     if clusters:
         cluster_sizes = sorted([len(c) for c in clusters], reverse=True)
         total_domains_clustered = sum(cluster_sizes)
         
-        print(f"\n📈 CLUSTER STATISTICS:")
+        print(f"\n CLUSTER STATISTICS:")
         print(f"   Total domains clustered: {total_domains_clustered:,}")
         print(f"   Coverage: {total_domains_clustered/len(successful_logos)*100:.1f}% of successful logos")
         print(f"   Largest cluster: {max(cluster_sizes)} domains")
@@ -127,23 +127,23 @@ async def run_natural_clustering():
         print(f"   Average cluster size: {sum(cluster_sizes)/len(cluster_sizes):.1f} domains")
         print(f"   Median cluster size: {sorted(cluster_sizes)[len(cluster_sizes)//2]} domains")
         
-        print(f"\n🏆 TOP 15 LARGEST CLUSTERS:")
+        print(f"\n TOP 15 LARGEST CLUSTERS:")
         for i, cluster in enumerate(sorted(clusters, key=len, reverse=True)[:15]):
             print(f"   {i+1:2d}. {len(cluster):2d} domains: {', '.join(cluster[:6])}{'...' if len(cluster) > 6 else ''}")
         
-        print(f"\n🎯 DISCOVERY: Found {len(clusters)} natural brand clusters!")
+        print(f"\n DISCOVERY: Found {len(clusters)} natural brand clusters!")
         
         if len(clusters) < 50:
-            print(f"\n📋 ALL CLUSTERS:")
+            print(f"\n ALL CLUSTERS:")
             for i, cluster in enumerate(sorted(clusters, key=len, reverse=True)):
                 print(f"   {i+1:2d}. [{len(cluster):2d}] {', '.join(cluster)}")
         
     else:
-        print(f"\n⚠️  No clusters found with threshold {0.74}")
+        print(f"\n  No clusters found with threshold {0.74}")
         print(f"   Try lowering the similarity threshold")
     
     if similar_pairs:
-        print(f"\n🔗 TOP 10 MOST SIMILAR PAIRS:")
+        print(f"\n TOP 10 MOST SIMILAR PAIRS:")
         for i, pair in enumerate(sorted(similar_pairs, key=lambda x: x['similarity'], reverse=True)[:10]):
             print(f"   {i+1:2d}. {pair['domain1']} ↔ {pair['domain2']} ({pair['similarity']:.3f})")
     
@@ -153,8 +153,8 @@ if __name__ == "__main__":
     cluster_count, sizes = asyncio.run(run_natural_clustering())
     
     print(f"\n" + "="*60)
-    print(f"🎉 NATURAL CLUSTERING COMPLETE!")
-    print(f"🎪 Discovered {cluster_count} natural brand clusters")
+    print(f" NATURAL CLUSTERING COMPLETE!")
+    print(f" Discovered {cluster_count} natural brand clusters")
     if sizes:
-        print(f"📊 Size range: {min(sizes)}-{max(sizes)} domains per cluster")
+        print(f" Size range: {min(sizes)}-{max(sizes)} domains per cluster")
     print(f"="*60)

@@ -236,8 +236,8 @@ class JPEGLogoAnalyzer:
     
     def extract_all_features_threaded(self):
         """Extract features for all JPEG files using threading"""
-        print(f"🚀 Extracting features from {len(self.jpeg_files)} JPEG files...")
-        print(f"🧵 Using {self.max_workers} threads with batch size {self.batch_size}")
+        print(f" Extracting features from {len(self.jpeg_files)} JPEG files...")
+        print(f" Using {self.max_workers} threads with batch size {self.batch_size}")
         
         all_features = {}
         
@@ -276,7 +276,7 @@ class JPEGLogoAnalyzer:
                 except Exception as e:
                     print(f"Batch processing error: {e}")
         
-        print(f"✅ Feature extraction completed for {len(all_features)} images")
+        print(f" Feature extraction completed for {len(all_features)} images")
         return all_features
     
     def compute_similarity(self, features1, features2):
@@ -339,13 +339,13 @@ class JPEGLogoAnalyzer:
     
     def find_similar_pairs(self, features_dict, threshold=0.85):
         """Find similar logo pairs above threshold using aggressive threading"""
-        print(f"🔍 Finding similar pairs with threshold {threshold}...")
-        print(f"🧵 Using {self.max_workers} threads for similarity computation...")
+        print(f" Finding similar pairs with threshold {threshold}...")
+        print(f" Using {self.max_workers} threads for similarity computation...")
         
         domains = list(features_dict.keys())
         total_comparisons = len(domains) * (len(domains) - 1) // 2
         
-        print(f"📊 Total comparisons needed: {total_comparisons:,}")
+        print(f" Total comparisons needed: {total_comparisons:,}")
         
         # Create comparison tasks (domain index pairs)
         comparison_tasks = []
@@ -360,7 +360,7 @@ class JPEGLogoAnalyzer:
             for i in range(0, len(comparison_tasks), batch_size)
         ]
         
-        print(f"📦 Split into {len(batches)} batches of ~{batch_size} comparisons each")
+        print(f" Split into {len(batches)} batches of ~{batch_size} comparisons each")
         
         similar_pairs = []
         completed_comparisons = 0
@@ -411,7 +411,7 @@ class JPEGLogoAnalyzer:
                 except Exception as e:
                     print(f"Batch processing error: {e}")
         
-        print(f"✅ Found {len(similar_pairs)} similar pairs")
+        print(f" Found {len(similar_pairs)} similar pairs")
         return similar_pairs
     
     def save_results(self, features_dict, similar_pairs, threshold):
@@ -429,12 +429,12 @@ class JPEGLogoAnalyzer:
             csv_path = f"jpeg_similar_pairs_t{int(threshold*100)}_{timestamp}.csv"
             df.to_csv(csv_path, index=False)
             
-            print(f"📊 Results saved:")
+            print(f" Results saved:")
             print(f"   Features: {features_path}")
             print(f"   Similar pairs: {csv_path}")
             
             # Summary statistics
-            print(f"\n📈 Analysis Summary:")
+            print(f"\n Analysis Summary:")
             print(f"   Total logos analyzed: {len(features_dict)}")
             print(f"   Similar pairs found: {len(similar_pairs)}")
             print(f"   Similarity threshold: {threshold}")
@@ -454,19 +454,19 @@ def main():
     logo_folders = [d for d in os.listdir('.') if d.startswith('extracted_logos_')]
     
     if not logo_folders:
-        print("❌ No extracted logos folder found!")
+        print(" No extracted logos folder found!")
         print("Please run extract_logos_to_jpg.py first")
         return
     
     # Use the most recent folder
     logo_folder = sorted(logo_folders)[-1]
-    print(f"📁 Using logo folder: {logo_folder}")
+    print(f" Using logo folder: {logo_folder}")
     
     # Initialize analyzer
     analyzer = JPEGLogoAnalyzer(logo_folder)
     
     if len(analyzer.jpeg_files) == 0:
-        print("❌ No JPEG files found in the folder!")
+        print(" No JPEG files found in the folder!")
         return
     
     # Extract features
@@ -483,10 +483,10 @@ def main():
         similar_pairs = analyzer.find_similar_pairs(features_dict, threshold)
         features_path, pairs_path = analyzer.save_results(features_dict, similar_pairs, threshold)
     
-    print(f"\n🎉 JPEG logo analysis completed!")
-    print(f"✅ Much faster than byte-array processing!")
-    print(f"✅ DCT leverages JPEG's native compression")
-    print(f"✅ FFT provides complementary frequency analysis")
+    print(f"\n JPEG logo analysis completed!")
+    print(f" Much faster than byte-array processing!")
+    print(f" DCT leverages JPEG's native compression")
+    print(f" FFT provides complementary frequency analysis")
 
 if __name__ == "__main__":
     main()

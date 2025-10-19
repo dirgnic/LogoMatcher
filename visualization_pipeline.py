@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Logo Similarity Visualization Pipeline
-🎨 Create comprehensive visualizations for clusters, features, and analysis
+ Create comprehensive visualizations for clusters, features, and analysis
 """
 
 import numpy as np
@@ -34,7 +34,7 @@ class LogoVisualizationPipeline:
         
     def load_all_results(self):
         """Load all analysis results for visualization"""
-        print("📊 Loading analysis results for visualization...")
+        print(" Loading analysis results for visualization...")
         
         try:
             # Load extraction results
@@ -50,11 +50,11 @@ class LogoVisualizationPipeline:
             self.pairs_df = pd.read_csv('improved_similar_pairs.csv')
             
             self.results_loaded = True
-            print("✅ All results loaded successfully")
+            print(" All results loaded successfully")
             
         except FileNotFoundError as e:
-            print(f"❌ Could not load results: {e}")
-            print("🔧 Make sure to run the pipeline first to generate results")
+            print(f" Could not load results: {e}")
+            print(" Make sure to run the pipeline first to generate results")
             return False
         
         return True
@@ -65,7 +65,7 @@ class LogoVisualizationPipeline:
             return
         
         fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 12))
-        fig.suptitle('🚀 Logo Extraction Performance Analysis', fontsize=16, fontweight='bold')
+        fig.suptitle(' Logo Extraction Performance Analysis', fontsize=16, fontweight='bold')
         
         # 1. Success Rate Pie Chart
         summary = self.extraction_data['summary']
@@ -74,14 +74,14 @@ class LogoVisualizationPipeline:
         colors = ['#2E8B57', '#4169E1', '#DC143C']
         
         ax1.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors, startangle=90)
-        ax1.set_title('📊 Extraction Source Distribution')
+        ax1.set_title(' Extraction Source Distribution')
         
         # 2. API Performance Comparison
         api_names = ['Clearbit', 'Google Favicon']
         api_counts = [summary['clearbit_logos'], summary['google_favicon_logos']]
         
         bars = ax2.bar(api_names, api_counts, color=['#2E8B57', '#4169E1'])
-        ax2.set_title('🔧 API Service Performance')
+        ax2.set_title(' API Service Performance')
         ax2.set_ylabel('Logos Extracted')
         
         # Add value labels on bars
@@ -100,7 +100,7 @@ class LogoVisualizationPipeline:
         colors_bar = ['#1f77b4', '#2ca02c', '#d62728']
         
         bars = ax3.bar(metrics, values, color=colors_bar)
-        ax3.set_title('📈 Overall Extraction Metrics')
+        ax3.set_title(' Overall Extraction Metrics')
         ax3.set_ylabel('Count')
         
         # Add value labels
@@ -119,7 +119,7 @@ class LogoVisualizationPipeline:
         # Time bars
         bars1 = ax4.bar(methods, times, alpha=0.7, color='#ff7f0e', label='Processing Time (s)')
         ax4.set_ylabel('Processing Time (seconds)', color='#ff7f0e')
-        ax4.set_title('⚡ Speed Improvement Over Time')
+        ax4.set_title(' Speed Improvement Over Time')
         
         # Speedup line
         line = ax4_twin.plot(methods, speedup, 'ro-', linewidth=3, markersize=10, 
@@ -138,7 +138,7 @@ class LogoVisualizationPipeline:
         
         plt.tight_layout()
         plt.savefig('extraction_performance_analysis.png', dpi=300, bbox_inches='tight')
-        print("💾 Saved: extraction_performance_analysis.png")
+        print(" Saved: extraction_performance_analysis.png")
         plt.show()
     
     def create_similarity_distribution_plot(self):
@@ -147,7 +147,7 @@ class LogoVisualizationPipeline:
             return
         
         fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 12))
-        fig.suptitle('🔍 Similarity Analysis & Threshold Optimization', fontsize=16, fontweight='bold')
+        fig.suptitle(' Similarity Analysis & Threshold Optimization', fontsize=16, fontweight='bold')
         
         # 1. Similarity Score Distribution
         similarities = self.pairs_df['similarity']
@@ -159,7 +159,7 @@ class LogoVisualizationPipeline:
                    label=f'Median: {similarities.median():.3f}')
         ax1.set_xlabel('Similarity Score')
         ax1.set_ylabel('Frequency')
-        ax1.set_title('📊 Similarity Score Distribution')
+        ax1.set_title(' Similarity Score Distribution')
         ax1.legend()
         ax1.grid(True, alpha=0.3)
         
@@ -185,7 +185,7 @@ class LogoVisualizationPipeline:
             
             ax2.set_xlabel('Threshold')
             ax2.set_ylabel('Count')
-            ax2.set_title('🎯 Threshold Impact Analysis')
+            ax2.set_title(' Threshold Impact Analysis')
             ax2.set_xticks(x)
             ax2.set_xticklabels(thresholds)
             ax2.legend()
@@ -211,7 +211,7 @@ class LogoVisualizationPipeline:
         ax3.set_yticks(range(len(top_pairs)))
         ax3.set_yticklabels(pair_labels, fontsize=8)
         ax3.set_xlabel('Similarity Score')
-        ax3.set_title('⭐ Top 20 Most Similar Logo Pairs')
+        ax3.set_title(' Top 20 Most Similar Logo Pairs')
         ax3.grid(True, alpha=0.3)
         
         # Add similarity scores as text
@@ -236,7 +236,7 @@ class LogoVisualizationPipeline:
         bars = ax4.bar(bin_labels, bin_counts, color=colors, alpha=0.8, edgecolor='black')
         ax4.set_xlabel('Cluster Size')
         ax4.set_ylabel('Number of Clusters')
-        ax4.set_title('📊 Cluster Size Distribution')
+        ax4.set_title(' Cluster Size Distribution')
         ax4.grid(True, alpha=0.3)
         
         # Add value labels
@@ -248,7 +248,7 @@ class LogoVisualizationPipeline:
         
         plt.tight_layout()
         plt.savefig('similarity_analysis_visualization.png', dpi=300, bbox_inches='tight')
-        print("💾 Saved: similarity_analysis_visualization.png")
+        print(" Saved: similarity_analysis_visualization.png")
         plt.show()
     
     def create_cluster_analysis_plot(self):
@@ -258,7 +258,7 @@ class LogoVisualizationPipeline:
         
         fig = plt.figure(figsize=(20, 12))
         gs = fig.add_gridspec(3, 4, hspace=0.3, wspace=0.3)
-        fig.suptitle('🎪 Logo Cluster Analysis Dashboard', fontsize=18, fontweight='bold')
+        fig.suptitle(' Logo Cluster Analysis Dashboard', fontsize=18, fontweight='bold')
         
         # 1. Largest Clusters Overview (spanning 2 columns)
         ax1 = fig.add_subplot(gs[0, :2])
@@ -270,7 +270,7 @@ class LogoVisualizationPipeline:
                       color=plt.cm.tab10(np.arange(len(top_10_clusters))))
         ax1.set_xlabel('Cluster Rank')
         ax1.set_ylabel('Number of Websites')
-        ax1.set_title('🏆 Top 10 Largest Clusters')
+        ax1.set_title(' Top 10 Largest Clusters')
         ax1.set_xticks(range(len(top_10_clusters)))
         ax1.set_xticklabels([f'#{i+1}' for i in range(len(top_10_clusters))])
         
@@ -308,7 +308,7 @@ class LogoVisualizationPipeline:
             
             bars = ax2.barh(brands, counts, color=plt.cm.Set2(np.arange(len(brands))))
             ax2.set_xlabel('Number of Detected Locations')
-            ax2.set_title('🏢 Detected Brand Families')
+            ax2.set_title(' Detected Brand Families')
             
             # Add value labels
             for bar, count in zip(bars, counts):
@@ -341,7 +341,7 @@ class LogoVisualizationPipeline:
         ax3.set_xlim(-1.5, 1.5)
         ax3.set_ylim(-1.5, 1.5)
         ax3.set_aspect('equal')
-        ax3.set_title('🌐 Cluster Network Overview (Top 5)')
+        ax3.set_title(' Cluster Network Overview (Top 5)')
         ax3.axis('off')
         
         # 4. Geographic Distribution (mock - based on domain patterns)
@@ -354,7 +354,7 @@ class LogoVisualizationPipeline:
             bars = ax4.bar(tlds.index, tlds.values, color=plt.cm.viridis(np.linspace(0, 1, len(tlds))))
             ax4.set_xlabel('Top Level Domain')
             ax4.set_ylabel('Number of Websites')
-            ax4.set_title('🌍 Geographic Distribution (by TLD)')
+            ax4.set_title(' Geographic Distribution (by TLD)')
             ax4.tick_params(axis='x', rotation=45)
             
             # Add value labels
@@ -396,7 +396,7 @@ class LogoVisualizationPipeline:
         ax5.set_yticks(y_pos)
         ax5.set_yticklabels([metric for metric, _ in metrics])
         ax5.set_xlabel('Value')
-        ax5.set_title('📊 Clustering Quality Metrics Overview')
+        ax5.set_title(' Clustering Quality Metrics Overview')
         
         # Add value labels
         for bar, (metric, value) in zip(bars, metrics):
@@ -405,15 +405,15 @@ class LogoVisualizationPipeline:
                     str(value), ha='left', va='center', fontweight='bold')
         
         plt.savefig('cluster_analysis_dashboard.png', dpi=300, bbox_inches='tight')
-        print("💾 Saved: cluster_analysis_dashboard.png")
+        print(" Saved: cluster_analysis_dashboard.png")
         plt.show()
     
     def create_fourier_features_visualization(self):
         """Visualize Fourier feature analysis (simulated examples)"""
-        print("🔍 Creating Fourier Features Visualization...")
+        print(" Creating Fourier Features Visualization...")
         
         fig, axes = plt.subplots(2, 3, figsize=(18, 12))
-        fig.suptitle('🌊 Fourier Feature Analysis Examples', fontsize=16, fontweight='bold')
+        fig.suptitle(' Fourier Feature Analysis Examples', fontsize=16, fontweight='bold')
         
         # Simulate some example Fourier analysis visualizations
         # In practice, you'd load actual logo images and compute their features
@@ -426,7 +426,7 @@ class LogoVisualizationPipeline:
         
         combined = np.concatenate([hash1, np.ones((8, 1)), hash2], axis=1)
         im = ax.imshow(combined, cmap='RdYlBu', aspect='equal')
-        ax.set_title('🔢 pHash Comparison\n(Perceptual Hash Bits)')
+        ax.set_title(' pHash Comparison\n(Perceptual Hash Bits)')
         ax.set_xlabel('Logo A ← → Logo B')
         ax.set_xticks([])
         ax.set_yticks([])
@@ -439,7 +439,7 @@ class LogoVisualizationPipeline:
         
         ax.plot(freqs, magnitude, linewidth=2, color='blue', label='Logo FFT')
         ax.fill_between(freqs, magnitude, alpha=0.3, color='blue')
-        ax.set_title('📊 FFT Magnitude Spectrum\n(Frequency Domain)')
+        ax.set_title(' FFT Magnitude Spectrum\n(Frequency Domain)')
         ax.set_xlabel('Frequency')
         ax.set_ylabel('Magnitude')
         ax.grid(True, alpha=0.3)
@@ -454,7 +454,7 @@ class LogoVisualizationPipeline:
         Z = np.sin(3*T) * np.exp(-R*2) + 0.5*np.cos(5*T) * np.exp(-R*3)
         
         im = ax.contourf(T, R, Z, levels=20, cmap='viridis')
-        ax.set_title('🔄 Fourier-Mellin Transform\n(Rotation/Scale Invariant)')
+        ax.set_title(' Fourier-Mellin Transform\n(Rotation/Scale Invariant)')
         ax.set_xlabel('Angle (θ)')
         ax.set_ylabel('Log Radius')
         plt.colorbar(im, ax=ax)
@@ -469,7 +469,7 @@ class LogoVisualizationPipeline:
         np.fill_diagonal(similarity_matrix, 1.0)
         
         im = ax.imshow(similarity_matrix, cmap='RdYlGn', vmin=0, vmax=1)
-        ax.set_title('🎯 Logo Similarity Matrix\n(Sample 10x10)')
+        ax.set_title(' Logo Similarity Matrix\n(Sample 10x10)')
         ax.set_xlabel('Logo Index')
         ax.set_ylabel('Logo Index')
         plt.colorbar(im, ax=ax)
@@ -492,7 +492,7 @@ class LogoVisualizationPipeline:
                      alpha=0.7, edgecolor='black')
         
         ax.set_ylabel('Average Similarity Score')
-        ax.set_title('📈 Feature Method Comparison\n(Mean ± Std)')
+        ax.set_title(' Feature Method Comparison\n(Mean ± Std)')
         ax.set_xticks(x)
         ax.set_xticklabels(feature_names)
         ax.grid(True, alpha=0.3)
@@ -509,11 +509,11 @@ class LogoVisualizationPipeline:
         
         # Create a simple flowchart
         steps = [
-            '📷 Logo Image',
-            '🔄 Preprocessing\n(Resize, Grayscale)',
-            '🌊 Fourier Analysis\n(pHash, FFT, F-M)',
-            '📊 Feature Vector\n(Combined)',
-            '🎯 Similarity Score'
+            ' Logo Image',
+            ' Preprocessing\n(Resize, Grayscale)',
+            ' Fourier Analysis\n(pHash, FFT, F-M)',
+            ' Feature Vector\n(Combined)',
+            ' Similarity Score'
         ]
         
         y_positions = np.linspace(0.9, 0.1, len(steps))
@@ -531,35 +531,35 @@ class LogoVisualizationPipeline:
                            arrowprops=dict(arrowstyle='->', lw=2, color='black'),
                            transform=ax.transAxes)
         
-        ax.set_title('⚙️ Fourier Feature Pipeline\n(Processing Flow)', fontweight='bold')
+        ax.set_title(' Fourier Feature Pipeline\n(Processing Flow)', fontweight='bold')
         
         plt.tight_layout()
         plt.savefig('fourier_features_analysis.png', dpi=300, bbox_inches='tight')
-        print("💾 Saved: fourier_features_analysis.png")
+        print(" Saved: fourier_features_analysis.png")
         plt.show()
     
     def create_comprehensive_dashboard(self):
         """Create a comprehensive single-page dashboard"""
-        print("🎨 Creating comprehensive visualization dashboard...")
+        print(" Creating comprehensive visualization dashboard...")
         
         if not self.load_all_results():
             return
         
         # Create all visualizations
-        print("\n1️⃣ Creating extraction performance analysis...")
+        print("\n1⃣ Creating extraction performance analysis...")
         self.create_extraction_summary_plot()
         
-        print("\n2️⃣ Creating similarity analysis visualization...")
+        print("\n2⃣ Creating similarity analysis visualization...")
         self.create_similarity_distribution_plot()
         
-        print("\n3️⃣ Creating cluster analysis dashboard...")
+        print("\n3⃣ Creating cluster analysis dashboard...")
         self.create_cluster_analysis_plot()
         
-        print("\n4️⃣ Creating Fourier features visualization...")
+        print("\n4⃣ Creating Fourier features visualization...")
         self.create_fourier_features_visualization()
         
-        print("\n🎉 All visualizations created successfully!")
-        print("\n📁 Generated files:")
+        print("\n All visualizations created successfully!")
+        print("\n Generated files:")
         print("   • extraction_performance_analysis.png")
         print("   • similarity_analysis_visualization.png") 
         print("   • cluster_analysis_dashboard.png")
@@ -569,18 +569,18 @@ class LogoVisualizationPipeline:
 
 def main():
     """Run the complete visualization pipeline"""
-    print("🎨 LOGO ANALYSIS VISUALIZATION PIPELINE")
+    print(" LOGO ANALYSIS VISUALIZATION PIPELINE")
     print("=" * 50)
     
     visualizer = LogoVisualizationPipeline()
     success = visualizer.create_comprehensive_dashboard()
     
     if success:
-        print("\n✅ Visualization pipeline completed successfully!")
-        print("🖼️  Check the generated PNG files for detailed analysis visualizations")
+        print("\n Visualization pipeline completed successfully!")
+        print("  Check the generated PNG files for detailed analysis visualizations")
     else:
-        print("\n❌ Visualization pipeline failed")
-        print("🔧 Make sure to run the logo extraction and similarity analysis first")
+        print("\n Visualization pipeline failed")
+        print(" Make sure to run the logo extraction and similarity analysis first")
 
 if __name__ == "__main__":
     main()
