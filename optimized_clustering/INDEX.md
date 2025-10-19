@@ -175,7 +175,7 @@ palette = va.extract_color_palette(test_img)
 | **MODERATE** | 20/64 | 10 | 0.60 | Quality over quantity |
 | **STRICT** | 10/64 | 15 | 0.75 | High quality, more singletons |
 
-📖 **See:** config.py for all settings
+**See:** config.py for all settings
 
 ---
 
@@ -183,17 +183,17 @@ palette = va.extract_color_palette(test_img)
 
 ```
 User Code
-    │
-    ▼
+    
+    
 OptimizedLogoClusterer (clusterer.py)
-    │
-    ├──► FeatureExtractor (feature_extractor.py)
-    │    ├──► BrandIntelligence (brand_intelligence.py)
-    │    ├──► OptimizedVisualAnalyzer (visual_analyzer.py)
-    │    └──► OptimizedMultiScaleHasher (hashing.py)
-    │
-    └──► ClusteringEngine (clustering_engine.py)
-         └──► BrandIntelligence (for quality analysis)
+    
+     FeatureExtractor (feature_extractor.py)
+         BrandIntelligence (brand_intelligence.py)
+         OptimizedVisualAnalyzer (visual_analyzer.py)
+         OptimizedMultiScaleHasher (hashing.py)
+    
+     ClusteringEngine (clustering_engine.py)
+          BrandIntelligence (for quality analysis)
 ```
 
 **See:** ARCHITECTURE.md for detailed diagrams
@@ -322,7 +322,7 @@ python -m optimized_clustering.examples
 
 ---
 
-## 📞 Support
+##  Support
 
 Questions? Check:
 1. This INDEX.md for quick navigation

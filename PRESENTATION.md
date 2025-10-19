@@ -905,7 +905,7 @@ def analyze_cluster_quality(clusters):
 **Cluster size distribution:**
 ```
 Size Range       Count    Percentage
-───────────────────────────────────
+
 Singleton (1)      48       12.8%
 Small (2-5)       107       28.5%
 Medium (6-10)      22        5.9%
@@ -1459,19 +1459,19 @@ The x-axis (Cluster ID) is arbitrary (assigned during Union-Find). The lack of s
 
 **Validation Success Metrics**:
 
-1. **Within-Cluster Homogeneity**: ✅
+1. **Within-Cluster Homogeneity**: 
    - Large clusters (red) show tight feature value grouping
    - Indicates logos within a cluster are truly similar
 
-2. **Between-Cluster Heterogeneity**: ✅
+2. **Between-Cluster Heterogeneity**: 
    - Clusters span full range of each feature
    - Confirms different clusters capture different logo types
 
-3. **Feature Diversity**: ✅
+3. **Feature Diversity**: 
    - Each feature shows different range and distribution
    - Validates multi-channel approach (no redundant features)
 
-4. **Size-Quality Correlation**: ✅
+4. **Size-Quality Correlation**: 
    - Larger clusters are more homogeneous
    - Natural outcome of good clustering (common logo types form tight clusters)
 
@@ -2405,19 +2405,19 @@ The codebase is organized into clean, focused modules:
 
 ```
 optimized_clustering/
-├── __init__.py               # Package initialization
-├── brand_intelligence.py     # Brand family & industry classification (91 lines)
-├── visual_analyzer.py        # Color palette & composition analysis (77 lines)
-├── hashing.py               # Perceptual hashing (pHash, DCT, FFT) (118 lines)
-├── feature_extractor.py     # Feature extraction orchestration (177 lines)
-├── clustering_engine.py     # Clustering algorithms & similarity (303 lines)
-├── clusterer.py             # Main pipeline orchestrator (255 lines)
-├── config.py                # Configuration & thresholds (130 lines)
-├── run_clustering.py        # CLI entry point (52 lines)
-├── visualizer.py            # Visualization dashboard (680 lines)
-├── test_modules.py          # Unit tests (177 lines)
-├── examples.py              # Usage examples (200 lines)
-└── README.md                # Documentation
+ __init__.py               # Package initialization
+ brand_intelligence.py     # Brand family & industry classification (91 lines)
+ visual_analyzer.py        # Color palette & composition analysis (77 lines)
+ hashing.py               # Perceptual hashing (pHash, DCT, FFT) (118 lines)
+ feature_extractor.py     # Feature extraction orchestration (177 lines)
+ clustering_engine.py     # Clustering algorithms & similarity (303 lines)
+ clusterer.py             # Main pipeline orchestrator (255 lines)
+ config.py                # Configuration & thresholds (130 lines)
+ run_clustering.py        # CLI entry point (52 lines)
+ visualizer.py            # Visualization dashboard (680 lines)
+ test_modules.py          # Unit tests (177 lines)
+ examples.py              # Usage examples (200 lines)
+ README.md                # Documentation
 ```
 
 **Design principles:**
@@ -2958,11 +2958,11 @@ After the lessons learned from 5+ failed attempts, the pipeline was completely r
 All clustering attempt files are preserved in the repository for reference:
 
 - **Final optimized**: [optimized_cluster_analysis_20251019_230955_modular.txt](optimized_cluster_analysis_20251019_230955_modular.txt)
-- 📊 Attempt 5: [cluster_analysis_20251019_205412.txt](cluster_analysis_20251019_205412.txt)
-- 📊 Attempt 4: [cluster_analysis_20251019_203438.txt](cluster_analysis_20251019_203438.txt)
-- 📊 Attempt 3: [cluster_analysis_20251019_202653.txt](cluster_analysis_20251019_202653.txt)
-- 📊 Attempt 2: [cluster_analysis_20251019_201411.txt](cluster_analysis_20251019_201411.txt)
-- 📊 Attempt 1: [cluster_analysis_20251019_191348.txt](cluster_analysis_20251019_191348.txt)
+-  Attempt 5: [cluster_analysis_20251019_205412.txt](cluster_analysis_20251019_205412.txt)
+-  Attempt 4: [cluster_analysis_20251019_203438.txt](cluster_analysis_20251019_203438.txt)
+-  Attempt 3: [cluster_analysis_20251019_202653.txt](cluster_analysis_20251019_202653.txt)
+-  Attempt 2: [cluster_analysis_20251019_201411.txt](cluster_analysis_20251019_201411.txt)
+-  Attempt 1: [cluster_analysis_20251019_191348.txt](cluster_analysis_20251019_191348.txt)
 
 **Total iterations**: 6+ clustering runs spanning 12 hours of development
 **Total analysis output**: 4.9 MB of detailed cluster listings

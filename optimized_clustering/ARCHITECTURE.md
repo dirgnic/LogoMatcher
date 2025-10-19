@@ -3,148 +3,148 @@
 ## Module Dependency Graph
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                  User / Main Script                          │
-│                                                               │
-│  from optimized_clustering import OptimizedLogoClusterer    │
-└─────────────────────┬───────────────────────────────────────┘
-                      │
-                      ▼
-┌─────────────────────────────────────────────────────────────┐
-│                  clusterer.py                                │
-│                                                               │
-│  OptimizedLogoClusterer (Main Orchestrator)                 │
-│  • Loads JPEG files                                          │
-│  • Coordinates parallel feature extraction                   │
-│  • Runs clustering pipeline                                  │
-│  • Saves results                                             │
-└───┬───────────────────┬─────────────────────┬───────────────┘
-    │                   │                     │
-    │                   │                     │
-    ▼                   ▼                     ▼
-┌──────────────┐  ┌─────────────────┐  ┌────────────────────┐
-│ feature_     │  │ clustering_     │  │ brand_             │
-│ extractor.py │  │ engine.py       │  │ intelligence.py    │
-│              │  │                 │  │                    │
-│ Feature      │  │ Clustering      │  │ Brand              │
-│ Extractor    │  │ Engine          │  │ Intelligence       │
-│              │  │                 │  │                    │
-│ • Orchestrate│  │ • Similarity    │  │ • Brand family     │
-│   extraction │  │   calculation   │  │ • Industry         │
-│ • Combine    │  │ • Hierarchical  │  │   classification   │
-│   features   │  │   clustering    │  │                    │
-│ • Cache      │  │ • Singleton     │  └────────────────────┘
-│   results    │  │   merging       │
-└───┬──────────┘  │ • pHash buckets │
-    │             └─────────────────┘
-    │
-    ├────────────┬─────────────┬─────────────┐
-    │            │             │             │
-    ▼            ▼             ▼             ▼
-┌──────────┐ ┌─────────┐ ┌─────────┐ ┌────────────────┐
-│ hashing  │ │ visual_ │ │ brand_  │ │ cv2 / numpy    │
-│ .py      │ │ analyzer│ │ intelli │ │ imagehash      │
-│          │ │ .py     │ │ gence   │ │ PIL            │
-│ Multi    │ │         │ │         │ │ (external deps)│
-│ Scale    │ │ Visual  │ │ Brand   │ └────────────────┘
-│ Hasher   │ │ Analyzer│ │ Intel   │
-│          │ │         │ │         │
-│ • pHash  │ │ • Color │ │ • Brand │
-│ • DCT    │ │   palette│ │   family│
-│ • FFT    │ │ • Compo │ │ • Indust│
-│   hash   │ │   sition│ │   -ry   │
-└──────────┘ └─────────┘ └─────────┘
 
-                    ▲
-                    │
-            ┌───────┴────────┐
-            │                │
-        ┌───────────┐  ┌──────────┐
-        │ config.py │  │ __init__ │
-        │           │  │ .py      │
-        │ Threshold │  │          │
-        │ presets   │  │ Package  │
-        │ Settings  │  │ exports  │
-        └───────────┘  └──────────┘
+                  User / Main Script                          
+                                                               
+  from optimized_clustering import OptimizedLogoClusterer    
+
+                      
+                      
+
+                  clusterer.py                                
+                                                               
+  OptimizedLogoClusterer (Main Orchestrator)                 
+  • Loads JPEG files                                          
+  • Coordinates parallel feature extraction                   
+  • Runs clustering pipeline                                  
+  • Saves results                                             
+
+                                            
+                                            
+                                            
+    
+ feature_        clustering_        brand_             
+ extractor.py    engine.py          intelligence.py    
+                                                       
+ Feature         Clustering         Brand              
+ Extractor       Engine             Intelligence       
+                                                       
+ • Orchestrate   • Similarity       • Brand family     
+   extraction      calculation      • Industry         
+ • Combine       • Hierarchical       classification   
+   features        clustering                          
+ • Cache         • Singleton       
+   results         merging       
+   • pHash buckets 
+                 
+    
+    
+                                          
+                                          
+   
+ hashing    visual_   brand_    cv2 / numpy    
+ .py        analyzer  intelli   imagehash      
+            .py       gence     PIL            
+ Multi                          (external deps)
+ Scale      Visual    Brand    
+ Hasher     Analyzer  Intel   
+                              
+ • pHash    • Color   • Brand 
+ • DCT        palette    family
+ • FFT      • Compo   • Indust
+   hash       sition    -ry   
+  
+
+                    
+                    
+            
+                            
+          
+         config.py    __init__ 
+                      .py      
+         Threshold             
+         presets      Package  
+         Settings     exports  
+          
 ```
 
 ## Data Flow
 
 ```
 Input: JPEG folder
-    │
-    ▼
-┌─────────────────────┐
-│ Load JPEG files     │
-└──────┬──────────────┘
-       │
-       ▼
-┌─────────────────────────────────┐
-│ Parallel Feature Extraction     │
-│                                  │
-│ For each logo:                   │
-│  1. Load image                   │
-│  2. Brand intelligence           │
-│     • extract_brand_family()     │
-│     • classify_industry()        │
-│  3. Visual features              │
-│     • pHash (with bucketing)     │
-│     • Color histogram            │
-│     • ORB descriptors            │
-│     • Logo composition           │
-│     • DCT hash                   │
-│     • FFT hash                   │
-│  4. Cache results                │
-└──────┬──────────────────────────┘
-       │
-       ▼
-┌─────────────────────────────────┐
-│ Clustering with Pruning          │
-│                                  │
-│  1. Build pHash buckets          │
-│  2. Find candidates (same/near)  │
-│  3. Calculate similarities       │
-│     • pHash distance             │
-│     • Color histogram            │
-│     • ORB matching               │
-│     • DCT/FFT comparison         │
-│     • Brand bonus                │
-│  4. Hierarchical clustering      │
-│     (single linkage)             │
-└──────┬──────────────────────────┘
-       │
-       ▼
-┌─────────────────────────────────┐
-│ Aggressive Singleton Merging     │
-│                                  │
-│  1. Separate singletons          │
-│  2. Ultra-relaxed matching       │
-│     • pHash ≤ 62 bits            │
-│     • Color ≥ 0.05               │
-│     • ORB ≥ 0.1                  │
-│     • Brand/industry match       │
-│  3. Merge accepted pairs         │
-└──────┬──────────────────────────┘
-       │
-       ▼
-┌─────────────────────────────────┐
-│ Quality Analysis                 │
-│                                  │
-│  • Cluster size distribution     │
-│  • Singleton rate                │
-│  • Brand coherence               │
-│  • Performance metrics           │
-└──────┬──────────────────────────┘
-       │
-       ▼
-┌─────────────────────────────────┐
-│ Save Results                     │
-│                                  │
-│  • CSV file (clusters)           │
-│  • Pickle file (full results)    │
-└──────────────────────────────────┘
-       │
-       ▼
+    
+    
+
+ Load JPEG files     
+
+       
+       
+
+ Parallel Feature Extraction     
+                                  
+ For each logo:                   
+  1. Load image                   
+  2. Brand intelligence           
+     • extract_brand_family()     
+     • classify_industry()        
+  3. Visual features              
+     • pHash (with bucketing)     
+     • Color histogram            
+     • ORB descriptors            
+     • Logo composition           
+     • DCT hash                   
+     • FFT hash                   
+  4. Cache results                
+
+       
+       
+
+ Clustering with Pruning          
+                                  
+  1. Build pHash buckets          
+  2. Find candidates (same/near)  
+  3. Calculate similarities       
+     • pHash distance             
+     • Color histogram            
+     • ORB matching               
+     • DCT/FFT comparison         
+     • Brand bonus                
+  4. Hierarchical clustering      
+     (single linkage)             
+
+       
+       
+
+ Aggressive Singleton Merging     
+                                  
+  1. Separate singletons          
+  2. Ultra-relaxed matching       
+     • pHash ≤ 62 bits            
+     • Color ≥ 0.05               
+     • ORB ≥ 0.1                  
+     • Brand/industry match       
+  3. Merge accepted pairs         
+
+       
+       
+
+ Quality Analysis                 
+                                  
+  • Cluster size distribution     
+  • Singleton rate                
+  • Brand coherence               
+  • Performance metrics           
+
+       
+       
+
+ Save Results                     
+                                  
+  • CSV file (clusters)           
+  • Pickle file (full results)    
+
+       
+       
     Output
 ```
 
@@ -203,62 +203,62 @@ Goal: Reduce singletons to <5%
 ## Configuration Layers
 
 ```
-┌─────────────────────────────────────┐
-│ User Code                            │
-│                                      │
-│ custom_thresholds = {                │
-│   'phash': 30,                       │
-│   'orb': 8,                          │
-│   'color': 0.5                       │
-│ }                                    │
-└──────────────┬──────────────────────┘
-               │ overrides
-               ▼
-┌─────────────────────────────────────┐
-│ config.py                            │
-│                                      │
-│ DEFAULT_THRESHOLDS                   │
-│ ULTRA_RELAXED_THRESHOLDS             │
-│ RELAXED_THRESHOLDS                   │
-│ MODERATE_THRESHOLDS                  │
-│ STRICT_THRESHOLDS                    │
-│                                      │
-│ FEATURE_WEIGHTS                      │
-│ ORB_CONFIG                           │
-│ COLOR_HIST_BINS                      │
-└──────────────┬──────────────────────┘
-               │ used by
-               ▼
-┌─────────────────────────────────────┐
-│ Module Implementations               │
-│                                      │
-│ • feature_extractor.py               │
-│ • clustering_engine.py               │
-│ • hashing.py                         │
-└─────────────────────────────────────┘
+
+ User Code                            
+                                      
+ custom_thresholds = {                
+   'phash': 30,                       
+   'orb': 8,                          
+   'color': 0.5                       
+ }                                    
+
+                overrides
+               
+
+ config.py                            
+                                      
+ DEFAULT_THRESHOLDS                   
+ ULTRA_RELAXED_THRESHOLDS             
+ RELAXED_THRESHOLDS                   
+ MODERATE_THRESHOLDS                  
+ STRICT_THRESHOLDS                    
+                                      
+ FEATURE_WEIGHTS                      
+ ORB_CONFIG                           
+ COLOR_HIST_BINS                      
+
+                used by
+               
+
+ Module Implementations               
+                                      
+ • feature_extractor.py               
+ • clustering_engine.py               
+ • hashing.py                         
+
 ```
 
 ## Testing Architecture
 
 ```
-┌─────────────────────────────────────┐
-│ test_modules.py                      │
-│                                      │
-│ ✓ test_imports()                     │
-│ ✓ test_brand_intelligence()          │
-│ ✓ test_visual_analyzer()             │
-│ ✓ test_hashing()                     │
-│ ✓ test_clustering_engine()           │
-│ ✓ test_config()                      │
-└──────────────┬──────────────────────┘
-               │
-               ▼
-┌─────────────────────────────────────┐
-│ Individual Module Tests              │
-│                                      │
-│ Each module can be tested in         │
-│ isolation with mock data             │
-└─────────────────────────────────────┘
+
+ test_modules.py                      
+                                      
+  test_imports()                     
+  test_brand_intelligence()          
+  test_visual_analyzer()             
+  test_hashing()                     
+  test_clustering_engine()           
+  test_config()                      
+
+               
+               
+
+ Individual Module Tests              
+                                      
+ Each module can be tested in         
+ isolation with mock data             
+
 ```
 
 ## Advantages of This Architecture

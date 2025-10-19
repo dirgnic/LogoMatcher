@@ -8,15 +8,15 @@ The codebase is organized into clean, focused modules:
 
 ```
 optimized_clustering/
-├── __init__.py              # Package initialization
-├── brand_intelligence.py    # Brand family & industry classification
-├── visual_analyzer.py       # Color palette & composition analysis
-├── hashing.py              # Perceptual hashing (pHash, DCT, FFT)
-├── feature_extractor.py    # Feature extraction orchestration
-├── clustering_engine.py    # Clustering algorithms & similarity
-├── clusterer.py            # Main pipeline orchestrator
-├── run_clustering.py       # Entry point script
-└── README.md              # This file
+ __init__.py              # Package initialization
+ brand_intelligence.py    # Brand family & industry classification
+ visual_analyzer.py       # Color palette & composition analysis
+ hashing.py              # Perceptual hashing (pHash, DCT, FFT)
+ feature_extractor.py    # Feature extraction orchestration
+ clustering_engine.py    # Clustering algorithms & similarity
+ clusterer.py            # Main pipeline orchestrator
+ run_clustering.py       # Entry point script
+ README.md              # This file
 ```
 
 ## Module Responsibilities
@@ -170,12 +170,12 @@ phash_data = hasher.compute_phash_with_bucketing(image)
 
 ## Advantages Over Monolithic Design
 
-✅ **Separation of concerns** - Each module has a single responsibility  
-✅ **Testability** - Easy to unit test individual components  
-✅ **Maintainability** - Changes are localized to specific modules  
-✅ **Reusability** - Components can be used independently  
-✅ **Readability** - Smaller files are easier to understand  
-✅ **Extensibility** - Easy to add new features or swap implementations  
+ **Separation of concerns** - Each module has a single responsibility  
+ **Testability** - Easy to unit test individual components  
+ **Maintainability** - Changes are localized to specific modules  
+ **Reusability** - Components can be used independently  
+ **Readability** - Smaller files are easier to understand  
+ **Extensibility** - Easy to add new features or swap implementations  
 
 ## License
 

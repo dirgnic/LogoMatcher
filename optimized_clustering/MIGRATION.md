@@ -10,19 +10,19 @@ optimized_logo_clusterer.py    976 lines
 ### After (Modular)
 ```
 optimized_clustering/
-├── __init__.py                  24 lines  (exports)
-├── brand_intelligence.py        91 lines  (brand logic)
-├── visual_analyzer.py           77 lines  (visual features)
-├── hashing.py                  118 lines  (perceptual hashing)
-├── feature_extractor.py        177 lines  (feature orchestration)
-├── clustering_engine.py        303 lines  (clustering algorithms)
-├── clusterer.py                255 lines  (main pipeline)
-├── config.py                   130 lines  (configuration)
-├── run_clustering.py            52 lines  (CLI entry point)
-├── test_modules.py             177 lines  (tests)
-├── examples.py                 200 lines  (usage examples)
-├── README.md                  ~200 lines  (documentation)
-└── SUMMARY.md                 ~150 lines  (summary)
+ __init__.py                  24 lines  (exports)
+ brand_intelligence.py        91 lines  (brand logic)
+ visual_analyzer.py           77 lines  (visual features)
+ hashing.py                  118 lines  (perceptual hashing)
+ feature_extractor.py        177 lines  (feature orchestration)
+ clustering_engine.py        303 lines  (clustering algorithms)
+ clusterer.py                255 lines  (main pipeline)
+ config.py                   130 lines  (configuration)
+ run_clustering.py            52 lines  (CLI entry point)
+ test_modules.py             177 lines  (tests)
+ examples.py                 200 lines  (usage examples)
+ README.md                  ~200 lines  (documentation)
+ SUMMARY.md                 ~150 lines  (summary)
 ```
 
 ## Code Migration Examples

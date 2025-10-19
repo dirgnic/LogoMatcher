@@ -273,10 +273,6 @@ class EnhancedAPILogoExtractor:
         results = []
         total = len(websites)
         
-        print(f"Starting enhanced logo extraction for {total} websites...")
-        print(f"Target success rate: >98%")
-        print(f"Using {len(self.api_configs)} API sources with {max_tier} tiers")
-        
         for i in range(0, total, batch_size):
             batch = websites[i:i + batch_size]
             batch_start = time.time()
@@ -288,15 +284,6 @@ class EnhancedAPILogoExtractor:
             # Filter out exceptions
             valid_results = [r for r in batch_results if isinstance(r, dict)]
             results.extend(valid_results)
-            
-            # Progress tracking
-            batch_time = time.time() - batch_start
-            completed = min(i + batch_size, total)
-            success_count = sum(1 for r in results if r.get('success', False))
-            success_rate = (success_count / completed) * 100 if completed > 0 else 0
-            
-            print(f"Batch {i//batch_size + 1}: {completed}/{total} websites processed "
-                  f"({success_rate:.1f}% success, {batch_time:.1f}s)")
             
             # Small delay between batches to be respectful
             await asyncio.sleep(0.5)
@@ -313,11 +300,6 @@ class EnhancedAPILogoExtractor:
         # Split websites into chunks for parallel processing
         chunks = [websites[i:i + batch_size] for i in range(0, len(websites), batch_size)]
         total_batches = len(chunks)
-        
-        print(f"Starting PARALLEL logo extraction for {len(websites)} websites...")
-        print(f"Using {num_workers} parallel workers processing {total_batches} batches")
-        print(f"Batch size: {batch_size}, Delay between batches: {delay_between_batches}s")
-        print(f"Target success rate: >98%")
         
         async def process_batch_with_delay(chunk, batch_id):
             """Process a single batch with random delay to avoid API blocking"""
@@ -361,14 +343,6 @@ class EnhancedAPILogoExtractor:
                 # Restore queue
                 while not temp_queue.empty():
                     results_queue.put(temp_queue.get())
-                
-                completed_websites = len(all_results)
-                success_count = sum(1 for r in all_results if r.get('success', False))
-                success_rate = (success_count / completed_websites) * 100 if completed_websites > 0 else 0
-                
-                print(f"Worker batch {batch_id}: {len(chunk)} websites processed "
-                      f"({batch_time:.1f}s) | Total: {completed_websites}/{len(websites)} "
-                      f"({success_rate:.1f}% success)")
         
         # Create async tasks for parallel batch processing
         async def run_parallel_batches():
@@ -404,9 +378,7 @@ class EnhancedAPILogoExtractor:
                                    batch_size: int = 100, concurrent_batches: int = 3) -> List[Dict]:
         """Fast parallel processing - simple and efficient"""
         
-        print(f"Starting FAST PARALLEL logo extraction for {len(websites)} websites...")
         print(f"Processing {concurrent_batches} batches concurrently")
-        print(f"Batch size: {batch_size}")
         
         # Split into batches
         batches = [websites[i:i + batch_size] for i in range(0, len(websites), batch_size)]
@@ -555,7 +527,6 @@ class EnhancedAPILogoExtractor:
         if not failed_websites:
             return []
         
-        print(f"\n PARALLEL RECOVERY MODE: Extracting {len(failed_websites)} failed logos")
         print(f"Using {num_workers} parallel workers with DNS fallback")
         
         start_time = time.time()
@@ -570,13 +541,6 @@ class EnhancedAPILogoExtractor:
             
             # Filter out exceptions
             valid_results = [r for r in batch_results if isinstance(r, dict)]
-            
-            batch_time = time.time() - batch_start
-            recovered_count = sum(1 for r in valid_results if r.get('success', False))
-            recovery_rate = (recovered_count / len(valid_results)) * 100 if valid_results else 0
-            
-            print(f"  Recovery worker {batch_id}: {len(batch)} websites in {batch_time:.1f}s "
-                  f"({recovery_rate:.1f}% recovered, {len(batch)/batch_time:.1f} sites/sec)")
             
             return valid_results
         
@@ -609,8 +573,6 @@ class EnhancedAPILogoExtractor:
         total_time = time.time() - start_time
         final_recovered = sum(1 for r in all_results if r.get('success', False))
         
-        print(f" Parallel recovery complete: {final_recovered}/{len(failed_websites)} logos recovered in {total_time:.1f}s")
-        print(f"   Recovery rate: {(final_recovered/len(failed_websites)*100):.1f}%")
         
         return all_results
 
@@ -655,7 +617,6 @@ async def comprehensive_logo_scraping_fast():
         print(f"Success rate: {success_rate:.2f}%")
         print(f"Failed extractions: {total_websites - success_count:,}")
         print(f"Total processing time: {total_time:.1f} seconds")
-        print(f"Average time per website: {total_time/total_websites:.3f}s")
         print(f"Processing speed: {total_websites/total_time:.1f} websites/second")
         
         # Source breakdown
@@ -666,21 +627,14 @@ async def comprehensive_logo_scraping_fast():
             source_counts[source] = source_counts.get(source, 0) + 1
             total_bytes += result.get('size_bytes', 0)
         
-        print(f"\nSource breakdown:")
         for source, count in sorted(source_counts.items(), key=lambda x: x[1], reverse=True):
             percentage = (count / success_count) * 100 if success_count > 0 else 0
             print(f"  {source}: {count:,} logos ({percentage:.1f}%)")
-        
-        print(f"\nData statistics:")
-        print(f"  Total logo data: {total_bytes / (1024*1024):.1f} MB")
-        if success_count > 0:
-            print(f"  Average logo size: {total_bytes / success_count / 1024:.1f} KB")
         
         # Check if we achieved target, if not try enhanced recovery
         if success_rate >= 98.0:
             print(f"\n SUCCESS! Achieved target of >98% success rate ({success_rate:.2f}%)")
         else:
-            print(f"\n  Initial success rate: {success_rate:.2f}% < 98.0% target")
             remaining_needed = int((98.0 * total_websites / 100) - success_count)
             print(f"   Need {remaining_needed} more successful extractions")
             
@@ -689,7 +643,6 @@ async def comprehensive_logo_scraping_fast():
                              if not result.get('success', False)]
             
             if failed_websites:
-                print(f"\n Starting enhanced recovery for {len(failed_websites)} failed websites...")
                 recovery_results = await extractor.parallel_recovery_extract_failed(
                     failed_websites, num_workers=6)  # More workers for recovery
                 
@@ -718,9 +671,6 @@ async def comprehensive_logo_scraping_fast():
                         total_bytes += result.get('size_bytes', 0)
                     
                     print(f"\n ENHANCED RECOVERY RESULTS:")
-                    print(f"   Recovered: {len(recovery_successful)} additional logos")
-                    print(f"   Final success rate: {success_rate:.2f}%")
-                    print(f"   Updated data size: {total_bytes / (1024*1024):.1f} MB")
                     
                     # Show recovery source breakdown
                     recovery_sources = {}
@@ -729,17 +679,8 @@ async def comprehensive_logo_scraping_fast():
                         recovery_sources[source] = recovery_sources.get(source, 0) + 1
                     
                     if recovery_sources:
-                        print(f"   Recovery sources:")
                         for source, count in sorted(recovery_sources.items(), key=lambda x: x[1], reverse=True):
                             print(f"     {source}: {count} logos")
-                    
-                    if success_rate >= 98.0:
-                        print(f"    ENHANCED RECOVERY ACHIEVED >98% target!")
-                    else:
-                        still_needed = int((98.0 * total_websites / 100) - success_count)
-                        print(f"   Still need {still_needed} more successful extractions")
-                else:
-                    print(f"     Recovery did not find additional logos")
         
         # Save comprehensive results (with recovery data)
         save_data = {
@@ -806,7 +747,6 @@ async def comprehensive_logo_scraping_advanced():
         print(f"Success rate: {success_rate:.2f}%")
         print(f"Failed extractions: {total_websites - success_count:,}")
         print(f"Total processing time: {total_time:.1f} seconds")
-        print(f"Average time per website: {total_time/total_websites:.3f}s")
         print(f"Processing speed: {total_websites/total_time:.1f} websites/second")
         
         # Source breakdown
@@ -817,21 +757,16 @@ async def comprehensive_logo_scraping_advanced():
             source_counts[source] = source_counts.get(source, 0) + 1
             total_bytes += result.get('size_bytes', 0)
         
-        print(f"\nSource breakdown:")
         for source, count in sorted(source_counts.items(), key=lambda x: x[1], reverse=True):
             percentage = (count / success_count) * 100 if success_count > 0 else 0
             print(f"  {source}: {count:,} logos ({percentage:.1f}%)")
         
-        print(f"\nData statistics:")
-        print(f"  Total logo data: {total_bytes / (1024*1024):.1f} MB")
         if success_count > 0:
-            print(f"  Average logo size: {total_bytes / success_count / 1024:.1f} KB")
         
         # Check if we achieved target
         if success_rate >= 98.0:
             print(f"\n SUCCESS! Achieved target of >98% success rate ({success_rate:.2f}%)")
         else:
-            print(f"\n  Need improvement: {success_rate:.2f}% < 98.0% target")
             remaining_needed = int((98.0 * total_websites / 100) - success_count)
             print(f"   Need {remaining_needed} more successful extractions")
         
@@ -900,7 +835,6 @@ async def comprehensive_logo_scraping_parallel():
         print(f"Success rate: {success_rate:.2f}%")
         print(f"Failed extractions: {total_websites - success_count:,}")
         print(f"Total processing time: {total_time:.1f} seconds")
-        print(f"Average time per website: {total_time/total_websites:.2f}s")
         print(f"Processing speed: {total_websites/total_time:.1f} websites/second")
         
         # Source breakdown
@@ -911,21 +845,16 @@ async def comprehensive_logo_scraping_parallel():
             source_counts[source] = source_counts.get(source, 0) + 1
             total_bytes += result.get('size_bytes', 0)
         
-        print(f"\nSource breakdown:")
         for source, count in sorted(source_counts.items(), key=lambda x: x[1], reverse=True):
             percentage = (count / success_count) * 100 if success_count > 0 else 0
             print(f"  {source}: {count:,} logos ({percentage:.1f}%)")
         
-        print(f"\nData statistics:")
-        print(f"  Total logo data: {total_bytes / (1024*1024):.1f} MB")
         if success_count > 0:
-            print(f"  Average logo size: {total_bytes / success_count / 1024:.1f} KB")
         
         # Check if we achieved target
         if success_rate >= 98.0:
             print(f"\n SUCCESS! Achieved target of >98% success rate ({success_rate:.2f}%)")
         else:
-            print(f"\n  Need improvement: {success_rate:.2f}% < 98.0% target")
             remaining_needed = int((98.0 * total_websites / 100) - success_count)
             print(f"   Need {remaining_needed} more successful extractions")
         
@@ -992,7 +921,6 @@ async def comprehensive_logo_scraping():
         print(f"Success rate: {success_rate:.2f}%")
         print(f"Failed extractions: {total_websites - success_count:,}")
         print(f"Total processing time: {total_time:.1f} seconds")
-        print(f"Average time per website: {total_time/total_websites:.2f}s")
         
         # Source breakdown
         source_counts = {}
@@ -1002,20 +930,15 @@ async def comprehensive_logo_scraping():
             source_counts[source] = source_counts.get(source, 0) + 1
             total_bytes += result.get('size_bytes', 0)
         
-        print(f"\nSource breakdown:")
         for source, count in sorted(source_counts.items(), key=lambda x: x[1], reverse=True):
             percentage = (count / success_count) * 100
             print(f"  {source}: {count:,} logos ({percentage:.1f}%)")
         
-        print(f"\nData statistics:")
-        print(f"  Total logo data: {total_bytes / (1024*1024):.1f} MB")
-        print(f"  Average logo size: {total_bytes / success_count / 1024:.1f} KB")
         
         # Check if we achieved target
         if success_rate >= 98.0:
             print(f"\n SUCCESS! Achieved target of >98% success rate ({success_rate:.2f}%)")
         else:
-            print(f"\n  Need improvement: {success_rate:.2f}% < 98.0% target")
             remaining_needed = int((98.0 * total_websites / 100) - success_count)
             print(f"   Need {remaining_needed} more successful extractions")
         
