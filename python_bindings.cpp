@@ -108,7 +108,38 @@ PYBIND11_MODULE(fourier_math_cpp, m) {
                  return py_results;
              },
              "Run complete analysis with clustering",
-             py::arg("images"), py::arg("threshold") = 0.45);
+             py::arg("images"), py::arg("threshold") = 0.45)
+        
+        .def("compute_adaptive_threshold_analysis",
+             [](LogoAnalysisPipeline& self, py::list images, 
+                py::list initial_thresholds, double sample_percentage, int min_sample_size) {
+                 std::vector<Matrix2D> matrices = numpy_list_to_matrix_vector(images);
+                 
+                 std::vector<double> thresholds;
+                 for (py::handle item : initial_thresholds) {
+                     thresholds.push_back(item.cast<double>());
+                 }
+                 
+                 auto results = self.compute_adaptive_threshold_analysis(
+                     matrices, thresholds, sample_percentage, min_sample_size
+                 );
+                 
+                 // Convert results back to Python
+                 py::dict py_results;
+                 py_results["similarity_matrix"] = matrix2d_to_numpy(results.similarity_matrix);
+                 py_results["clusters"] = results.clusters;
+                 py_results["similarity_scores"] = results.similarity_scores;
+                 py_results["processing_time_ms"] = results.processing_time_ms;
+                 py_results["final_threshold_used"] = results.final_threshold_used;
+                 py_results["threshold_was_adjusted"] = results.threshold_was_adjusted;
+                 
+                 return py_results;
+             },
+             "Run adaptive threshold analysis with sampling",
+             py::arg("images"), 
+             py::arg("initial_thresholds") = std::vector<double>{0.95, 0.90, 0.85},
+             py::arg("sample_percentage") = 0.05,
+             py::arg("min_sample_size") = 50);
     
     // LogoFeatures structure
     py::class_<LogoAnalysisPipeline::LogoFeatures>(m, "LogoFeatures")

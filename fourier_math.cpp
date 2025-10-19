@@ -577,6 +577,131 @@ LogoAnalysisPipeline::compute_comprehensive_analysis(
     results.processing_time_ms = std::chrono::duration<double, std::milli>(
         end_time - start_time
     ).count();
+    results.final_threshold_used = similarity_threshold;
+    results.threshold_was_adjusted = false;
+    
+    return results;
+}
+
+LogoAnalysisPipeline::AnalysisResults
+LogoAnalysisPipeline::compute_adaptive_threshold_analysis(
+    const std::vector<Matrix2D>& images,
+    const std::vector<double>& initial_thresholds,
+    double sample_percentage,
+    int min_sample_size) {
+    
+    auto start_time = std::chrono::high_resolution_clock::now();
+    
+    // Extract features for all images
+    auto features_list = analyze_logo_batch(images);
+    
+    // Filter valid features
+    std::vector<FeatureVector> valid_features;
+    std::vector<std::string> valid_hashes;
+    
+    for (const auto& features : features_list) {
+        if (features.is_valid) {
+            valid_features.push_back(features.comprehensive_features);
+            valid_hashes.push_back(features.perceptual_hash);
+        }
+    }
+    
+    AnalysisResults results;
+    results.threshold_was_adjusted = false;
+    
+    if (valid_features.size() < 2) {
+        results.processing_time_ms = std::chrono::duration<double, std::milli>(
+            std::chrono::high_resolution_clock::now() - start_time
+        ).count();
+        return results;
+    }
+    
+    // Determine sample size - at least min_sample_size, at most sample_percentage of total
+    int sample_size = std::max(min_sample_size, 
+                              static_cast<int>(valid_features.size() * sample_percentage));
+    sample_size = std::min(sample_size, static_cast<int>(valid_features.size()));
+    
+    // Try each initial threshold
+    for (double threshold : initial_thresholds) {
+        // Test with sample first
+        int sample_pairs_found = 0;
+        int total_sample_comparisons = 0;
+        
+        // Sample the first sample_size features
+        for (int i = 0; i < sample_size; ++i) {
+            for (int j = i + 1; j < sample_size; ++j) {
+                double similarity = similarity_.compute_comprehensive_similarity(
+                    valid_features[i], valid_features[j],
+                    valid_hashes[i], valid_hashes[j]
+                );
+                
+                total_sample_comparisons++;
+                if (similarity >= threshold) {
+                    sample_pairs_found++;
+                }
+            }
+        }
+        
+        // If no pairs found with highest threshold, try progressively lower ones
+        if (sample_pairs_found == 0 && threshold == initial_thresholds[0]) {
+            std::vector<double> fallback_thresholds = {0.80, 0.75, 0.70, 0.65, 0.60};
+            
+            for (double test_threshold : fallback_thresholds) {
+                int test_pairs = 0;
+                
+                // Test sample again with lower threshold
+                for (int i = 0; i < sample_size; ++i) {
+                    for (int j = i + 1; j < sample_size; ++j) {
+                        double similarity = similarity_.compute_comprehensive_similarity(
+                            valid_features[i], valid_features[j],
+                            valid_hashes[i], valid_hashes[j]
+                        );
+                        
+                        if (similarity >= test_threshold) {
+                            test_pairs++;
+                        }
+                    }
+                }
+                
+                if (test_pairs > 0) {
+                    threshold = test_threshold;
+                    results.threshold_was_adjusted = true;
+                    break;
+                }
+            }
+        }
+        
+        // Now run full analysis with the (possibly adjusted) threshold
+        results.similarity_matrix = similarity_.compute_similarity_matrix(
+            valid_features, valid_hashes
+        );
+        
+        // Perform clustering
+        results.clusters = clusterer_.cluster_by_threshold(
+            results.similarity_matrix, threshold
+        );
+        
+        // Extract similarity scores above threshold
+        for (int i = 0; i < results.similarity_matrix.size(); ++i) {
+            for (int j = i + 1; j < results.similarity_matrix[i].size(); ++j) {
+                if (results.similarity_matrix[i][j] >= threshold) {
+                    results.similarity_scores.push_back(results.similarity_matrix[i][j]);
+                }
+            }
+        }
+        
+        results.final_threshold_used = threshold;
+        
+        // If we found reasonable results, stop trying higher thresholds
+        if (!results.clusters.empty()) {
+            break;
+        }
+    }
+    
+    auto end_time = std::chrono::high_resolution_clock::now();
+    results.processing_time_ms = std::chrono::duration<double, std::milli>(
+        end_time - start_time
+    ).count();
     
     return results;
 }

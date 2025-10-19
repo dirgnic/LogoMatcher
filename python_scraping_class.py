@@ -850,13 +850,86 @@ class LogoAnalysisPipeline:
         
         print(f"Found {len(similar_pairs)} similar pairs above threshold {threshold}")
         
-        # Size-constrained clustering to target ~37 clusters
-        clusters = self._create_size_constrained_clusters(similar_pairs, target_clusters=37, max_cluster_size=50)
+        # Natural clustering based on logo similarity (no forced target)
+        clusters = self._create_natural_similarity_clusters(similar_pairs, max_cluster_size=50)
         
-        print(f"Created {len(clusters)} size-constrained clusters")
+        print(f"Created {len(clusters)} natural similarity clusters")
         
         return clusters, similar_pairs
     
+    def _create_natural_similarity_clusters(self, similar_pairs: list, max_cluster_size: int = 50) -> list:
+        """Create natural clusters based purely on logo similarity without forcing a target count"""
+        
+        # Build similarity graph
+        from collections import defaultdict, deque
+        
+        similarity_graph = defaultdict(list)
+        all_domains = set()
+        
+        for pair in similar_pairs:
+            d1, d2 = pair['domain1'], pair['domain2']
+            similarity = pair['similarity']
+            similarity_graph[d1].append((d2, similarity))
+            similarity_graph[d2].append((d1, similarity))
+            all_domains.add(d1)
+            all_domains.add(d2)
+        
+        print(f"Building natural clusters from {len(all_domains)} domains with similarities...")
+        
+        # Find connected components using BFS (natural clusters)
+        visited = set()
+        natural_clusters = []
+        
+        for domain in all_domains:
+            if domain not in visited:
+                # BFS to find connected component
+                component = []
+                queue = deque([domain])
+                visited.add(domain)
+                
+                while queue:
+                    current = queue.popleft()
+                    component.append(current)
+                    
+                    for neighbor, _ in similarity_graph[current]:
+                        if neighbor not in visited:
+                            visited.add(neighbor)
+                            queue.append(neighbor)
+                
+                # Only keep clusters with multiple domains (meaningful groups)
+                if len(component) >= 2:
+                    natural_clusters.append(component)
+        
+        print(f"Found {len(natural_clusters)} natural connected components")
+        
+        # Only apply size constraints (split overly large clusters)
+        final_clusters = []
+        
+        # Sort clusters by size for analysis
+        natural_clusters.sort(key=len, reverse=True)
+        cluster_sizes = [len(c) for c in natural_clusters]
+        print(f"Natural cluster sizes: {cluster_sizes[:15]}{'...' if len(cluster_sizes) > 15 else ''}")
+        
+        for cluster in natural_clusters:
+            if len(cluster) <= max_cluster_size:
+                # Perfect size, keep as natural cluster
+                final_clusters.append(cluster)
+            else:
+                # Split overly large cluster but preserve natural groupings
+                print(f"Splitting large cluster of size {len(cluster)} (max: {max_cluster_size})")
+                split_clusters = self._split_large_cluster(cluster, similarity_graph, max_cluster_size)
+                final_clusters.extend(split_clusters)
+        
+        # Final statistics
+        final_sizes = sorted([len(c) for c in final_clusters], reverse=True)
+        print(f"Final natural clusters: {len(final_clusters)}")
+        print(f"Cluster size distribution: {final_sizes[:15]}{'...' if len(final_sizes) > 15 else ''}")
+        print(f"Average cluster size: {sum(final_sizes)/len(final_sizes):.1f}")
+        print(f"Largest cluster: {max(final_sizes)} domains")
+        print(f"Smallest cluster: {min(final_sizes)} domains")
+        
+        return final_clusters
+
     def _create_size_constrained_clusters(self, similar_pairs: list, target_clusters: int = 37, max_cluster_size: int = 50) -> list:
         """Create clusters with size constraints to achieve target number"""
         

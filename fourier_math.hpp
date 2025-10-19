@@ -280,11 +280,21 @@ namespace FourierMath {
             std::vector<std::vector<int>> clusters;
             std::vector<double> similarity_scores;
             double processing_time_ms;
+            double final_threshold_used;
+            bool threshold_was_adjusted;
         };
         
         AnalysisResults compute_comprehensive_analysis(
             const std::vector<Matrix2D>& images,
             double similarity_threshold = 0.45
+        );
+        
+        // Adaptive threshold analysis - samples first 5% and adjusts if needed
+        AnalysisResults compute_adaptive_threshold_analysis(
+            const std::vector<Matrix2D>& images,
+            const std::vector<double>& initial_thresholds = {0.95, 0.90, 0.85},
+            double sample_percentage = 0.05,
+            int min_sample_size = 50
         );
         
         // Performance statistics
