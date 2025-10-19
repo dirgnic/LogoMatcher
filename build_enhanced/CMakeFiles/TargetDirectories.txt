@@ -1,3 +1,0 @@
-/Users/ingridcorobana/Desktop/personal_projs/logo_matcher/build_enhanced/CMakeFiles/enhanced_fourier_math_cpp.dir
-/Users/ingridcorobana/Desktop/personal_projs/logo_matcher/build_enhanced/CMakeFiles/edit_cache.dir
-/Users/ingridcorobana/Desktop/personal_projs/logo_matcher/build_enhanced/CMakeFiles/rebuild_cache.dir

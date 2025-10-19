@@ -96,6 +96,24 @@ Thumbs.db
 *.tmp
 *.temp
 
+# C++ build artifacts and experimental code
+*.cpp
+*.hpp
+*.so
+*.o
+*.a
+CMakeLists*.txt
+build_enhanced/
+cmake_install.cmake
+CMakeCache.txt
+CMakeFiles/
+
+# Old cluster analysis files
+cluster_analysis_*.txt
+
+# HTML dashboards (static, not needed in repo)
+clustering_dashboard.html
+
 # Keep config.json (small configuration file)
 !config.json
 !requirements.txt
