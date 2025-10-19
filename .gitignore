@@ -48,6 +48,16 @@ ENV/
 logos_list
 websites.txt
 
+# Extracted Logo Images (Large image collections)
+extracted_logos_*/
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.tiff
+*.webp
+
 # Results and Output Files
 logo_extraction_results.*
 successful_logo_extractions.*
