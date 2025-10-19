@@ -2,7 +2,9 @@
 
 **Fast, explainable logo similarity analysis without ML clustering**
 
-Group websites by visually identical/near-identical logos using Fourier methods + Union-Find clustering. No k-means or DBSCAN — designed for billion-record scale with free compute.
+Challange results: https://github.com/dirgnic/LogoMatcher/blob/main/optimized_cluster_analysis_20251019_230955_modular.txt
+
+Final scope: Group websites by visually identical/near-identical logos using Fourier methods + Union-Find clustering. No k-means or DBSCAN — designed for billion-record scale with free compute.
 
 ##  **Logo Extraction Pipeline Architecture**
 
