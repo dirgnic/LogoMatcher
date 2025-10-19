@@ -58,6 +58,9 @@ extracted_logos_*/
 *.tiff
 *.webp
 
+# But ALLOW visualization PNGs for presentation
+!clustering_visualizations/*.png
+
 # Results and Output Files
 logo_extraction_results.*
 successful_logo_extractions.*
@@ -70,7 +73,6 @@ enhanced_logo_clusters.*
 complete_pipeline_results.*
 
 # Generated Visualizations
-*.png
 extraction_performance_analysis.png
 similarity_analysis_visualization.png
 cluster_analysis_dashboard.png
