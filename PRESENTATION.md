@@ -1087,7 +1087,7 @@ The clear island structure in t-SNE confirms that our clustering algorithm succe
 ---
 
 #### 3. 3D Cluster Visualization
-**File**: `cluster_separation_3d.png` (1.6 MB)
+**File**: `cluster_separation_3d.png` (1.7 MB)
 
 ![3D Cluster Visualization](clustering_visualizations/cluster_separation_3d.png)
 
@@ -1129,7 +1129,7 @@ The 9.8% variance gain from the third dimension justifies its inclusion in visua
 ---
 
 #### 4. pHash Similarity Heatmap
-**File**: `phash_heatmap.png` (1.2 MB)
+**File**: `phash_heatmap.png` (1.1 MB)
 
 ![pHash Similarity Heatmap](clustering_visualizations/phash_heatmap.png)
 
