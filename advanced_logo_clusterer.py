@@ -25,7 +25,6 @@ from scipy.spatial.distance import hamming
 import time
 from skimage import morphology, segmentation, filters
 from scipy import ndimage
-from tqdm import tqdm
 
 class AdvancedLogoClusterer:
     """
@@ -42,10 +41,10 @@ class AdvancedLogoClusterer:
         self.max_workers = min(16, (os.cpu_count() or 1) * 2)
         self.batch_size = 100
         
-        # Similarity thresholds (tunable parameters) - Permissive for brand relationship detection
-        self.phash_threshold = 20  # Hamming distance for pHash (out of 64 bits) - catch logo variations and brand consistency  
-        self.orb_match_threshold = 10  # Minimum ORB keypoint matches - lower threshold for shared design elements
-        self.color_corr_threshold = 0.65  # Color histogram correlation - permissive for brand color schemes
+        # Similarity thresholds (tunable parameters) - More stringent for better clustering
+        self.phash_threshold = 4  # Hamming distance for pHash (out of 64 bits)
+        self.orb_match_threshold = 25  # Minimum ORB keypoint matches
+        self.color_corr_threshold = 0.90  # Color histogram correlation
         
         # ORB detector for keypoint analysis
         self.orb_detector = cv2.ORB_create(nfeatures=500)  # Limit features for speed
@@ -925,38 +924,24 @@ class AdvancedLogoClusterer:
             similarities['orb_matches'] = orb_matches
             similarities['orb_similar'] = orb_matches >= self.orb_match_threshold
             
-            # 3. Color Histogram Correlation (SUPPLEMENTARY) 
-            try:
-                color_corr = cv2.compareHist(
-                    features1['color_histogram'],
-                    features2['color_histogram'], 
-                    cv2.HISTCMP_CORREL
-                )
-                if np.isnan(color_corr):
-                    color_corr = 0.0
-            except:
+            # 3. Color Histogram Correlation (SUPPLEMENTARY)
+            color_corr = np.corrcoef(
+                features1['color_histogram'], 
+                features2['color_histogram']
+            )[0, 1]
+            if np.isnan(color_corr):
                 color_corr = 0.0
-                
             similarities['color_correlation'] = color_corr
-            similarities['color_corr'] = color_corr  # Also store with short name for consistency
             similarities['color_similar'] = color_corr >= self.color_corr_threshold
             
-            # Updated multi-criteria decision logic (aligned with graph-based approach)
-            # Count how many criteria are met for more nuanced decision making
-            criteria_met = sum([
-                similarities['phash_similar'],
-                similarities['orb_similar'], 
-                similarities['color_similar']
-            ])
-            similarities['criteria_count'] = criteria_met
+            # Multi-criteria decision (as per solution outline)
+            # Primary: pHash similarity (catches near-identical logos)
+            # Secondary: ORB matching (catches shared design elements)
+            # Conservative approach: require strong evidence for similarity
             
-            # Decision rules matching our graph-based approach
             is_similar = (
-                phash_distance <= 8 or  # Very similar (Rule 1)
-                criteria_met >= 2 or    # Multi-criteria validation (Rule 2)
-                similarities['phash_similar'] or  # Good pHash within threshold (Rule 3)
-                (similarities['orb_similar'] and phash_distance <= self.phash_threshold * 1.5) or  # Strong ORB (Rule 4)
-                (similarities['color_similar'] and color_corr >= 0.8 and phash_distance <= self.phash_threshold * 1.2)  # Good color (Rule 5)
+                similarities['phash_similar'] or  # Near identical
+                (similarities['orb_similar'] and similarities['color_similar'])  # Shared design + color
             )
             
             similarities['overall_similar'] = is_similar
@@ -977,215 +962,94 @@ class AdvancedLogoClusterer:
     
     def build_similarity_graph(self, features_dict):
         """
-        OPTIMIZED GRAPH-BASED SIMILARITY CLUSTERING
-        
-        Implements the advanced approach from requirements:
-        1. Quick pHash filtering to eliminate dissimilar pairs early (~90% reduction)
-        2. Multi-criteria similarity analysis on remaining candidates  
-        3. Conservative thresholds with secondary confirmation
-        4. Parallel processing optimized for ~8M pairwise comparisons
-        
-        This addresses the "too many clusters" problem by:
-        - Enabling more transitive connections through relaxed initial filtering
-        - Using multi-criteria validation to prevent false positives
-        - Ensuring connected components capture brand relationships
+        Build graph of similar logos using parallel pairwise comparison
+        Implements graph-based clustering approach from solution outline
         """
-        print(f"� OPTIMIZED Graph-Based Similarity Clustering")
-        print(f"🔍 Processing {len(features_dict)} logos with smart filtering...")
-        print(f"🧵 Using {self.max_workers} threads for parallel computation...")
+        print(f"🔍 Building similarity graph for {len(features_dict)} logos...")
+        print(f"🧵 Using {self.max_workers} threads for pairwise comparison...")
         
         domains = list(features_dict.keys())
         total_comparisons = len(domains) * (len(domains) - 1) // 2
         
-        print(f"📊 Total possible comparisons: {total_comparisons:,}")
+        print(f"📊 Total pairwise comparisons: {total_comparisons:,}")
         
-        # ================================================================
-        # PHASE 1: QUICK pHASH PRE-FILTERING (Major Performance Boost)
-        # ================================================================
-        print(f"\n🏃‍♂️ PHASE 1: Quick pHash pre-filtering...")
-        
-        # Use more relaxed threshold for initial filtering to catch more potential matches
-        # This ensures we don't miss valid connections that would create larger clusters
-        relaxed_filter_threshold = min(25, self.phash_threshold * 2)  # 2x more permissive for initial filtering
-        
-        print(f"   Filter threshold: ≤{relaxed_filter_threshold} bits (relaxed from {self.phash_threshold})")
-        print(f"   Purpose: Eliminate obviously dissimilar pairs, keep potential matches")
-        
-        def quick_filter_batch(domain_pairs):
-            """Rapid pHash filtering to eliminate dissimilar pairs"""
-            candidates = []
-            
-            for i, j, domain1, domain2 in domain_pairs:
-                try:
-                    phash_dist = self.compute_hamming_distance(
-                        features_dict[domain1]['phash'], 
-                        features_dict[domain2]['phash']
-                    )
-                    
-                    # Keep pairs that might be similar (relaxed threshold)
-                    if phash_dist <= relaxed_filter_threshold:
-                        candidates.append((i, j, domain1, domain2, phash_dist))
-                        
-                except Exception:
-                    continue  # Skip failed comparisons
-                    
-            return candidates
-        
-        # Create all comparison pairs
+        # Create comparison task list
         comparison_tasks = []
         for i in range(len(domains)):
             for j in range(i + 1, len(domains)):
                 comparison_tasks.append((i, j, domains[i], domains[j]))
         
-        # Batch for parallel pre-filtering
-        filter_batch_size = max(2000, len(comparison_tasks) // (self.max_workers * 2))
-        filter_batches = [
-            comparison_tasks[i:i + filter_batch_size] 
-            for i in range(0, len(comparison_tasks), filter_batch_size)
+        # Batch comparisons for threading
+        batch_size = max(1000, total_comparisons // (self.max_workers * 8))
+        batches = [
+            comparison_tasks[i:i + batch_size] 
+            for i in range(0, len(comparison_tasks), batch_size)
         ]
         
-        print(f"   Processing {len(filter_batches)} filter batches...")
+        print(f"📦 Split into {len(batches)} batches of ~{batch_size} comparisons each")
         
-        # Parallel pre-filtering
-        candidate_pairs = []
-        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
-            from tqdm import tqdm
-            filter_results = list(tqdm(
-                executor.map(quick_filter_batch, filter_batches),
-                total=len(filter_batches),
-                desc="Quick pHash filtering"
-            ))
+        # Graph represented as adjacency list
+        similarity_edges = []
+        completed_comparisons = 0
         
-        # Collect candidates
-        for batch_candidates in filter_results:
-            candidate_pairs.extend(batch_candidates)
-        
-        filter_efficiency = (len(comparison_tasks) - len(candidate_pairs)) / len(comparison_tasks) * 100
-        print(f"✅ Pre-filter complete: {len(candidate_pairs):,} candidates ({filter_efficiency:.1f}% filtered out)")
-        
-        # ================================================================
-        # PHASE 2: MULTI-CRITERIA SIMILARITY ANALYSIS
-        # ================================================================
-        print(f"\n🔬 PHASE 2: Multi-criteria analysis on {len(candidate_pairs):,} candidates...")
-        
-        def process_similarity_batch(batch_candidates):
-            """Detailed multi-criteria similarity analysis"""
+        def process_comparison_batch(batch):
+            """Process a batch of pairwise comparisons"""
             batch_edges = []
             
-            for i, j, domain1, domain2, phash_dist in batch_candidates:
-                try:
-                    # Enhanced similarity analysis with all criteria
-                    similarity = self.compute_pairwise_similarity(
-                        features_dict[domain1], 
-                        features_dict[domain2]
-                    )
-                    
-                    # Apply more sophisticated decision rules
-                    # Goal: Create edges that will form meaningful clusters through transitive connections
-                    
-                    create_edge = False
-                    edge_strength = 0.0
-                    
-                    # Rule 1: Strong pHash similarity (nearly identical or variations)
-                    if phash_dist <= 8:  # Very similar logos
-                        create_edge = True
-                        edge_strength = 0.95
-                    
-                    # Rule 2: Multiple criteria agree (multi-validation approach)
-                    elif similarity['criteria_count'] >= 2:
-                        create_edge = True
-                        edge_strength = min(0.9, 0.4 + 0.2 * similarity['criteria_count'])
-                    
-                    # Rule 3: Good pHash within threshold (brand consistency)
-                    elif phash_dist <= self.phash_threshold:
-                        create_edge = True
-                        edge_strength = 0.7
-                    
-                    # Rule 4: Strong ORB match (shared design elements)
-                    elif (similarity.get('orb_matches', 0) >= self.orb_match_threshold and 
-                          phash_dist <= self.phash_threshold * 1.5):
-                        create_edge = True
-                        edge_strength = 0.8
-                    
-                    # Rule 5: Good color match (brand color consistency)
-                    elif (similarity.get('color_corr', 0) >= 0.8 and 
-                          phash_dist <= self.phash_threshold * 1.2):
-                        create_edge = True
-                        edge_strength = 0.65
-                    
-                    if create_edge:
-                        batch_edges.append({
-                            'domain1': domain1,
-                            'domain2': domain2, 
-                            'index1': i,
-                            'index2': j,
-                            'phash_distance': phash_dist,
-                            'orb_matches': similarity.get('orb_matches', 0),
-                            'color_correlation': similarity.get('color_corr', 0.0),
-                            'criteria_count': similarity['criteria_count'],
-                            'edge_strength': edge_strength,
-                            'decision_rule': f"Rule_{1 if phash_dist <= 8 else 2 if similarity['criteria_count'] >= 2 else 3 if phash_dist <= self.phash_threshold else 4 if similarity.get('orb_matches', 0) >= self.orb_match_threshold else 5}"
-                        })
-                        
-                except Exception as e:
-                    continue  # Skip failed detailed comparisons
+            for i, j, domain1, domain2 in batch:
+                # Quick pHash pre-filter (optimization from solution outline)
+                phash_dist = self.compute_hamming_distance(
+                    features_dict[domain1]['phash'], 
+                    features_dict[domain2]['phash']
+                )
+                
+                # If pHash is very different, skip expensive ORB matching
+                if phash_dist > self.phash_threshold * 2:  # 2x threshold as cutoff
+                    continue
+                
+                # Compute full similarity
+                similarity = self.compute_pairwise_similarity(
+                    features_dict[domain1], 
+                    features_dict[domain2]
+                )
+                
+                if similarity['overall_similar']:
+                    batch_edges.append({
+                        'domain1': domain1,
+                        'domain2': domain2, 
+                        'index1': i,
+                        'index2': j,
+                        **similarity
+                    })
             
             return batch_edges
         
-        # Batch candidates for detailed analysis
-        analysis_batch_size = max(500, len(candidate_pairs) // (self.max_workers * 4))
-        analysis_batches = [
-            candidate_pairs[i:i + analysis_batch_size] 
-            for i in range(0, len(candidate_pairs), analysis_batch_size)
-        ]
-        
-        print(f"   Processing {len(analysis_batches)} analysis batches...")
-        
-        # Parallel multi-criteria analysis
-        similarity_edges = []
+        # Process batches in parallel
+        start_time = time.time()
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
-            from tqdm import tqdm
-            similarity_results = list(tqdm(
-                executor.map(process_similarity_batch, analysis_batches),
-                total=len(analysis_batches),
-                desc="Multi-criteria analysis"
-            ))
-        
-        # Collect similarity edges
-        for batch_edges in similarity_results:
-            similarity_edges.extend(batch_edges)
-        
-        edge_creation_rate = len(similarity_edges) / len(candidate_pairs) * 100
-        print(f"✅ Analysis complete: {len(similarity_edges):,} similarity edges ({edge_creation_rate:.2f}% of candidates)")
-        
-        # ================================================================
-        # PHASE 3: OPTIMIZATION SUMMARY & VALIDATION
-        # ================================================================
-        print(f"\n📈 OPTIMIZATION PERFORMANCE:")
-        total_time_saved = (total_comparisons - len(candidate_pairs)) / total_comparisons * 100
-        print(f"   Total computational savings: {total_time_saved:.1f}%")
-        print(f"   Comparison reduction: {total_comparisons:,} → {len(candidate_pairs):,} → {len(similarity_edges):,}")
-        print(f"   Filter efficiency: {filter_efficiency:.1f}% eliminated in pre-filter")
-        print(f"   Edge density: {len(similarity_edges) / len(candidate_pairs) * 100:.2f}% candidates became edges")
-        
-        # Analyze edge strength distribution
-        if similarity_edges:
-            edge_strengths = [edge['edge_strength'] for edge in similarity_edges]
-            print(f"   Edge strength: μ={np.mean(edge_strengths):.3f} σ={np.std(edge_strengths):.3f}")
+            future_to_batch = {
+                executor.submit(process_comparison_batch, batch): batch 
+                for batch in batches
+            }
             
-            # Count decision rules
-            rule_counts = {}
-            for edge in similarity_edges:
-                rule = edge['decision_rule']
-                rule_counts[rule] = rule_counts.get(rule, 0) + 1
-            
-            print(f"   Decision rule distribution:")
-            for rule, count in sorted(rule_counts.items()):
-                percentage = count / len(similarity_edges) * 100
-                print(f"     {rule}: {count:,} edges ({percentage:.1f}%)")
+            for future in as_completed(future_to_batch):
+                try:
+                    batch_edges = future.result()
+                    similarity_edges.extend(batch_edges)
+                    
+                    # Progress update
+                    completed_comparisons += len(future_to_batch[future])
+                    progress = (completed_comparisons / total_comparisons) * 100
+                    elapsed = time.time() - start_time
+                    
+                    print(f"   Progress: {completed_comparisons:,}/{total_comparisons:,} "
+                          f"({progress:.1f}%) - {len(similarity_edges)} edges found - "
+                          f"{elapsed:.1f}s elapsed")
+                    
+                except Exception as e:
+                    print(f"Batch comparison error: {e}")
         
-        print(f"🎯 Ready for connected components analysis...")
-        
+        print(f"✅ Similarity graph built with {len(similarity_edges)} edges")
         return similarity_edges, domains
     
     def find_connected_components(self, edges, domains):
@@ -1324,7 +1188,6 @@ class AdvancedLogoClusterer:
         clusters_df.to_csv(csv_path, index=False)
         
         # 2. Save similarity edges
-        edges_csv = None
         if similarity_edges:
             edges_df = pd.DataFrame(similarity_edges)
             edges_csv = f"logo_similarity_edges_{timestamp}.csv"
@@ -1350,10 +1213,7 @@ class AdvancedLogoClusterer:
         
         print(f"\n💾 Results saved:")
         print(f"   Clusters CSV: {csv_path}")
-        if edges_csv:
-            print(f"   Edges CSV: {edges_csv}")
-        else:
-            print(f"   Edges CSV: None (no similarity edges found)")
+        print(f"   Edges CSV: {edges_csv}")
         print(f"   Complete results: {pkl_path}")
         
         return csv_path, edges_csv, pkl_path
